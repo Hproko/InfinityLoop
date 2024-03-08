@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bs3thqxsu0bem"]
+
+[ext_resource type="PackedScene" uid="uid://dlh4ltk1dopk7" path="res://map.tscn" id="1_7ayow"]
+[ext_resource type="Script" path="res://main.gd" id="1_mfkl8"]
+[ext_resource type="PackedScene" uid="uid://drr1b84ammwgf" path="res://player.tscn" id="2_2vyoy"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_mfkl8")
+
+[node name="map" parent="." instance=ExtResource("1_7ayow")]
+
+[node name="Player" parent="." instance=ExtResource("2_2vyoy")]
+visibility_layer = 2
+z_index = 0
+z_as_relative = true
+position = Vector2(552, 246)
