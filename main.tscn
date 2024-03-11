@@ -13,4 +13,4 @@ script = ExtResource("1_mfkl8")
 visibility_layer = 2
 z_index = 0
 z_as_relative = true
-position = Vector2(552, 246)
+position = Vector2(201, 193)
