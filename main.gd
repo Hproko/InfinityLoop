@@ -27,3 +27,4 @@ func _input(event):
 			tile_map.set_cell(sobreterreno, pos_map1, 0, atlas_coord1)
 			tile_map.set_cell(sobreterreno, pos_map2, 0, atlas_coord2)
 			tile_map.set_cell(sobreterreno, pos_map3, 0, atlas_coord3)
+			await get_tree().create_timer(0.5).timeout
