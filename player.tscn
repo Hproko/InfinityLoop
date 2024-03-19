@@ -90,8 +90,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8g5h4"]
-radius = 7.0
-height = 16.0
+radius = 5.0
+height = 10.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
@@ -107,10 +107,10 @@ sprite_frames = SubResource("SpriteFrames_k58c7")
 animation = &"walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_8g5h4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1, 4)
+position = Vector2(0, 3)
 zoom = Vector2(2, 2)
 limit_left = 0
