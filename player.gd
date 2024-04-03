@@ -1,21 +1,26 @@
 extends CharacterBody2D
 @export var speed = 200
+
+@onready var interactLabel = $"Interaction component/InteractLabel"
+@onready var main = get_parent()
+@onready var tile_map = main.get_node('map')
+@onready var all_interactions = []
+
 var screen_size
-signal interaction
-signal hit
+var interagiu : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
 	
 	
-	
 
-func _physics_process(delta):
-	
+func _physics_process(_delta):
+
 	velocity = Vector2.ZERO
-	
-		
+
+	if Input.is_action_just_pressed("Interact"):
+		execute_interaction()
 	
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
@@ -36,10 +41,35 @@ func _physics_process(delta):
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		$AnimatedSprite2D.play()
-		print(velocity)
 	else:
 		$AnimatedSprite2D.stop()
 		
 	move_and_slide()
 
 
+
+
+func _on_interaction_area_area_entered(area):
+	all_interactions.insert(0, area)
+	update_interactions()
+
+
+
+func _on_interaction_area_area_exited(area):
+	all_interactions.erase(area)
+	update_interactions()
+
+
+func update_interactions():
+	if all_interactions:
+		interactLabel.text = all_interactions[0].interact_label
+	else:
+		interactLabel.text = ""
+		
+
+func execute_interaction():
+	if all_interactions:
+		var npc = all_interactions[0]
+		if npc.bridge_builded == false:
+			npc.bridge_builded = true
+			tile_map.build_bridge(npc.bridge_size, npc.bridge_position1, npc.bridge_position2, npc.bridge_position3)

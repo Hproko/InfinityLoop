@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bs3thqxsu0bem"]
+[gd_scene load_steps=5 format=3 uid="uid://bs3thqxsu0bem"]
 
 [ext_resource type="PackedScene" uid="uid://bgtdbsncvcu12" path="res://map.tscn" id="1_7ayow"]
 [ext_resource type="Script" path="res://main.gd" id="1_mfkl8"]
 [ext_resource type="PackedScene" uid="uid://drr1b84ammwgf" path="res://player.tscn" id="2_2vyoy"]
 [ext_resource type="PackedScene" uid="uid://d3c5blbnwagqn" path="res://npc.tscn" id="4_nyqwo"]
-[ext_resource type="PackedScene" uid="uid://bdtnlx3dqhs18" path="res://hud.tscn" id="5_qw5j6"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_mfkl8")
@@ -13,15 +12,19 @@ script = ExtResource("1_mfkl8")
 layer_3/tile_data = PackedInt32Array(851987, 196608, 1, 917523, 196608, 2, 786452, 262144, 0, 851988, 262144, 1, 917524, 262144, 2, 786453, 327680, 0, 851989, 327680, 1, 917525, 327680, 2, 851990, 393216, 1, 917526, 393216, 2, 851995, 589824, 1, 917531, 589824, 2, 786460, 655360, 0, 851996, 655360, 1, 917532, 655360, 2, 786461, 720896, 0, 851997, 720896, 1, 917533, 720896, 2, 851998, 786432, 1, 917534, 786432, 2, 917535, 851968, 2, 917536, 917504, 2, 851982, 327680, 9, 851983, 393216, 9, 720913, 327680, 9, 720914, 393216, 9, 589844, 327680, 9, 589845, 393216, 9, 589847, 327680, 9, 589848, 393216, 9, 589850, 327680, 9, 589851, 393216, 9, 589853, 327680, 9, 589854, 393216, 9, 720928, 327680, 9, 720929, 393216, 9, 852003, 327680, 9, 852004, 393216, 9, 2097205, 327680, 9, 2097206, 393216, 9, 2097207, 327680, 9, 2097208, 393216, 9, 2097211, 327680, 9, 2097212, 393216, 9, 2097213, 327680, 9, 2097214, 393216, 9, 2097217, 327680, 9, 2097218, 393216, 9, 2097219, 327680, 9, 2097220, 393216, 9, 2097223, 327680, 9, 2097224, 393216, 9, 2097225, 327680, 9, 2097226, 393216, 9, 2097229, 327680, 9, 2097230, 393216, 9, 2097231, 327680, 9, 2097232, 393216, 9, 2097235, 327680, 9, 2097236, 393216, 9, 2097237, 327680, 9, 2097238, 393216, 9, 1376341, 327680, 9, 1376342, 393216, 9, 1376339, 327680, 9, 1376340, 393216, 9, 1376335, 327680, 9, 1376336, 393216, 9, 1376333, 327680, 9, 1376334, 393216, 9, 1376329, 327680, 9, 1376330, 393216, 9, 1376327, 327680, 9, 1376328, 393216, 9, 1376323, 327680, 9, 1376324, 393216, 9, 1376321, 327680, 9, 1376322, 393216, 9, 1376317, 327680, 9, 1376318, 393216, 9, 1376315, 327680, 9, 1376316, 393216, 9, 1376311, 327680, 9, 1376312, 393216, 9, 1376309, 327680, 9, 1376310, 393216, 9)
 
 [node name="Player" parent="." instance=ExtResource("2_2vyoy")]
-visibility_layer = 2
-z_index = 0
-z_as_relative = true
-position = Vector2(201, 193)
 
 [node name="NPC" parent="." instance=ExtResource("4_nyqwo")]
 position = Vector2(73, 404)
+bridge_position1 = Vector2i(15, 37)
+bridge_position2 = Vector2i(15, 38)
+bridge_position3 = Vector2i(15, 39)
+bridge_size = 10
+interact_label = "Press E to talk to the NPC"
 
-[node name="HUD" parent="." instance=ExtResource("5_qw5j6")]
-
-[connection signal="body_shape_entered" from="NPC" to="." method="_on_npc_body_shape_entered"]
-[connection signal="body_shape_exited" from="NPC" to="." method="_on_npc_body_shape_exited"]
+[node name="NPC2" parent="." instance=ExtResource("4_nyqwo")]
+position = Vector2(537, 248)
+bridge_position1 = Vector2i(52, 26)
+bridge_position2 = Vector2i(52, 27)
+bridge_position3 = Vector2i(52, 28)
+bridge_size = 30
+interact_label = "teste 2"
