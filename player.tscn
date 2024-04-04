@@ -90,8 +90,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8g5h4"]
-radius = 5.0
-height = 10.0
+radius = 7.0
+height = 14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2mr6"]
 radius = 19.0263
@@ -99,7 +99,7 @@ radius = 19.0263
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
 z_as_relative = false
-position = Vector2(49, 15)
+position = Vector2(351, 230)
 disable_mode = 2
 collision_mask = 2
 script = ExtResource("1_b8et4")
@@ -108,27 +108,36 @@ script = ExtResource("1_b8et4")
 scale = Vector2(1.35416, 1.47916)
 sprite_frames = SubResource("SpriteFrames_k58c7")
 animation = &"walk_down"
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_8g5h4")
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 3)
 zoom = Vector2(2, 2)
-limit_left = 0
+limit_left = -1486618624
+limit_top = -1486618624
+limit_right = 1486618624
+limit_bottom = 1486618624
+metadata/_edit_lock_ = true
 
 [node name="Interaction component" type="Node2D" parent="."]
 z_index = 1
+metadata/_edit_lock_ = true
 
 [node name="interactionArea" type="Area2D" parent="Interaction component"]
 collision_layer = 0
 collision_mask = 4
 monitorable = false
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction component/interactionArea"]
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_h2mr6")
+metadata/_edit_lock_ = true
 
 [node name="InteractLabel" type="Label" parent="Interaction component"]
 anchors_preset = 8
@@ -136,13 +145,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 103.0
-offset_top = -8.0
-offset_right = 377.0
-offset_bottom = 15.0
+offset_left = -64.0
+offset_top = -45.0
+offset_right = 70.0
+offset_bottom = -22.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
 
 [connection signal="area_entered" from="Interaction component/interactionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="Interaction component/interactionArea" to="." method="_on_interaction_area_area_exited"]

@@ -72,4 +72,4 @@ func execute_interaction():
 		var npc = all_interactions[0]
 		if npc.bridge_builded == false:
 			npc.bridge_builded = true
-			tile_map.build_bridge(npc.bridge_size, npc.bridge_position1, npc.bridge_position2, npc.bridge_position3)
+			tile_map.build_bridge(npc, 7)
