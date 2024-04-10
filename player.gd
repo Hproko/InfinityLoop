@@ -25,7 +25,7 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 		$AnimatedSprite2D.animation = "walk_right"
-	
+
 	if Input.is_action_pressed("move_left"):
 		velocity.x -= 1
 		$AnimatedSprite2D.animation = "walk_left"
