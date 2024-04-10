@@ -1,0 +1,10 @@
+~ start
+
+Camponês: [[Oi|Olá]]... Como posso ajudar?
+- Quem é você?
+	Camponês: Sou Fulano, um camponês local
+- Como esta ponte quebrou?
+	Camponês: Não sei bem na verdade, está quebrada há anos...
+- Até mais... => END
+
+=> END

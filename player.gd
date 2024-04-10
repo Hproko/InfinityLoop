@@ -68,6 +68,7 @@ func update_interactions():
 		
 
 func execute_interaction():
+	DialogueManager.show_example_dialogue_balloon(load("res://main-npc1.dialogue"), "start")
 	if all_interactions:
 		var npc = all_interactions[0]
 		if npc.bridge_builded == false:
