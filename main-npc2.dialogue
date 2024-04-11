@@ -1,0 +1,16 @@
+~ start
+
+Vaqueiro: [[Oi|Olá]]... Como posso ajudar?
+- Quem é você?
+	Vaqueiro: Sou Ciclano, um vaqueiro local
+- Como esta ponte quebrou?
+	Vaqueiro: Não sei bem na verdade, está quebrada há anos...
+- Até mais... => END
+
+=> END
+
+~ finish
+
+Vaqueiro: [[Oi|Olá]]... já conversei com você.
+
+=> END

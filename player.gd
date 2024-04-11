@@ -73,7 +73,9 @@ func execute_interaction():
 	if all_interactions:
 		var npc = all_interactions[0]
 		interactLabel.text = ""
-		DialogueManager.show_example_dialogue_balloon(load(npc.dialogue_file), "start")
 		if npc.bridge_builded == false:
+			DialogueManager.show_example_dialogue_balloon(load(npc.dialogue_file), "start")
 			npc.bridge_builded = true
 			tile_map.build_bridge(npc, 7)
+		else:
+			DialogueManager.show_example_dialogue_balloon(load(npc.dialogue_file), "finish")

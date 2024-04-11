@@ -38,4 +38,5 @@ bridge_position2 = Vector2i(52, 27)
 bridge_position3 = Vector2i(52, 28)
 bridge_size = 30
 interact_label = "Press E to talk to the NPC"
+dialogue_file = "res://main-npc2.dialogue"
 metadata/_edit_lock_ = true
