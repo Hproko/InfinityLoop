@@ -50,12 +50,14 @@ func _physics_process(_delta):
 
 
 func _on_interaction_area_area_entered(area):
+	# esse parametro area que entra aqui é o npc
 	all_interactions.insert(0, area)
 	update_interactions()
 
 
 
 func _on_interaction_area_area_exited(area):
+	# esse parametro area que entra aqui é o npc
 	all_interactions.erase(area)
 	update_interactions()
 
@@ -68,9 +70,10 @@ func update_interactions():
 		
 
 func execute_interaction():
-	DialogueManager.show_example_dialogue_balloon(load("res://main-npc1.dialogue"), "start")
 	if all_interactions:
 		var npc = all_interactions[0]
+		interactLabel.text = ""
+		DialogueManager.show_example_dialogue_balloon(load(npc.dialogue_file), "start")
 		if npc.bridge_builded == false:
 			npc.bridge_builded = true
 			tile_map.build_bridge(npc, 7)

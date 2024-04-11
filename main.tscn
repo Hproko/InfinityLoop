@@ -28,6 +28,7 @@ bridge_size = 7
 bridge_end_position1 = Vector2i(23, 38)
 bridge_end_position2 = Vector2i(23, 39)
 interact_label = "Press E to talk to the NPC"
+dialogue_file = "res://main-npc1.dialogue"
 metadata/_edit_lock_ = true
 
 [node name="NPC2" parent="." instance=ExtResource("4_nyqwo")]
