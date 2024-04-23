@@ -66,5 +66,7 @@ func build_bridge(npc, player_loops):
 	#Tira o tile do final da ponte
 	erase_cell(layer_terreno, bridge_end_position1)
 	erase_cell(layer_terreno, bridge_end_position2)
+	
+	npc.bridge_builded = true
 
 	return true	

@@ -1,16 +1,18 @@
 ~ start
 
-Camponês: [[Oi|Olá]]... Como posso ajudar?
+Camponês: [[Oi|Olá]]... Bem vindo ao tutorial!
 - Quem é você?
 	Camponês: Sou Fulano, um camponês local
 - Como esta ponte quebrou?
-	Camponês: Não sei bem na verdade, está quebrada há anos...
+	Camponês: Não sei bem na verdade, está quebrada há anos... Dizem que ela pode ser reconstruida usando o código correto, mas ninguém conseguiu. Gostaria de tentar?
+	- Sim.
+	- Não. => END
 - Até mais... => END
 
 => END
 
 ~ finish
 
-Camponês: [[Oi|Olá]]... já conversei com você.
+Camponês: Olá, obrigado por reconstruir a ponte!
 
 => END
