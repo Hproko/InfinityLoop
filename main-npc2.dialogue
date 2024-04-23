@@ -7,7 +7,7 @@ Vaqueiro: [[Oi|Olá]]... Como posso ajudar?
 	Vaqueiro: Não sei bem na verdade, está quebrada há anos...
 - Até mais... 
 
-set State.interagindo = false
+set State.finaliza_interacao()
 
 => END
 
@@ -15,5 +15,5 @@ set State.interagindo = false
 
 Vaqueiro: [[Oi|Olá]]... já conversei com você.
 
-set State.interagindo = false
+set State.finaliza_interacao()
 => END

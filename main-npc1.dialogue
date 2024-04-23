@@ -6,11 +6,11 @@ Camponês: [[Oi|Olá]]... Bem vindo ao tutorial!
 	Camponês: Não sei bem na verdade, está quebrada há anos... Dizem que ela pode ser reconstruida usando o código correto, mas ninguém conseguiu. Gostaria de tentar?
 	- Sim.
 	- Não.  
-		set State.interagindo = false 
+		set State.finaliza_interacao()
 		=> END
 - Até mais...  
 
-set State.interagindo = false
+set State.finaliza_interacao()
 
 => END
 
@@ -18,5 +18,6 @@ set State.interagindo = false
 
 Camponês: Olá, obrigado por reconstruir a ponte!
 
-set State.interagindo = false
+set State.finaliza_interacao()
+
 => END

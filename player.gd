@@ -26,8 +26,6 @@ func _physics_process(_delta):
 
 	if State.get_interagindo():
 		return
-		
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 	if Input.is_action_just_pressed("Interact"):
 		execute_interaction()
@@ -84,6 +82,7 @@ func execute_interaction():
 		var npc = all_interactions[0]
 		interactLabel.text = ""
 		if npc.bridge_builded == false:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			State.set_interagindo(true)
 			start_ballon(npc.dialogue_file, "start")
 			#tile_map.build_bridge(npc, 7)
