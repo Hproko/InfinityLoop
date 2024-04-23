@@ -18,10 +18,19 @@ config/icon="res://icon.svg"
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+State="*res://state.gd"
+
+[dialogue_manager]
+
+general/balloon_path="res://dialogue/balloon.tscn"
 
 [display]
 
+window/size/mode=4
+window/size/initial_position_type=0
+window/size/resizable=false
 window/size/borderless=true
+window/vsync/vsync_mode=0
 
 [editor_plugins]
 

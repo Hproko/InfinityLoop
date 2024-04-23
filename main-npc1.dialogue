@@ -1,13 +1,16 @@
 ~ start
-
 Camponês: [[Oi|Olá]]... Bem vindo ao tutorial!
 - Quem é você?
 	Camponês: Sou Fulano, um camponês local
 - Como esta ponte quebrou?
 	Camponês: Não sei bem na verdade, está quebrada há anos... Dizem que ela pode ser reconstruida usando o código correto, mas ninguém conseguiu. Gostaria de tentar?
 	- Sim.
-	- Não. => END
-- Até mais... => END
+	- Não.  
+		set State.interagindo = false 
+		=> END
+- Até mais...  
+
+set State.interagindo = false
 
 => END
 
@@ -15,4 +18,5 @@ Camponês: [[Oi|Olá]]... Bem vindo ao tutorial!
 
 Camponês: Olá, obrigado por reconstruir a ponte!
 
+set State.interagindo = false
 => END

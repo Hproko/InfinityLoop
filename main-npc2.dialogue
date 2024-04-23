@@ -5,7 +5,9 @@ Vaqueiro: [[Oi|Olá]]... Como posso ajudar?
 	Vaqueiro: Sou Ciclano, um vaqueiro local
 - Como esta ponte quebrou?
 	Vaqueiro: Não sei bem na verdade, está quebrada há anos...
-- Até mais... => END
+- Até mais... 
+
+set State.interagindo = false
 
 => END
 
@@ -13,4 +15,5 @@ Vaqueiro: [[Oi|Olá]]... Como posso ajudar?
 
 Vaqueiro: [[Oi|Olá]]... já conversei com você.
 
+set State.interagindo = false
 => END

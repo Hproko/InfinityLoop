@@ -6,19 +6,29 @@ extends CharacterBody2D
 @onready var tile_map = main.get_node('map')
 @onready var all_interactions = []
 
+const Balloon = preload("res://dialogue/balloon.tscn")
+
 var screen_size
-var interagiu : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
 	
-	
+func start_ballon(resource, node):
+	var balloon : Node = Balloon.instantiate()
+	get_tree().current_scene.add_child(balloon)
+	balloon.start(resource, node)
 
 func _physics_process(_delta):
 
+	
 	velocity = Vector2.ZERO
 
+	if State.get_interagindo():
+		return
+		
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
 	if Input.is_action_just_pressed("Interact"):
 		execute_interaction()
 	
@@ -74,7 +84,8 @@ func execute_interaction():
 		var npc = all_interactions[0]
 		interactLabel.text = ""
 		if npc.bridge_builded == false:
-			DialogueManager.show_example_dialogue_balloon(load(npc.dialogue_file), "start")
+			State.set_interagindo(true)
+			start_ballon(npc.dialogue_file, "start")
 			#tile_map.build_bridge(npc, 7)
 		else:
-			DialogueManager.show_example_dialogue_balloon(load(npc.dialogue_file), "finish")
+			start_ballon(npc.dialogue_file, "finish")
