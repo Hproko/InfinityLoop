@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var main = get_parent()
 @onready var tile_map = main.get_node('map')
 @onready var all_interactions = []
+@onready var challenge = $Challenge
 
 const Balloon = preload("res://dialogue/balloon.tscn")
 
@@ -75,6 +76,7 @@ func update_interactions():
 		interactLabel.text = all_interactions[0].interact_label
 	else:
 		interactLabel.text = ""
+		challenge.hide()
 		
 
 func execute_interaction():
@@ -82,7 +84,6 @@ func execute_interaction():
 		var npc = all_interactions[0]
 		interactLabel.text = ""
 		if npc.bridge_builded == false:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			State.set_interagindo(true)
 			start_ballon(npc.dialogue_file, "start")
 			#tile_map.build_bridge(npc, 7)

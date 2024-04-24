@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bs3thqxsu0bem"]
+[gd_scene load_steps=9 format=3 uid="uid://bs3thqxsu0bem"]
 
 [ext_resource type="PackedScene" uid="uid://bgtdbsncvcu12" path="res://map.tscn" id="1_7ayow"]
 [ext_resource type="Script" path="res://main.gd" id="1_mfkl8"]
 [ext_resource type="PackedScene" uid="uid://bleud136g8et1" path="res://pause_menu.tscn" id="2_1v1xv"]
 [ext_resource type="PackedScene" uid="uid://drr1b84ammwgf" path="res://player.tscn" id="2_2vyoy"]
+[ext_resource type="PackedScene" uid="uid://dx6gmbuex0n2y" path="res://challenge.tscn" id="4_bp1xw"]
 [ext_resource type="PackedScene" uid="uid://d3c5blbnwagqn" path="res://npc.tscn" id="4_nyqwo"]
 [ext_resource type="Resource" uid="uid://d01vcf75rprct" path="res://main-npc1.dialogue" id="6_1ntop"]
 [ext_resource type="Resource" uid="uid://chm0eujgistjm" path="res://main-npc2.dialogue" id="7_15g74"]
@@ -21,15 +22,28 @@ layer_5/tile_data = PackedInt32Array(196612, 65536, 10, 262148, 65536, 11, 19661
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_2vyoy")]
-position = Vector2(109, 330)
+unique_name_in_owner = true
+position = Vector2(103, 304)
 
 [node name="PauseMenu" parent="Player" instance=ExtResource("2_1v1xv")]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+metadata/_edit_lock_ = true
+
+[node name="Challenge" parent="Player" instance=ExtResource("4_bp1xw")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -354.0
+offset_top = -205.0
+offset_right = 337.0
+offset_bottom = 189.0
+pivot_offset = Vector2(2, 3)
 
 [node name="NPC" parent="." instance=ExtResource("4_nyqwo")]
 position = Vector2(73, 404)

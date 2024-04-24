@@ -1,27 +1,27 @@
 extends Control
 
+@onready var player_animation = $"../AnimatedSprite2D"
 
-
+var _is_paused: bool = false:
+	set = set_paused
+	
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
-		pauseMenu()
-
-var state : bool = false
-
-func pauseMenu():
-	if state:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		hide()
-		get_tree().paused = false
-	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_tree().paused = true
-		show()
+		_is_paused = !_is_paused
+		
+		
+func set_paused(value:bool) -> void:
+	_is_paused = value
+	get_tree().paused = _is_paused
+	visible = _is_paused
 	
-	state = !state
+	if _is_paused:
+		player_animation.stop()
+
+
 	
 func _on_resume_pressed():
-	pauseMenu()
+	_is_paused = false
 
 
 func _on_quit_pressed():

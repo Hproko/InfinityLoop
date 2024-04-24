@@ -14,4 +14,3 @@ class_name Interactable extends Area2D
 
 @export var dialogue_file : DialogueResource
 
-

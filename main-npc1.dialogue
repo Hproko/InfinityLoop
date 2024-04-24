@@ -4,14 +4,13 @@ Camponês: [[Oi|Olá]]... Bem vindo ao tutorial!
 	Camponês: Sou Fulano, um camponês local
 - Como esta ponte quebrou?
 	Camponês: Não sei bem na verdade, está quebrada há anos... Dizem que ela pode ser reconstruida usando o código correto, mas ninguém conseguiu. Gostaria de tentar?
-	- Sim.
+	- Sim. 
+		set State.load_challenge()
 	- Não.  
 		set State.finaliza_interacao()
 		=> END
 - Até mais...  
-
-set State.finaliza_interacao()
-
+	set State.finaliza_interacao()
 => END
 
 ~ finish

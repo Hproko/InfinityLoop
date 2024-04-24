@@ -121,16 +121,13 @@ text = "Dialogue..."
 
 [node name="Responses" type="MarginContainer" parent="Balloon"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -122.5
-offset_top = -33.0
-offset_right = 124.5
-offset_bottom = 31.0
-grow_horizontal = 2
+anchors_preset = -1
+anchor_top = 0.605
+anchor_bottom = 0.605
+offset_left = 2.0
+offset_top = -26.04
+offset_right = 249.0
+offset_bottom = 37.96
 grow_vertical = 2
 
 [node name="ResponsesMenu" type="VBoxContainer" parent="Balloon/Responses" node_paths=PackedStringArray("response_template")]

@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx6gmbuex0n2y"]
+
+[ext_resource type="Script" path="res://challenge.gd" id="1_ygu4o"]
+
+[sub_resource type="Theme" id="Theme_to4mn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ikcfu"]
+bg_color = Color(0.190762, 0.190762, 0.190762, 1)
+border_color = Color(0.969137, 0.969137, 0.969137, 1)
+
+[node name="Challenge" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(2, -1)
+script = ExtResource("1_ygu4o")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_to4mn")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ikcfu")
+
+[node name="CodeEdit" type="CodeEdit" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00347222
+anchor_top = -0.00308642
+anchor_right = 1.00347
+anchor_bottom = 0.496914
+offset_left = -2.0
+offset_top = 2.0
+offset_right = -1.0
+offset_bottom = 60.0
+grow_horizontal = 2
+pivot_offset = Vector2(557, 277)
+text = "
+
+
+
+
+
+
+
+
+"
+editable = false
+gutters_draw_line_numbers = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 379.0
+offset_bottom = -220.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(582, -45)
+text = "1 Misconception"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Explanation" type="Label" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 460.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Esse"
