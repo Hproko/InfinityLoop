@@ -82,3 +82,12 @@ offset_top = 460.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Esse"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/Panel"]
+layout_mode = 0
+offset_left = 263.0
+offset_top = 126.0
+offset_right = 526.0
+offset_bottom = 152.0
+
+[connection signal="item_selected" from="MarginContainer/Panel/OptionButton" to="." method="_on_option_button_item_selected"]

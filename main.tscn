@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://drr1b84ammwgf" path="res://player.tscn" id="2_2vyoy"]
 [ext_resource type="PackedScene" uid="uid://dx6gmbuex0n2y" path="res://challenge.tscn" id="4_bp1xw"]
 [ext_resource type="PackedScene" uid="uid://d3c5blbnwagqn" path="res://npc.tscn" id="4_nyqwo"]
-[ext_resource type="Resource" uid="uid://d01vcf75rprct" path="res://main-npc1.dialogue" id="6_1ntop"]
-[ext_resource type="Resource" uid="uid://chm0eujgistjm" path="res://main-npc2.dialogue" id="7_15g74"]
+[ext_resource type="Resource" uid="uid://bvy4khonogsg0" path="res://main-npc1.dialogue" id="6_1ntop"]
+[ext_resource type="Resource" uid="uid://bt312puh1sx1f" path="res://main-npc2.dialogue" id="7_15g74"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_mfkl8")
