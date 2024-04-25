@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://drr1b84ammwgf" path="res://player.tscn" id="2_2vyoy"]
 [ext_resource type="PackedScene" uid="uid://dx6gmbuex0n2y" path="res://challenge.tscn" id="4_bp1xw"]
 [ext_resource type="PackedScene" uid="uid://d3c5blbnwagqn" path="res://npc.tscn" id="4_nyqwo"]
-[ext_resource type="Resource" uid="uid://bvy4khonogsg0" path="res://main-npc1.dialogue" id="6_1ntop"]
-[ext_resource type="Resource" uid="uid://bt312puh1sx1f" path="res://main-npc2.dialogue" id="7_15g74"]
+[ext_resource type="Resource" uid="uid://brkehrb54gh67" path="res://main-npc1.dialogue" id="6_1ntop"]
+[ext_resource type="Resource" uid="uid://cs40k7atljqed" path="res://main-npc2.dialogue" id="7_15g74"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_mfkl8")
@@ -34,16 +34,11 @@ anchor_bottom = 0.5
 metadata/_edit_lock_ = true
 
 [node name="Challenge" parent="Player" instance=ExtResource("4_bp1xw")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -354.0
-offset_top = -205.0
-offset_right = 337.0
-offset_bottom = 189.0
-pivot_offset = Vector2(2, 3)
+visible = false
+offset_left = -289.0
+offset_top = -159.0
+offset_right = 293.0
+offset_bottom = 164.0
 
 [node name="NPC" parent="." instance=ExtResource("4_nyqwo")]
 position = Vector2(73, 404)

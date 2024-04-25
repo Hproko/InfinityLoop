@@ -82,6 +82,7 @@ func update_interactions():
 func execute_interaction():
 	if all_interactions:
 		var npc = all_interactions[0]
+		State.set_current_npc(npc)
 		interactLabel.text = ""
 		if npc.bridge_builded == false:
 			State.set_interagindo(true)

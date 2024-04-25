@@ -1,20 +1,11 @@
 extends Control
 
-@onready var option_button = $MarginContainer/Panel/OptionButton
-
-var for_code = "#include <stdio.h>
-
-			int main(void)
-			{
-				int i;
-				for ...
-					colocar_tabuas(); 
-			}"
-
+@onready var option_button = %OptionButton
+@onready var code_edit = %CodeEdit
+@onready var map = $'../../map'
 
 func _ready():
 	add_items()
-	$MarginContainer/Panel/CodeEdit.text = for_code
 
 
 func add_items():
@@ -30,6 +21,14 @@ func _on_option_button_item_selected(index):
 	if selected == 1:
 		print("selecionou 1o")
 	if selected == 2:
+		hide()
+		map.build_bridge(State.current_npc, 7)
+		State.set_interagindo(false)
 		print("selecionou 2o")
 	if selected == 3:
 		print("selecionou 3o")
+
+
+func _on_close_btn_pressed():
+	hide()
+	State.set_interagindo(false)
