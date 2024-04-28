@@ -1,10 +1,17 @@
 ~ start
+if (State.get_passou_desafio() == false) and (State.get_primeira_vez() == false):
+	=> falhou
 Camponês: [[Oi|Olá]]... Bem vindo ao tutorial!
 - Quem é você?
 	Camponês: Sou Fulano, um camponês local
+	=> start
 - Como esta ponte quebrou?
-	Camponês: Não sei bem na verdade, está quebrada há anos... Dizem que ela pode ser reconstruida usando o código correto, mas ninguém conseguiu. Gostaria de tentar?
+	Camponês: Não sei bem na verdade, está quebrada há anos... 
+	Camponês: Dizem que ela pode ser reconstruida usando o código correto, mas ninguém conseguiu.
+	Camponês: Há boatos que ainda existem escritas antigas com este código, mas o último mago que passou por aqui confundiu as coisas e... bom, quebrou.
+	Camponês: Parece que apenas uma das peças desse quebra-cabeças está incompleta, acho que se escolher a opção certa podemos corrigir isso! Gostaria de tentar?
 	- Sim. 
+		Camponês: Precisamos colocar 10 tábuas nessa ponte em sequência, do "nível" zero até o nível 10. Boa sorte!
 		set State.load_challenge()
 	- Não.  
 		set State.finaliza_interacao()
@@ -17,6 +24,15 @@ Camponês: [[Oi|Olá]]... Bem vindo ao tutorial!
 
 Camponês: Olá, obrigado por reconstruir a ponte!
 
+set State.finaliza_interacao()
+
+=> END
+
+~ falhou
+
+Camponês: Parece que sua magia não deu certo desta vez... Tente mais uma vez! 
+Camponês: Dica: Precisamos colocar 10 tábuas nessa ponte em sequência, do "nível" zero até o nível 10. Boa sorte!
+set State.load_challenge()
 set State.finaliza_interacao()
 
 => END
