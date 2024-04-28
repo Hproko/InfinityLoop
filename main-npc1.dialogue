@@ -31,7 +31,8 @@ set State.finaliza_interacao()
 ~ falhou
 
 Camponês: Parece que sua magia não deu certo desta vez... Tente mais uma vez! 
-Camponês: Dica: Precisamos colocar 10 tábuas nessa ponte em sequência, do "nível" zero até o nível 10. Boa sorte!
+Camponês: Dica: Precisamos colocar 10 tábuas nessa ponte em sequência, começando de zero até 10.
+Camponês: Zero... um... dois... três... até 10! Sempre "crescendo" de 1 em 1. Boa sorte!
 set State.load_challenge()
 set State.finaliza_interacao()
 
