@@ -17,6 +17,7 @@ func _ready():
 var condicao : String = ">"
 var incremento : int = 0
 var valor_de_i : int = 0
+var posicao_final : int = 0
 
 func add_items():
 	var_option_button.add_item("(i = 0;")
@@ -24,10 +25,10 @@ func add_items():
 	var_option_button.add_item("(i = 2;")
 	var_option_button.add_item("(i = 3;")
 	
-	condition_opt_btn.add_item("i > 10;")
-	condition_opt_btn.add_item("i == 10;")
-	condition_opt_btn.add_item("i < 10;")
-	condition_opt_btn.add_item("i <= 10;")
+	condition_opt_btn.add_item("i > 7;")
+	condition_opt_btn.add_item("i == 7;")
+	condition_opt_btn.add_item("i < 7;")
+	condition_opt_btn.add_item("i <= 7;")
 	
 	var_update_btn.add_item(")")
 	var_update_btn.add_item("i++)")
@@ -45,7 +46,7 @@ func _on_close_btn_pressed():
 
 func _on_run_btn_pressed():
 	
-	if condicao == ">" or condicao == ">=" or condicao == "=":
+	if condicao == ">" or condicao == "=":
 		aviso.text = "Esse código nunca é executado devido as condições, tome cuidado!"
 		return
 		
@@ -53,15 +54,23 @@ func _on_run_btn_pressed():
 		aviso.text = "Esse código causa loop infinito, tome cuidado!"
 		return
 		
+	if condicao == "<=":
+		posicao_final = State.current_npc.bridge_size + 1
+	else:
+		posicao_final = State.current_npc.bridge_size
+		
+		
 	State.set_interagindo(false)
 	hide()
-	map.build_bridge(State.current_npc, 7)
+	if !await map.build_bridge(State.current_npc, valor_de_i, posicao_final):
+		State.start_ballon(State.current_npc.dialogue_file, "falhou")
+	else:
+		State.start_ballon(State.current_npc.dialogue_file, "sucesso")
 	
 
 
 func _on_condit_opt_btn_item_selected(index):
 	
-	var selected = index
 	
 	if index == 0:
 		condicao = ">"
@@ -70,7 +79,7 @@ func _on_condit_opt_btn_item_selected(index):
 	elif index == 2:
 		condicao = "<"
 	elif index == 3:
-		condicao = ">="
+		condicao = "<="
 
 
 func _on_var_update_btn_item_selected(index):

@@ -7,18 +7,12 @@ extends CharacterBody2D
 @onready var all_interactions = []
 @onready var challenge = $Challenge
 
-const Balloon = preload("res://dialogue/balloon.tscn")
-
 var screen_size
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
 	
-func start_ballon(resource, node):
-	var balloon : Node = Balloon.instantiate()
-	get_tree().current_scene.add_child(balloon)
-	balloon.start(resource, node)
 
 func _physics_process(_delta):
 
@@ -86,7 +80,7 @@ func execute_interaction():
 		interactLabel.text = ""
 		if npc.bridge_builded == false:
 			State.set_interagindo(true)
-			start_ballon(npc.dialogue_file, "start")
+			State.start_ballon(npc.dialogue_file, "start")
 			#tile_map.build_bridge(npc, 7)
 		else:
-			start_ballon(npc.dialogue_file, "finish")
+			State.start_ballon(npc.dialogue_file, "finish")

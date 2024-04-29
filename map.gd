@@ -17,7 +17,7 @@ func _process(delta):
 	pass
 
 
-func build_bridge(npc, player_loops):
+func build_bridge(npc, bridge_start : int, player_loops : int):
 	
 	var max_loops = npc.bridge_size
 	var bridge_position1 = npc.bridge_position1
@@ -26,19 +26,21 @@ func build_bridge(npc, player_loops):
 	var bridge_end_position1 = npc.bridge_end_position1
 	var bridge_end_position2 = npc.bridge_end_position2
 		
-	var bridge_start_x_1 		 = bridge_position1.x
-	var bridge_start_y_1         = bridge_position1.y
-	var bridge_start_y_2         = bridge_position2.y
-	var bridge_start_y_3         = bridge_position3.y
+	var bridge_start_x_1  = bridge_position1.x
+	var bridge_start_y_1  = bridge_position1.y
+	var bridge_start_y_2  = bridge_position2.y
+	var bridge_start_y_3  = bridge_position3.y
 	
 	var pos_map_ini_ponte1 = Vector2i(bridge_start_x_1 - 2, bridge_start_y_2)
 	var pos_map_ini_ponte2 = Vector2i(bridge_start_x_1 - 2, bridge_start_y_3)
 	
-	for i in range(0, player_loops):
+	for i in range(bridge_start, player_loops):
 		var pos_map1 = Vector2i(bridge_start_x_1 + i, bridge_start_y_1)
 		var pos_map2 = Vector2i(bridge_start_x_1 + i, bridge_start_y_2)
 		var pos_map3 = Vector2i(bridge_start_x_1 + i, bridge_start_y_3)
 		
+		if i == max_loops:
+			break
 
 		set_cell(layer_sobreterreno, pos_map1, 0, atlas_coord_pont_normal1)
 		set_cell(layer_sobreterreno, pos_map2, 0, atlas_coord_pont_normal2)
@@ -46,8 +48,8 @@ func build_bridge(npc, player_loops):
 		await get_tree().create_timer(0.5).timeout
 	
 	# se o player inserir um número maior do que devia vai apagar a ponte construida
-	if player_loops != max_loops:
-		for i in range(0, player_loops):
+	if player_loops != max_loops or bridge_start > 0:
+		for i in range(bridge_start, max_loops):
 			var pos_map1 = Vector2i(bridge_start_x_1 + i, bridge_start_y_1)
 			var pos_map2 = Vector2i(bridge_start_x_1 + i, bridge_start_y_2)
 			var pos_map3 = Vector2i(bridge_start_x_1 + i, bridge_start_y_3)
@@ -69,4 +71,4 @@ func build_bridge(npc, player_loops):
 	
 	npc.bridge_builded = true
 
-	return true	
+	return true

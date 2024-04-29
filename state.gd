@@ -8,6 +8,13 @@ var primeira_vez : bool = true
 
 var current_npc : Interactable
 
+const Balloon = preload("res://dialogue/balloon.tscn")
+
+func start_ballon(resource, node):
+	var balloon : Node = Balloon.instantiate()
+	get_tree().current_scene.add_child(balloon)
+	balloon.start(resource, node)
+	
 func set_current_npc(value : Interactable) -> void:
 	current_npc = value
 	
