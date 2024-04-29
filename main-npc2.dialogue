@@ -1,0 +1,19 @@
+~ start
+
+Vaqueiro: [[Oi|Olá]]... Como posso ajudar?
+- Quem é você?
+	Vaqueiro: Sou Ciclano, um vaqueiro local
+- Como esta ponte quebrou?
+	Vaqueiro: Não sei bem na verdade, está quebrada há anos...
+- Até mais... 
+
+set State.finaliza_interacao()
+
+=> END
+
+~ finish
+
+Vaqueiro: [[Oi|Olá]]... já conversei com você.
+
+set State.finaliza_interacao()
+=> END
