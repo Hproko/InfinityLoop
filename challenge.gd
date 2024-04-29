@@ -49,13 +49,13 @@ func _on_run_btn_pressed():
 		aviso.text = "Esse código nunca é executado devido as condições, tome cuidado!"
 		return
 		
-	if incremento == 0:
+	if incremento == 0 or incremento == -1:
 		aviso.text = "Esse código causa loop infinito, tome cuidado!"
 		return
 		
 	State.set_interagindo(false)
 	hide()
-	#map.build_bridge(State.current_npc, 7)
+	map.build_bridge(State.current_npc, 7)
 	
 
 
