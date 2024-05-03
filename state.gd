@@ -1,6 +1,6 @@
 extends Node
 
-@onready var challenge = $'/root/Main/Player/Challenge'
+#@onready var challenge = $'/root/Main/Player/Challenge'
 @onready var camera = $'/root/Main/Player/Camera2D'
 
 var interagindo : bool = false

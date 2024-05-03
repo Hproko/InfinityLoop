@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var main = get_parent()
 @onready var tile_map = main.get_node('map')
 @onready var all_interactions = []
-@onready var challenge = $Challenge
+#@onready var challenge = $Challenge
 
 var screen_size
 
@@ -70,7 +70,7 @@ func update_interactions():
 		interactLabel.text = all_interactions[0].interact_label
 	else:
 		interactLabel.text = ""
-		challenge.hide()
+		#challenge.hide()
 		
 
 func execute_interaction():

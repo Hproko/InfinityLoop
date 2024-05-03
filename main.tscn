@@ -33,13 +33,6 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 metadata/_edit_lock_ = true
 
-[node name="Challenge" parent="Player" instance=ExtResource("4_bp1xw")]
-visible = false
-offset_left = -289.0
-offset_top = -159.0
-offset_right = 293.0
-offset_bottom = 164.0
-
 [node name="NPC" parent="." instance=ExtResource("4_nyqwo")]
 position = Vector2(73, 404)
 bridge_position1 = Vector2i(15, 37)
@@ -61,3 +54,10 @@ bridge_size = 30
 interact_label = "Press E to talk to the NPC"
 dialogue_file = ExtResource("7_15g74")
 metadata/_edit_lock_ = true
+
+[node name="Challenge" parent="." instance=ExtResource("4_bp1xw")]
+visible = false
+offset_left = -186.0
+offset_top = 141.5
+offset_right = 396.0
+offset_bottom = 471.5
