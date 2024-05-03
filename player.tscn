@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://drr1b84ammwgf"]
+[gd_scene load_steps=22 format=3 uid="uid://drr1b84ammwgf"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_b8et4"]
 [ext_resource type="Texture2D" uid="uid://bfy84tr4kl47s" path="res://assets/walk_down1.png" id="1_i5yqk"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://blo1r0aiv6o3r" path="res://assets/walk_up2.png" id="14_kr0wd"]
 [ext_resource type="Texture2D" uid="uid://c67tk50ge8gyp" path="res://assets/walk_up3.png" id="15_nf40b"]
 [ext_resource type="Texture2D" uid="uid://ba64gnbd7uvy6" path="res://assets/walk_up4.png" id="16_8qbsl"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="18_wx414"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k58c7"]
 animations = [{
@@ -123,6 +124,7 @@ limit_top = -1486618624
 limit_right = 1486618624
 limit_bottom = 1486618624
 position_smoothing_speed = 10.0
+script = ExtResource("18_wx414")
 metadata/_edit_lock_ = true
 
 [node name="Interaction component" type="Node2D" parent="."]

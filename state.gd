@@ -1,6 +1,7 @@
 extends Node
 
 @onready var challenge = $'/root/Main/Player/Challenge'
+@onready var camera = $'/root/Main/Player/Camera2D'
 
 var interagindo : bool = false
 var passou_desafio : bool = false
@@ -19,7 +20,19 @@ func set_current_npc(value : Interactable) -> void:
 	current_npc = value
 	
 func load_challenge():
-	challenge.show()
+	camera.move_camera_left()
+	var scene = preload("res://challenge.tscn")
+	var instance = scene.instantiate()
+	instance.scale.x *= .5
+	instance.scale.y *= .5
+	instance.set_name("challenge1")
+	
+	var player = get_tree().get_root().get_node("Main/Player")
+	instance.position = Vector2(player.position.x + 150, player.position.y)
+	
+	
+	get_tree().get_root().get_node("Main").add_child(instance)
+	#challenge.show()
 	
 func set_interagindo(value):
 	interagindo = value

@@ -4,8 +4,9 @@ extends Control
 @onready var condition_opt_btn = %ConditOptBtn
 @onready var var_update_btn = %VarUpdateBtn
 @onready var code_edit = %CodeEdit
-@onready var map = $'../../map'
+@onready var map = $'../map'
 @onready var aviso = %Aviso
+@onready var camera = $'../Player/Camera2D'
 
 func _ready():
 	add_items()
@@ -66,6 +67,9 @@ func _on_run_btn_pressed():
 		State.start_ballon(State.current_npc.dialogue_file, "falhou")
 	else:
 		State.start_ballon(State.current_npc.dialogue_file, "sucesso")
+		
+	camera.reset_camera()
+	queue_free()
 	
 
 
