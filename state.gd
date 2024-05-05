@@ -1,9 +1,6 @@
 extends Node
 
-#@onready var challenge = $'/root/Main/Player/Challenge'
-@onready var camera = get_tree().get_root().get_node("Main/Player/Camera")
-@onready var player = get_tree().get_root().get_node("Main/Player")
-@onready var main = get_tree().get_root().get_node("Main")
+
 @onready var screen_size = get_viewport().size
 
 var interagindo : bool = false
@@ -24,16 +21,18 @@ func set_current_npc(value : Interactable) -> void:
 	current_npc = value
 	
 func move_camera():
+	var camera = get_tree().get_root().get_node("Main/Player/Camera")
 	camera.move_camera_left()
 	
 func load_challenge():
+	var camera = get_tree().get_root().get_node("Main/Player/Camera")
+	var main = get_tree().get_root().get_node("Main")
 	var instance = scene.instantiate()
 	instance.scale.x *= .5
 	instance.scale.y *= .5
 	instance.set_name("challenge1")
 	
 	var camera_pos = camera.get_screen_center_position()
-	var half_screen_y = screen_size.y/2
 	var topLeft = screen_size.y/4
 	var challenge_x = camera_pos.x + 180
 	var challenge_y = camera_pos.y - topLeft
