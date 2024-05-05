@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://bgtdbsncvcu12"]
 
 [ext_resource type="Texture2D" uid="uid://ev55tym4cioe" path="res://assets/First Asset pack.png" id="1_majlo"]
-[ext_resource type="Script" path="res://map.gd" id="2_qhyw0"]
+[ext_resource type="Script" path="res://scripts/map.gd" id="2_qhyw0"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_k8i0t"]
 tile_data = PackedInt32Array(262144, 131072, 4, 327680, 131072, 5, 393216, 131072, 6, 65537, 196608, 1, 131073, 196608, 2, 196609, 196608, 3, 262145, 196608, 4, 327681, 196608, 5, 393217, 196608, 6, 2, 262144, 0, 65538, 262144, 1, 131074, 262144, 2, 196610, 262144, 3, 262146, 262144, 4, 327682, 262144, 5, 393218, 262144, 6, 3, 327680, 0, 65539, 327680, 1, 131075, 327680, 2, 196611, 327680, 3, 262147, 327680, 4, 327683, 327680, 5, 393219, 327680, 6, 65540, 393216, 1, 131076, 393216, 2, 196612, 393216, 3, 262148, 393216, 4, 327684, 393216, 5, 393220, 393216, 6)
@@ -1219,7 +1219,7 @@ texture_region_size = Vector2i(12, 12)
 27:20/0 = 0
 27:20/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 27:20/0/physics_layer_0/angular_velocity = 0.0
-27:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(3, 6, 0, 0, 0, -3, 3, -6, 6, -6, 6, 6)
+27:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(6, -6, 3, -6, 3, 3, 6, 3)
 28:20/0 = 0
 28:20/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 28:20/0/physics_layer_0/angular_velocity = 0.0

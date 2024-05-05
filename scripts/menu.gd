@@ -1,6 +1,6 @@
 extends Control
 
-@onready var main = preload("res://main.tscn")
+@onready var main = preload("res://scenes/main.tscn")
 
 
 func _on_play_pressed():

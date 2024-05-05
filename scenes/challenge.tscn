@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://b17pyf3hysiqa"]
 
-[ext_resource type="Script" path="res://challenge.gd" id="1_ygu4o"]
+[ext_resource type="Script" path="res://scripts/challenge.gd" id="1_ygu4o"]
 
 [sub_resource type="Image" id="Image_dsxad"]
 data = {
