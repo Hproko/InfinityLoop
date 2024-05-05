@@ -6,17 +6,16 @@ extends Control
 @onready var code_edit = %CodeEdit
 @onready var map = $'../map'
 @onready var aviso = %Aviso
-@onready var camera = $'../Player/Camera2D'
+@onready var camera = get_tree().get_root().get_node("Main/Player/Camera")
+@onready var screen_size = get_viewport().size
 
 func _ready():
 	add_items()
-	var_option_button.selected = 0
-	condition_opt_btn.selected = 0
-	var_update_btn.selected = 0
 	aviso.text = ""
+	
 
 var condicao : String = ">"
-var incremento : int = 0
+var incremento : int = 1
 var valor_de_i : int = 0
 var posicao_final : int = 0
 
@@ -31,9 +30,9 @@ func add_items():
 	condition_opt_btn.add_item("i < 7;")
 	condition_opt_btn.add_item("i <= 7;")
 	
-	var_update_btn.add_item(")")
 	var_update_btn.add_item("i++)")
 	var_update_btn.add_item("i--)")
+	var_update_btn.add_item(")")
 	
 
 func _on_option_button_item_selected(index):
@@ -41,8 +40,7 @@ func _on_option_button_item_selected(index):
 
 
 func _on_close_btn_pressed():
-	hide()
-	camera.reset_camera()
+	await camera.reset_camera()
 	State.set_interagindo(false)
 	queue_free()
 
@@ -63,15 +61,15 @@ func _on_run_btn_pressed():
 		posicao_final = State.current_npc.bridge_size
 		
 		
-	State.set_interagindo(false)
-	hide()
 	if !await map.build_bridge(State.current_npc, valor_de_i, posicao_final):
 		State.start_ballon(State.current_npc.dialogue_file, "falhou")
 	else:
+		hide()
+		await camera.reset_camera()
 		State.start_ballon(State.current_npc.dialogue_file, "sucesso")
+		State.set_interagindo(false)
+		queue_free()
 		
-	camera.reset_camera()
-	queue_free()
 	
 
 
@@ -89,11 +87,12 @@ func _on_condit_opt_btn_item_selected(index):
 
 
 func _on_var_update_btn_item_selected(index):
+	print(index)
 	if index == 0:
-		incremento = 0
-	elif index == 1:
 		incremento = 1
-	elif  index == 2:
+	elif index == 1:
 		incremento = -1
+	elif  index == 2:
+		incremento = 0
 
 
