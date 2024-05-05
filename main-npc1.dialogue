@@ -12,19 +12,19 @@ Camponês: [[Oi|Olá]]... Bem vindo ao tutorial!
 	Camponês: Parece que apenas uma das peças desse quebra-cabeças está incompleta, acho que se escolher a opção certa podemos corrigir isso! Gostaria de tentar?
 	- Sim. 
 		Camponês: Precisamos colocar 7 tábuas nessa ponte em sequência, considerando que a ponte é um vetor, ela deve começar na posição 0. Boa sorte!
-		set State.load_challenge()
+		do State.load_challenge()
 	- Não.  
-		set State.finaliza_interacao()
+		do State.finaliza_interacao()
 		=> END
 - Até mais...  
-	set State.finaliza_interacao()
+	do State.finaliza_interacao()
 => END
 
 ~ finish
 
 Camponês: Olá, obrigado por reconstruir a ponte!
 
-set State.finaliza_interacao()
+do State.finaliza_interacao()
 
 => END
 
@@ -33,13 +33,12 @@ set State.finaliza_interacao()
 Camponês: Parece que sua magia não deu certo desta vez... Tente mais uma vez! 
 Camponês: Dica: Precisamos colocar 7 tábuas nessa ponte em sequência, começando de zero.
 Camponês: Zero... um... dois... três...  Sempre "crescendo" de 1 em 1. Boa sorte!
-set State.load_challenge()
-set State.finaliza_interacao()
 
 => END
 
 ~ sucesso
 
 Camponês: Não acredito... Você conseguiu mesmo. Você deve ser um mago de verdade. Muito obrigado!
+do State.finaliza_interacao()
 => END
 

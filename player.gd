@@ -7,14 +7,9 @@ extends CharacterBody2D
 @onready var all_interactions = []
 #@onready var challenge = $Challenge
 
-var screen_size
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	screen_size = get_viewport_rect().size
 	
 
-func _physics_process(_delta):
+func _physics_process(delta):
 
 	
 	velocity = Vector2.ZERO
@@ -24,26 +19,26 @@ func _physics_process(_delta):
 	
 	if Input.is_action_just_pressed("Interact"):
 		execute_interaction()
-	
+		$AnimatedSprite2D.stop()
+		
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
-		$AnimatedSprite2D.animation = "walk_right"
+		$AnimatedSprite2D.play("walk_right")
 
 	if Input.is_action_pressed("move_left"):
 		velocity.x -= 1
-		$AnimatedSprite2D.animation = "walk_left"
+		$AnimatedSprite2D.play("walk_left")
 		
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
-		$AnimatedSprite2D.animation = "walk_up"
+		$AnimatedSprite2D.play("walk_up")
 		
 	if Input.is_action_pressed("move_down"):
 		velocity.y += 1
-		$AnimatedSprite2D.animation = "walk_down"
+		$AnimatedSprite2D.play("walk_down")
 		
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-		$AnimatedSprite2D.play()
 	else:
 		$AnimatedSprite2D.stop()
 		
@@ -75,12 +70,15 @@ func update_interactions():
 
 func execute_interaction():
 	if all_interactions:
+		
 		var npc = all_interactions[0]
 		State.set_current_npc(npc)
+		
 		interactLabel.text = ""
+		
 		if npc.bridge_builded == false:
 			State.set_interagindo(true)
+			$AnimatedSprite2D.stop()
 			State.start_ballon(npc.dialogue_file, "start")
-			#tile_map.build_bridge(npc, 7)
 		else:
 			State.start_ballon(npc.dialogue_file, "finish")

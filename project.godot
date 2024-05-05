@@ -26,10 +26,8 @@ general/balloon_path="res://dialogue/balloon.tscn"
 
 [display]
 
-window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="ignore"
-window/vsync/vsync_mode=0
 
 [editor_plugins]
 

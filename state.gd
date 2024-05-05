@@ -1,7 +1,10 @@
 extends Node
 
 #@onready var challenge = $'/root/Main/Player/Challenge'
-@onready var camera = $'/root/Main/Player/Camera2D'
+@onready var camera = get_tree().get_root().get_node("Main/Player/Camera")
+@onready var player = get_tree().get_root().get_node("Main/Player")
+@onready var main = get_tree().get_root().get_node("Main")
+@onready var screen_size = get_viewport().size
 
 var interagindo : bool = false
 var passou_desafio : bool = false
@@ -10,6 +13,7 @@ var primeira_vez : bool = true
 var current_npc : Interactable
 
 const Balloon = preload("res://dialogue/balloon.tscn")
+const scene = preload("res://challenge.tscn")
 
 func start_ballon(resource, node):
 	var balloon : Node = Balloon.instantiate()
@@ -19,20 +23,26 @@ func start_ballon(resource, node):
 func set_current_npc(value : Interactable) -> void:
 	current_npc = value
 	
-func load_challenge():
+func move_camera():
 	camera.move_camera_left()
-	var scene = preload("res://challenge.tscn")
+	
+func load_challenge():
 	var instance = scene.instantiate()
 	instance.scale.x *= .5
 	instance.scale.y *= .5
 	instance.set_name("challenge1")
 	
-	var player = get_tree().get_root().get_node("Main/Player")
-	instance.position = Vector2(player.position.x + 150, player.position.y)
+	var camera_pos = camera.get_screen_center_position()
+	var half_screen_y = screen_size.y/2
+	var topLeft = screen_size.y/4
+	var challenge_x = camera_pos.x + 180
+	var challenge_y = camera_pos.y - topLeft
 	
+	instance.position = Vector2(challenge_x, challenge_y)
+	main.add_child(instance)
 	
-	get_tree().get_root().get_node("Main").add_child(instance)
-	#challenge.show()
+	move_camera()
+	
 	
 func set_interagindo(value):
 	interagindo = value
