@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Infinity loops"
-run/main_scene="res://main.tscn"
+run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-State="*res://state.gd"
+State="*res://scripts/state.gd"
 
 [dialogue_manager]
 
@@ -72,7 +72,7 @@ pause={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://main-npc1.dialogue", "res://main-npc2.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/main-npc1.dialogue", "res://dialogue/main-npc2.dialogue")
 
 [layer_names]
 

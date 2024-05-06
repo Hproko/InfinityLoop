@@ -9,6 +9,8 @@ extends Control
 @onready var camera = get_tree().get_root().get_node("Main/Player/Camera")
 @onready var screen_size = get_viewport().size
 
+const bridge_size = 7
+
 func _ready():
 	add_items()
 	aviso.text = ""
@@ -56,9 +58,9 @@ func _on_run_btn_pressed():
 		return
 		
 	if condicao == "<=":
-		posicao_final = State.current_npc.bridge_size + 1
+		posicao_final = bridge_size + 1
 	else:
-		posicao_final = State.current_npc.bridge_size
+		posicao_final = bridge_size
 		
 		
 	if !await map.build_bridge(State.current_npc, valor_de_i, posicao_final):

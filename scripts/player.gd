@@ -76,7 +76,7 @@ func execute_interaction():
 		
 		interactLabel.text = ""
 		
-		if npc.bridge_builded == false:
+		if npc.challenge_passed == false:
 			State.set_interagindo(true)
 			$AnimatedSprite2D.stop()
 			State.start_ballon(npc.dialogue_file, "start")
