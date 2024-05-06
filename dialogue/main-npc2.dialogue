@@ -1,19 +1,35 @@
 ~ start
-
-Vaqueiro: [[Oi|Olá]]... Como posso ajudar?
-- Quem é você?
-	Vaqueiro: Sou Ciclano, um vaqueiro local
-- Como esta ponte quebrou?
-	Vaqueiro: Não sei bem na verdade, está quebrada há anos...
-- Até mais... 
-
-do State.finaliza_interacao()
-
+Construtor: [[Oi|Olá]]... Sou o construtor dessa ilha! Fiquei sabendo que tem um novo mago andando por essas terras, muito prazer em te conhecer!
+Construtor: Estou tentando consertar essa cerca, mas não consigo de maneira alguma... A ajuda de um mago seria ótima. Você poderia me ajudar?
+- Sim. 
+	Construtor: Estão faltando 3 partes nessa cerca, eu consegui consertar a cerca 1 e 2, lembre-se que a cerca é um vetor. Boa sorte!
+	do State.load_challenge()
+- Não.  
+	do State.finaliza_interacao()
+	=> END
+- Até mais...  
+	do State.finaliza_interacao()
 => END
 
 ~ finish
 
-Vaqueiro: [[Oi|Olá]]... já conversei com você.
+Construtor: Olá, obrigado por reconstruir a cerca!
 
 do State.finaliza_interacao()
+
 => END
+
+~ falhou
+
+Construtor: Parece que sua magia não deu certo desta vez... Tente mais uma vez! 
+Construtor: Dica: Precisamos colocar 3 postes em sequência, começando da posição 2, pois a cerca é um vetor.
+
+=> END
+
+~ sucesso
+
+Construtor: Agora sim minha cerca está completa, vocês magos são incríveis. Muito obrigado!
+Construtor: Vou liberar a passagem pra você, até logo!
+do State.finaliza_interacao()
+=> END
+

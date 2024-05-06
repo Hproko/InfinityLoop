@@ -10,7 +10,8 @@ var primeira_vez : bool = true
 var current_npc : Interactable
 
 const Balloon = preload("res://dialogue/balloon.tscn")
-const scene = preload("res://scenes/challenge.tscn")
+const challenge = preload("res://scenes/challenge.tscn")
+const challenge1 = preload("res://scenes/challenge1.tscn")
 
 func start_ballon(resource, node):
 	var balloon : Node = Balloon.instantiate()
@@ -24,10 +25,20 @@ func move_camera():
 	var camera = get_tree().get_root().get_node("Main/Player/Camera")
 	camera.move_camera_left()
 	
+func get_challenge(challenge_number):
+	if challenge_number == 0:
+		return challenge
+	elif challenge_number == 1:
+		return challenge1
+	
 func load_challenge():
 	var camera = get_tree().get_root().get_node("Main/Player/Camera")
 	var main = get_tree().get_root().get_node("Main")
-	var instance = scene.instantiate()
+	
+	# Cada NPC vai ter gravado o numero da sua própria challenge
+	var challenge = get_challenge(current_npc.challenge)
+	
+	var instance = challenge.instantiate()
 	instance.scale.x *= .5
 	instance.scale.y *= .5
 	instance.set_name("challenge1")

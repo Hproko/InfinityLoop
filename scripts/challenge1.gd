@@ -9,8 +9,6 @@ extends Control
 @onready var camera = get_tree().get_root().get_node("Main/Player/Camera")
 @onready var screen_size = get_viewport().size
 
-const bridge_size = 7
-
 func _ready():
 	add_items()
 	aviso.text = ""
@@ -27,10 +25,10 @@ func add_items():
 	var_option_button.add_item("(i = 2;")
 	var_option_button.add_item("(i = 3;")
 	
-	condition_opt_btn.add_item("i > 7;")
-	condition_opt_btn.add_item("i == 7;")
-	condition_opt_btn.add_item("i < 7;")
-	condition_opt_btn.add_item("i <= 7;")
+	condition_opt_btn.add_item("i > 4;")
+	condition_opt_btn.add_item("i == 4;")
+	condition_opt_btn.add_item("i < 4;")
+	condition_opt_btn.add_item("i <= 4;")
 	
 	var_update_btn.add_item("i++)")
 	var_update_btn.add_item("i--)")
@@ -58,25 +56,26 @@ func _on_run_btn_pressed():
 		return
 		
 	if condicao == "<=":
-		posicao_final = bridge_size + 1
+		posicao_final = 4
 	else:
-		posicao_final = bridge_size
+		posicao_final = 3
 		
 		
-	if !await map.build_bridge(State.current_npc, valor_de_i, posicao_final):
+	if !await map.build_fence(valor_de_i, posicao_final):
+		map.remove_fence()
 		State.start_ballon(State.current_npc.dialogue_file, "falhou")
 	else:
 		hide()
 		await camera.reset_camera()
 		State.start_ballon(State.current_npc.dialogue_file, "sucesso")
 		State.set_interagindo(false)
+		State.current_npc.challenge_passed = true
 		queue_free()
 		
 	
 
 
 func _on_condit_opt_btn_item_selected(index):
-	
 	
 	if index == 0:
 		condicao = ">"
