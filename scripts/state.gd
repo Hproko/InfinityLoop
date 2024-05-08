@@ -4,8 +4,6 @@ extends Node
 @onready var screen_size = get_viewport().size
 
 var interagindo : bool = false
-var passou_desafio : bool = false
-var primeira_vez : bool = true
 
 var current_npc : Interactable
 
@@ -59,18 +57,8 @@ func set_interagindo(value):
 
 func finaliza_interacao():
 	interagindo = false
+	current_npc.interact_message.show()
 	
 func get_interagindo():
 	return interagindo
 	
-func set_passou_desafio(value):
-	passou_desafio = value
-	
-func get_passou_desafio():
-	return passou_desafio
-	
-func set_primeira_vez(value):
-	primeira_vez = value
-	
-func get_primeira_vez():
-	return primeira_vez

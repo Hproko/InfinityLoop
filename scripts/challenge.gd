@@ -43,7 +43,7 @@ func _on_option_button_item_selected(index):
 
 func _on_close_btn_pressed():
 	await camera.reset_camera()
-	State.set_interagindo(false)
+	State.finaliza_interacao()
 	queue_free()
 
 
@@ -69,7 +69,8 @@ func _on_run_btn_pressed():
 		hide()
 		await camera.reset_camera()
 		State.start_ballon(State.current_npc.dialogue_file, "sucesso")
-		State.set_interagindo(false)
+		State.finaliza_interacao()
+		State.current_npc.ponto_excl.hide()
 		queue_free()
 		
 	

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3c5blbnwagqn"]
+[gd_scene load_steps=4 format=3 uid="uid://d3c5blbnwagqn"]
 
 [ext_resource type="Script" path="res://scripts/npc.gd" id="1_2qakj"]
+[ext_resource type="Texture2D" uid="uid://ctr2v1m741dg0" path="res://assets/exclamacao.png" id="2_2kcp0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aiy2m"]
 size = Vector2(31.5547, 46.0703)
@@ -15,3 +16,17 @@ script = ExtResource("1_2qakj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_aiy2m")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -58.0
+offset_top = -52.0
+offset_right = 198.0
+offset_bottom = -29.0
+scale = Vector2(0.498405, 0.498405)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Pressione E para falar com o NPC"
+
+[node name="Ponto" type="Sprite2D" parent="."]
+position = Vector2(3, -26)
+scale = Vector2(0.6942, 0.6942)
+texture = ExtResource("2_2kcp0")

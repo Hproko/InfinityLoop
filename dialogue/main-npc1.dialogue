@@ -1,6 +1,4 @@
 ~ start
-if (State.get_passou_desafio() == false) and (State.get_primeira_vez() == false):
-	=> falhou
 Camponês: [[Oi|Olá]]... Bem vindo ao tutorial!
 - Quem é você?
 	Camponês: Sou Fulano, um camponês local

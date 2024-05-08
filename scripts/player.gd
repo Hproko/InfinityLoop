@@ -1,7 +1,6 @@
 extends CharacterBody2D
 @export var speed = 200
 
-@onready var interactLabel = $"Interaction component/InteractLabel"
 @onready var main = get_parent()
 @onready var tile_map = main.get_node('map')
 @onready var all_interactions = []
@@ -50,33 +49,25 @@ func _physics_process(delta):
 func _on_interaction_area_area_entered(area):
 	# esse parametro area que entra aqui é o npc
 	all_interactions.insert(0, area)
-	update_interactions()
-
+	area.interact_message.show()
 
 
 func _on_interaction_area_area_exited(area):
 	# esse parametro area que entra aqui é o npc
 	all_interactions.erase(area)
-	update_interactions()
+	area.interact_message.hide()
 
 
-func update_interactions():
-	if all_interactions:
-		interactLabel.text = all_interactions[0].interact_label
-	else:
-		interactLabel.text = ""
-		#challenge.hide()
-		
 
 func execute_interaction():
+	
+	# Esse if detecta se o NPC ta na área do personagem
 	if all_interactions:
-		
 		var npc = all_interactions[0]
 		State.set_current_npc(npc)
 		
-		interactLabel.text = ""
-		
 		if npc.challenge_passed == false:
+			npc.interact_message.hide()
 			State.set_interagindo(true)
 			$AnimatedSprite2D.stop()
 			State.start_ballon(npc.dialogue_file, "start")
