@@ -55,10 +55,11 @@ func _on_run_btn_pressed():
 		aviso.text = "Esse código causa loop infinito, tome cuidado!"
 		return
 		
+	# Para entrar no range (ini, fim) pra executar ultima iteracao deve ter +1
 	if condicao == "<=":
-		posicao_final = 4
+		posicao_final = 5
 	else:
-		posicao_final = 3
+		posicao_final = 4
 		
 		
 	if !await map.build_fence(valor_de_i, posicao_final):

@@ -83,13 +83,13 @@ func build_bridge(npc, bridge_start : int, player_loops : int):
 
 func build_fence(fence_start : int, fence_end : int):
 	
-	var fence_start_coord1 = Vector2i(101, 29)
-	var fence_start_coord2 = Vector2i(101, 30)
+	var fence_start_coord1 = Vector2i(100, 29)
+	var fence_start_coord2 = Vector2i(100, 30)
 	var fence_end_coor1 = Vector2i(108, 29)
 	var fence_end_coor2 = Vector2i(108, 30)
 	
 	
-	for i in range(fence_start, fence_end + 1):
+	for i in range(fence_start, fence_end):
 		
 		var map_fence_pos1 = Vector2i(fence_start_coord1.x + i, fence_start_coord1.y)
 		var map_fence_pos2 = Vector2i(fence_start_coord2.x + i, fence_start_coord2.y)
@@ -102,14 +102,14 @@ func build_fence(fence_start : int, fence_end : int):
 		#set_cell(layer_sobreterreno2, map_afence_pos4, 0, atlas_coord_fence4)
 		await get_tree().create_timer(0.5).timeout
 	
-	if fence_start != 2 or fence_end != 4:
+	if fence_start != 2 or fence_end != 5:
 		return false
 		
 	return true
 	
 func remove_fence():
-	var fence_start_coord1 = Vector2i(101, 29)
-	var fence_start_coord2 = Vector2i(101, 30)
+	var fence_start_coord1 = Vector2i(100, 29)
+	var fence_start_coord2 = Vector2i(100, 30)
 	
 	for i in range(0, 10):
 		var pos1 = Vector2i(fence_start_coord1.x + i, fence_start_coord1.y)
