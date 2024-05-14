@@ -18,14 +18,14 @@ func _ready():
 
 var condicao : String = ">"
 var incremento : int = 1
-var valor_de_i : int = 0
+var valor_de_i : int = -1
 var posicao_final : int = 0
 
 func add_items():
+	var_option_button.add_item("(i = -1;")
 	var_option_button.add_item("(i = 0;")
 	var_option_button.add_item("(i = 1;")
 	var_option_button.add_item("(i = 2;")
-	var_option_button.add_item("(i = 3;")
 	
 	condition_opt_btn.add_item("i > 7;")
 	condition_opt_btn.add_item("i == 7;")
@@ -34,11 +34,10 @@ func add_items():
 	
 	var_update_btn.add_item("i++)")
 	var_update_btn.add_item("i--)")
-	var_update_btn.add_item(")")
 	
 
 func _on_option_button_item_selected(index):
-	valor_de_i = index
+	valor_de_i = index - 1
 
 
 func _on_close_btn_pressed():
@@ -53,7 +52,7 @@ func _on_run_btn_pressed():
 		aviso.text = "Esse código nunca é executado devido as condições, tome cuidado!"
 		return
 		
-	if incremento == 0 or incremento == -1:
+	if incremento == -1:
 		aviso.text = "Esse código causa loop infinito, tome cuidado!"
 		return
 		
@@ -62,11 +61,14 @@ func _on_run_btn_pressed():
 	else:
 		posicao_final = bridge_size
 		
-		
-	if !await map.build_bridge(State.current_npc, valor_de_i, posicao_final):
+	if (valor_de_i != 0) or (posicao_final != bridge_size):
+		await map.build_bridge(valor_de_i, posicao_final, false)
+		map.restore_bridge()
 		State.start_ballon(State.current_npc.dialogue_file, "falhou")
 	else:
+		await map.build_bridge(valor_de_i, posicao_final, true)
 		hide()
+		State.current_npc.challenge_passed = true
 		await camera.reset_camera()
 		State.start_ballon(State.current_npc.dialogue_file, "sucesso")
 		State.finaliza_interacao()
@@ -90,12 +92,9 @@ func _on_condit_opt_btn_item_selected(index):
 
 
 func _on_var_update_btn_item_selected(index):
-	print(index)
 	if index == 0:
 		incremento = 1
 	elif index == 1:
 		incremento = -1
-	elif  index == 2:
-		incremento = 0
 
 
