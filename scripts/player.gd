@@ -20,21 +20,22 @@ func _physics_process(delta):
 		execute_interaction()
 		$AnimatedSprite2D.stop()
 		
-	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
-		$AnimatedSprite2D.play("walk_right")
-
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
-		$AnimatedSprite2D.play("walk_left")
-		
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
 		$AnimatedSprite2D.play("walk_up")
-		
-	if Input.is_action_pressed("move_down"):
+	elif Input.is_action_pressed("move_down"):
 		velocity.y += 1
 		$AnimatedSprite2D.play("walk_down")
+		
+	if Input.is_action_pressed("move_right"):
+		velocity.x += 1
+		if velocity.y == 0:
+			$AnimatedSprite2D.play("walk_right")
+	elif Input.is_action_pressed("move_left"):
+		velocity.x -= 1
+		if velocity.y == 0:
+			$AnimatedSprite2D.play("walk_left")
+		
 		
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
