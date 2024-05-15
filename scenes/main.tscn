@@ -31,7 +31,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("3_22r5p")]
 unique_name_in_owner = true
-position = Vector2(975, 282)
+position = Vector2(993, 273)
 
 [node name="Camera" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
@@ -41,9 +41,10 @@ script = ExtResource("5_uqweq")
 metadata/_edit_lock_ = true
 
 [node name="NPC" parent="." instance=ExtResource("6_yal30")]
-position = Vector2(983, 268)
+position = Vector2(988, 258)
 interact_type = "NPC"
 dialogue_file = ExtResource("7_7wa6o")
+metadata/_edit_lock_ = true
 
 [node name="Sprite" type="Sprite2D" parent="NPC"]
 position = Vector2(1, -11)
@@ -55,6 +56,7 @@ position = Vector2(1189, 262)
 interact_type = "NPC"
 dialogue_file = ExtResource("9_favti")
 challenge = 1
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="NPC2"]
 position = Vector2(2.00003, -12)
