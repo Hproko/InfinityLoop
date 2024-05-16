@@ -3,6 +3,8 @@ extends Control
 @onready var var_option_button = %VarOptBtn
 @onready var condition_opt_btn = %ConditOptBtn
 @onready var var_update_btn = %VarUpdateBtn
+@onready var run_btn = %RunBtn
+@onready var close_btn = %CloseBtn
 @onready var code_edit = %CodeEdit
 @onready var map = $'../map'
 @onready var aviso = %Aviso
@@ -45,28 +47,40 @@ func _on_close_btn_pressed():
 	State.finaliza_interacao()
 	queue_free()
 
-
+func disableBtns():
+	var_option_button.disabled = true
+	var_update_btn.disabled = true
+	condition_opt_btn.disabled = true
+	run_btn.disabled = true
+	close_btn.disabled = true
+	
+func enableBtns():
+	var_option_button.disabled = false
+	var_update_btn.disabled = false
+	condition_opt_btn.disabled = false
+	run_btn.disabled = false
+	close_btn.disabled = false
+	
 func _on_run_btn_pressed():
 	
 	if condicao == ">" or condicao == "=":
 		aviso.text = "Esse código nunca é executado devido as condições, tome cuidado!"
 		return
 		
-	if incremento == -1:
-		aviso.text = "Esse código causa loop infinito, tome cuidado!"
-		return
 		
 	if condicao == "<=":
 		posicao_final = bridge_size + 1
 	else:
 		posicao_final = bridge_size
 		
-	if (valor_de_i != 0) or (posicao_final != bridge_size):
-		await map.build_bridge(valor_de_i, posicao_final, false)
+	if (valor_de_i != 0) or (posicao_final != bridge_size) or (incremento != 1):
+		disableBtns()
+		await map.build_bridge(valor_de_i, posicao_final, incremento, false)
+		enableBtns()
 		map.restore_bridge()
 		State.start_ballon(State.current_npc.dialogue_file, "falhou")
 	else:
-		await map.build_bridge(valor_de_i, posicao_final, true)
+		await map.build_bridge(valor_de_i, posicao_final, incremento, true)
 		hide()
 		State.current_npc.challenge_passed = true
 		await camera.reset_camera()

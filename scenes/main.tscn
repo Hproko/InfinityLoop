@@ -31,7 +31,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("3_22r5p")]
 unique_name_in_owner = true
-position = Vector2(993, 273)
+position = Vector2(989, 283)
 
 [node name="Camera" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
@@ -50,6 +50,7 @@ metadata/_edit_lock_ = true
 position = Vector2(1, -11)
 scale = Vector2(1.5625, 1.78571)
 texture = SubResource("AtlasTexture_u8x77")
+metadata/_edit_lock_ = true
 
 [node name="NPC2" parent="." instance=ExtResource("6_yal30")]
 position = Vector2(1189, 262)
@@ -62,3 +63,4 @@ metadata/_edit_lock_ = true
 position = Vector2(2.00003, -12)
 scale = Vector2(1.68334, 1.625)
 texture = SubResource("AtlasTexture_k3xsy")
+metadata/_edit_lock_ = true

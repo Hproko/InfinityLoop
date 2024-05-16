@@ -23,7 +23,7 @@ func _process(delta):
 	pass
 
 
-func build_bridge(ini_vetor : int, fim_vetor : int, acertou : bool):
+func build_bridge(ini_vetor : int, fim_vetor : int, incremento : int, acertou : bool):
 	
 	var layer = layer_terreno
 	
@@ -42,10 +42,15 @@ func build_bridge(ini_vetor : int, fim_vetor : int, acertou : bool):
 	var pos_map_ini_ponte1 = Vector2i(bridge_start_x - 2, bridge_start_y_2)
 	var pos_map_ini_ponte2 = Vector2i(bridge_start_x - 2, bridge_start_y_3)
 	
-	for i in range(ini_vetor, fim_vetor):
+	# Para simular loop infinito vamos colocar a ponte crescendo para trás
+	# No máximo até 15 tábuas para trás
+	if incremento == -1:
+		fim_vetor = -15
+	
+	for i in range(ini_vetor, fim_vetor, incremento):
 		
 		# Coloca em vermelho posições inválidas do vetor
-		if i == -1 or i == 7:
+		if i < 0 or i == 7:
 			set_layer_modulate(layer_sobreterreno2, Color.RED)
 			layer = layer_sobreterreno2
 		else:
@@ -77,10 +82,10 @@ func restore_bridge():
 	
 	set_layer_modulate(layer_sobreterreno2, Color.WHITE)
 	# Restaura o meio da ponte
-	for i in range(-1, 8):
+	for i in range(-20, 8):
 		
 		# Na posicao inicial e final da ponte colocamos as tiles na layer sobreterreno2
-		if i == -1 or i == 7:
+		if i < 0 or i == 7:
 			layer = layer_sobreterreno2
 		else:
 			layer = layer_terreno
