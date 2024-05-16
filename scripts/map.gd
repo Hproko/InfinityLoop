@@ -42,10 +42,6 @@ func build_bridge(ini_vetor : int, fim_vetor : int, incremento : int, acertou : 
 	var pos_map_ini_ponte1 = Vector2i(bridge_start_x - 2, bridge_start_y_2)
 	var pos_map_ini_ponte2 = Vector2i(bridge_start_x - 2, bridge_start_y_3)
 	
-	# Para simular loop infinito vamos colocar a ponte crescendo para trás
-	# No máximo até 15 tábuas para trás
-	if incremento == -1:
-		fim_vetor = -15
 	
 	for i in range(ini_vetor, fim_vetor, incremento):
 		

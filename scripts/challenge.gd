@@ -73,6 +73,11 @@ func _on_run_btn_pressed():
 	else:
 		posicao_final = bridge_size
 		
+	# Para simular loop infinito vamos colocar a ponte crescendo para trás
+	# No máximo até 15 tábuas para trás
+	if incremento == -1:
+		posicao_final = -15
+		
 	if (valor_de_i != 0) or (posicao_final != bridge_size) or (incremento != 1):
 		disableBtns()
 		await map.build_bridge(valor_de_i, posicao_final, incremento, false)
