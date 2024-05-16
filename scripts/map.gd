@@ -118,7 +118,7 @@ func build_fence(fence_start : int, fence_end : int):
 		#set_cell(layer_sobreterreno2, map_afence_pos4, 0, atlas_coord_fence4)
 		await get_tree().create_timer(0.5).timeout
 	
-	if fence_start != 2 or fence_end != 5:
+	if fence_start != 2 or fence_end != 7:
 		return false
 		
 	return true
