@@ -24,10 +24,10 @@ var valor_de_i : int = -1
 var posicao_final : int = 0
 
 func add_items():
-	for_option_button.add_item("i <= TAM_CERCA")
-	for_option_button.add_item("i < TAM_CERCA")
-	for_option_button.add_item("i >= TAM_CERCA")
-	for_option_button.add_item("i > TAM_CERCA")
+	for_option_button.add_item("i <= TAM_JARDIM")
+	for_option_button.add_item("i < TAM_JARDIM")
+	for_option_button.add_item("i >= TAM_JARDIM")
+	for_option_button.add_item("i > TAM_JARDIM")
 	
 	if_opt_btn.add_item(">")
 	if_opt_btn.add_item("<")
