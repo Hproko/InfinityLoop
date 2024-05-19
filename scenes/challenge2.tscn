@@ -46,7 +46,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "#include <stdio.h>
-
 int main(void)  {
 	for (int i = 1;                                        ; i++)
 	{
@@ -60,18 +59,18 @@ metadata/_edit_lock_ = true
 
 [node name="ForOption" type="OptionButton" parent="ColorRect/CodeEdit"]
 layout_mode = 0
-offset_left = 139.0
-offset_top = 84.0
-offset_right = 225.0
-offset_bottom = 104.0
+offset_left = 140.0
+offset_top = 55.0
+offset_right = 226.0
+offset_bottom = 75.0
 theme = SubResource("Theme_4tfw7")
 
 [node name="IfOption" type="OptionButton" parent="ColorRect/CodeEdit"]
 layout_mode = 0
 offset_left = 118.0
-offset_top = 136.0
+offset_top = 106.0
 offset_right = 152.0
-offset_bottom = 156.0
+offset_bottom = 126.0
 theme = SubResource("Theme_uojsw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CodeEdit"]
