@@ -44,7 +44,7 @@ int main(void)  {
 	int i = 3;
 	while
 	{ 
-		colocar_cerca();
+		colocar_cerca(i);
 
 	} 
 }"
@@ -79,6 +79,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.972549, 0, 0, 1)
+autowrap_mode = 3
 
 [node name="Btns" type="HBoxContainer" parent="ColorRect/CodeEdit/VBoxContainer"]
 layout_mode = 2
@@ -86,11 +87,13 @@ theme_override_constants/separation = 300
 metadata/_edit_lock_ = true
 
 [node name="RunBtn" type="Button" parent="ColorRect/CodeEdit/VBoxContainer/Btns"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Run Code"
 metadata/_edit_lock_ = true
 
 [node name="CloseBtn" type="Button" parent="ColorRect/CodeEdit/VBoxContainer/Btns"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Close"
 metadata/_edit_lock_ = true

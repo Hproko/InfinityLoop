@@ -63,6 +63,7 @@ func enableBtns():
 	
 func _on_run_btn_pressed():
 	
+	
 	if condicao == ">" or condicao == "=":
 		aviso.text = "Esse código nunca é executado devido as condições, tome cuidado!"
 		return

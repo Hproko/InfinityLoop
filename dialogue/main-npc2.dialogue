@@ -1,6 +1,6 @@
 ~ start
 Construtor: [[Oi|Olá]]... Sou o construtor dessa ilha! Fiquei sabendo que tem um novo mago andando por essas terras, muito prazer em te conhecer!
-Construtor: Estou tentando consertar essa cerca, mas não consigo de maneira alguma... A ajuda de um mago seria ótima. Você poderia me ajudar?
+Construtor: Estou tentando consertar essa cerca, mas não consigo de maneira alguma... A ajuda de um mago seria ótima, se você consertar abro o portão para você passar. Você poderia me ajudar?
 - Sim. 
 	Construtor: Estão faltando 5 partes nessa cerca, eu consegui consertar a cerca 1 e 2, lembre-se que a cerca é um vetor. Boa sorte!
 	do State.load_challenge()

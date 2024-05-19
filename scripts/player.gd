@@ -14,6 +14,7 @@ func _physics_process(delta):
 	velocity = Vector2.ZERO
 
 	if State.get_interagindo():
+		$AnimatedSprite2D.stop()
 		return
 	
 	if Input.is_action_just_pressed("Interact"):

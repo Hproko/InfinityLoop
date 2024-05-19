@@ -8,6 +8,10 @@ const atlas_coord_pont_normal1 = Vector2i(19, 24)
 const atlas_coord_pont_normal2 = Vector2i(19, 25)
 const atlas_coord_pont_normal3 = Vector2i(19, 26)
 
+const atlas_coord_fence_ini = Vector2i(9, 10)
+const atlas_coord_fence_ini2 = Vector2i(9, 11)
+const atlas_coord_fence_fim = Vector2i(12, 10)
+const atlas_coord_fence_fim2 = Vector2i(12, 11)
 const atlas_coord_fence1 = Vector2i(10, 10)
 const atlas_coord_fence2 = Vector2i(10, 11)
 const atlas_coord_fence3 = Vector2i(11, 10)
@@ -104,37 +108,77 @@ func restore_bridge():
 				
 	
 	
-func build_fence(fence_start : int, fence_end : int):
+func build_fence(fence_start : int, fence_end : int, incremento : int):
 	
 	const fence_start_coord1 = Vector2i(100, 29)
 	const fence_start_coord2 = Vector2i(100, 30)
 	const fence_end_coor1 = Vector2i(108, 29)
 	const fence_end_coor2 = Vector2i(108, 30)
 	
+	var layer = layer_terreno
 	
-	for i in range(fence_start, fence_end):
+	for i in range(fence_start, fence_end, incremento):
 		
+		if i == -14:
+			break
+			
+		if i < 2:
+			set_layer_modulate(layer_sobreterreno2, Color.RED)
+			layer = layer_sobreterreno2
+		else:
+			layer = layer_sobreterreno
+			
 		var map_fence_pos1 = Vector2i(fence_start_coord1.x + i, fence_start_coord1.y)
 		var map_fence_pos2 = Vector2i(fence_start_coord2.x + i, fence_start_coord2.y)
-		#var map_fence_pos3 = Vector2i(fence_start_coord1.x + i + 1, fence_start_coord1.y)
-		#var map_fence_pos4 = Vector2i(fence_start_coord2.x + i + 1, fence_start_coord2.y)
-		
-		set_cell(layer_sobreterreno2, map_fence_pos1, 0, atlas_coord_fence1)
-		set_cell(layer_sobreterreno2, map_fence_pos2, 0, atlas_coord_fence2)
-		#set_cell(layer_sobreterreno2, map_fence_pos3, 0, atlas_coord_fence3)
-		#set_cell(layer_sobreterreno2, map_afence_pos4, 0, atlas_coord_fence4)
+
+		set_cell(layer, map_fence_pos1, 0, atlas_coord_fence1)
+		set_cell(layer, map_fence_pos2, 0, atlas_coord_fence2)
+
 		await get_tree().create_timer(0.5).timeout
 	
-	if fence_start != 2 or fence_end != 7:
-		return false
-		
-	return true
+func open_gate():
 	
+	var layer = layer_sobreterreno
+	
+	# Apaga a porteira
+	var gate_pos1 = Vector2i(112, 24)
+	var gate_pos2 = Vector2i(112, 25)
+	var gate_pos3 = Vector2i(113, 24)
+	var gate_pos4 = Vector2i(113, 25)
+
+	erase_cell(layer, gate_pos1)
+	erase_cell(layer, gate_pos2)
+	erase_cell(layer, gate_pos3)
+	erase_cell(layer, gate_pos4)
+	
+	# Pinta a porteira
+	gate_pos1 = Vector2i(111, 24)
+	gate_pos2 = Vector2i(111, 25)
+	gate_pos3 = Vector2i(114, 24)
+	gate_pos4 = Vector2i(114, 25)
+
+	set_cell(layer, gate_pos1, 0, atlas_coord_fence_fim)
+	set_cell(layer, gate_pos2, 0, atlas_coord_fence_fim2)
+	set_cell(layer, gate_pos3, 0, atlas_coord_fence_ini)
+	set_cell(layer, gate_pos4, 0, atlas_coord_fence_ini2)
+
+
 func remove_fence():
+	
+	var layer = layer_terreno
+	
+	set_layer_modulate(layer_sobreterreno2, Color.WHITE)
+	
 	var fence_start_coord1 = Vector2i(100, 29)
 	var fence_start_coord2 = Vector2i(100, 30)
 	
-	for i in range(0, 10):
+	for i in range(-12, 10):
+		
+		if i < 2:
+			layer = layer_sobreterreno2
+		else:
+			layer = layer_sobreterreno
+			
 		var pos1 = Vector2i(fence_start_coord1.x + i, fence_start_coord1.y)
 		var pos2 = Vector2i(fence_start_coord2.x + i, fence_start_coord2.y)
 		erase_cell(layer_sobreterreno2, pos1)

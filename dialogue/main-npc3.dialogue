@@ -1,7 +1,7 @@
 ~ start
-Jardineira: [[Oi|Olá]]... teste challenge 3
+Lenhadora: [[Oi|Olá]]... teste challenge 3
 - Sim. 
-	Jardineira: teste
+	Lenhadora: teste
 	do State.load_challenge()
 - Não.  
 	do State.finaliza_interacao()
@@ -12,7 +12,7 @@ Jardineira: [[Oi|Olá]]... teste challenge 3
 
 ~ finish
 
-Jardineira: fim
+Lenhadora: fim
 
 do State.finaliza_interacao()
 
@@ -20,13 +20,13 @@ do State.finaliza_interacao()
 
 ~ falhou
 
-Jardineira: n deu
+Lenhadora: n deu
 
 => END
 
 ~ sucesso
 
-Jardineira: boa
+Lenhadora: boa
 
 do State.finaliza_interacao()
 => END
