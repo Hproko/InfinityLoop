@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b7elwouqyerqb"]
 
-[ext_resource type="Script" path="res://scenes/challenge2.gd" id="1_sw5o6"]
+[ext_resource type="Script" path="res://scripts/challenge2.gd" id="1_rkq6s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_arlbj"]
 
@@ -22,7 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(2, -1)
-script = ExtResource("1_sw5o6")
+script = ExtResource("1_rkq6s")
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
