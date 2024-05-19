@@ -1,0 +1,33 @@
+~ start
+Jardineira: [[Oi|Olá]]... teste challenge 3
+- Sim. 
+	Jardineira: teste
+	do State.load_challenge()
+- Não.  
+	do State.finaliza_interacao()
+	=> END
+- Até mais...  
+	do State.finaliza_interacao()
+=> END
+
+~ finish
+
+Jardineira: fim
+
+do State.finaliza_interacao()
+
+=> END
+
+~ falhou
+
+Jardineira: n deu
+
+=> END
+
+~ sucesso
+
+Jardineira: boa
+
+do State.finaliza_interacao()
+=> END
+

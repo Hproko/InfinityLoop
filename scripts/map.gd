@@ -13,6 +13,13 @@ const atlas_coord_fence2 = Vector2i(10, 11)
 const atlas_coord_fence3 = Vector2i(11, 10)
 const atlas_coord_fence4 = Vector2i(11, 11)
 
+const atlas_coord_tree1 = Vector2i(5, 9)
+const atlas_coord_tree2 = Vector2i(5, 10)
+const atlas_coord_tree3 = Vector2i(5, 11)
+const atlas_coord_tree4 = Vector2i(6, 9)
+const atlas_coord_tree5 = Vector2i(6, 10)
+const atlas_coord_tree6 = Vector2i(6, 11)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -133,4 +140,29 @@ func remove_fence():
 		erase_cell(layer_sobreterreno2, pos1)
 		erase_cell(layer_sobreterreno2, pos2)
 		
+func build_forest():
+	const tree_start_coord1 = Vector2i(106, 40)
+	const tree_start_coord2 = Vector2i(106, 41)
+	const tree_start_coord3 = Vector2i(106, 42)
+	const tree_end_coor1 = Vector2i(107, 40)
+	const tree_end_coor2 = Vector2i(107, 41)
+	const tree_end_coor3 = Vector2i(107, 42)
+	var layer = layer_sobreterreno
+	
+	for i in range (0, 4):
+		var pos_tree_map1 = Vector2i(tree_start_coord1.x + 4*i , tree_start_coord1.y)
+		var pos_tree_map2 = Vector2i(tree_start_coord2.x + 4*i , tree_start_coord2.y)
+		var pos_tree_map3 = Vector2i(tree_start_coord3.x + 4*i , tree_start_coord3.y)
+		var pos_tree_map4 = Vector2i(tree_end_coor1.x + 4*i, tree_end_coor1.y)
+		var pos_tree_map5 = Vector2i(tree_end_coor2.x + 4*i, tree_end_coor2.y)
+		var pos_tree_map6 = Vector2i(tree_end_coor3.x + 4*i, tree_end_coor3.y)
+		
+		
+		set_cell(layer, pos_tree_map1, 0, atlas_coord_tree1)
+		set_cell(layer, pos_tree_map2, 0, atlas_coord_tree2)
+		set_cell(layer, pos_tree_map3, 0, atlas_coord_tree3)
+		set_cell(layer, pos_tree_map4, 0, atlas_coord_tree4)
+		set_cell(layer, pos_tree_map5, 0, atlas_coord_tree5)
+		set_cell(layer, pos_tree_map6, 0, atlas_coord_tree6)
+		await get_tree().create_timer(0.5).timeout
 

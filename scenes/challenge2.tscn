@@ -1,0 +1,126 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7elwouqyerqb"]
+
+[ext_resource type="Script" path="res://scenes/challenge2.gd" id="1_sw5o6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arlbj"]
+
+[sub_resource type="Theme" id="Theme_4tfw7"]
+OptionButton/icons/arrow = SubResource("AtlasTexture_arlbj")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2xfx"]
+
+[sub_resource type="Theme" id="Theme_uojsw"]
+OptionButton/icons/arrow = SubResource("AtlasTexture_e2xfx")
+
+[node name="Challenge" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(577, 330)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(2, -1)
+script = ExtResource("1_sw5o6")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(3.00817e-06, 0.474507, 0.11392, 1)
+metadata/_edit_lock_ = true
+
+[node name="CodeEdit" type="CodeEdit" parent="ColorRect"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(577, 330)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "#include <stdio.h>
+
+int main(void)  {
+	for (int i = 1;                                        ; i++)
+	{
+    	if (i % 2               0) 
+			colocaTabua();
+	}
+}"
+editable = false
+gutters_draw_line_numbers = true
+metadata/_edit_lock_ = true
+
+[node name="ForOption" type="OptionButton" parent="ColorRect/CodeEdit"]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 84.0
+offset_right = 225.0
+offset_bottom = 104.0
+theme = SubResource("Theme_4tfw7")
+
+[node name="IfOption" type="OptionButton" parent="ColorRect/CodeEdit"]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 136.0
+offset_right = 152.0
+offset_bottom = 156.0
+theme = SubResource("Theme_uojsw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CodeEdit"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 223.0
+offset_right = 528.0
+offset_bottom = 646.0
+metadata/_edit_lock_ = true
+
+[node name="Aviso" type="Label" parent="ColorRect/CodeEdit/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Btns" type="HBoxContainer" parent="ColorRect/CodeEdit/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 300
+metadata/_edit_lock_ = true
+
+[node name="RunBtn" type="Button" parent="ColorRect/CodeEdit/VBoxContainer/Btns"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Run Code"
+metadata/_edit_lock_ = true
+
+[node name="CloseBtn" type="Button" parent="ColorRect/CodeEdit/VBoxContainer/Btns"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Close"
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="ColorRect/CodeEdit/VBoxContainer"]
+custom_minimum_size = Vector2(500, 324)
+layout_mode = 2
+text = "
+
+################################################
+
+Plante 4 árvores ao lado :D
+
+Boa Sorte!!!
+################################################"
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
+[connection signal="item_selected" from="ColorRect/CodeEdit/ForOption" to="." method="_on_for_option_item_selected"]
+[connection signal="item_selected" from="ColorRect/CodeEdit/IfOption" to="." method="_on_if_option_item_selected"]
+[connection signal="pressed" from="ColorRect/CodeEdit/VBoxContainer/Btns/RunBtn" to="." method="_on_run_btn_pressed"]
+[connection signal="pressed" from="ColorRect/CodeEdit/VBoxContainer/Btns/CloseBtn" to="." method="_on_close_btn_pressed"]
