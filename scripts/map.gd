@@ -26,21 +26,13 @@ const atlas_coord_tree6 = Vector2i(6, 11)
 
 const atlas_coord_sand = Vector2i(19,14)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
-
-func build_bridge(ini_vetor : int, fim_vetor : int, incremento : int, acertou : bool):
+func build_bridge(ini_vetor : int, fim_vetor : int, acertou : bool):
 	
 	var layer = layer_terreno
 	
-		
 	const bridge_position1 = Vector2i(91, 26)
 	const bridge_position2 = Vector2i(91, 27)
 	const bridge_position3 = Vector2i(91, 28)
@@ -56,7 +48,7 @@ func build_bridge(ini_vetor : int, fim_vetor : int, incremento : int, acertou : 
 	var pos_map_ini_ponte2 = Vector2i(bridge_start_x - 2, bridge_start_y_3)
 	
 	
-	for i in range(ini_vetor, fim_vetor, incremento):
+	for i in range(ini_vetor, fim_vetor):
 		
 		# Coloca em vermelho posições inválidas do vetor
 		if i < 0 or i == 7:
@@ -73,6 +65,12 @@ func build_bridge(ini_vetor : int, fim_vetor : int, incremento : int, acertou : 
 		set_cell(layer, pos_map1, 0, atlas_coord_pont_normal1)
 		set_cell(layer, pos_map2, 0, atlas_coord_pont_normal2)
 		set_cell(layer, pos_map3, 0, atlas_coord_pont_normal3)
+		
+		# Se colocar posição inválida do vetor então espera um pouco mais
+		if i < 0 or i == 7:
+			await get_tree().create_timer(1.5).timeout
+			return
+			
 		await get_tree().create_timer(0.5).timeout
 	
 		
@@ -91,7 +89,7 @@ func restore_bridge():
 	
 	set_layer_modulate(layer_sobreterreno2, Color.WHITE)
 	# Restaura o meio da ponte
-	for i in range(-20, 8):
+	for i in range(-1, 8):
 		
 		# Na posicao inicial e final da ponte colocamos as tiles na layer sobreterreno2
 		if i < 0 or i == 7:
@@ -102,14 +100,14 @@ func restore_bridge():
 		var pos_map1 = Vector2i(91 + i, 26)
 		var pos_map2 = Vector2i(91 + i, 27)
 		var pos_map3 = Vector2i(91 + i, 28)
-			
+
 
 		erase_cell(layer, pos_map1)
 		erase_cell(layer, pos_map2)
 		erase_cell(layer, pos_map3)
-				
-	
-	
+
+
+
 func build_fence(fence_start : int, fence_end : int, incremento : int):
 	
 	const fence_start_coord1 = Vector2i(100, 29)
