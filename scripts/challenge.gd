@@ -63,9 +63,12 @@ func enableBtns():
 	
 func _on_run_btn_pressed():
 	
+	aviso.hide()
 	
 	if condicao == ">" or condicao == "=":
-		aviso.text = "Esse código nunca é executado devido as condições, tome cuidado!"
+		aviso.text = "Esse código nunca é executado devido as condições,
+					tome cuidado!"
+		aviso.show()
 		return
 		
 		
@@ -77,6 +80,10 @@ func _on_run_btn_pressed():
 	# Para simular loop infinito vamos colocar a ponte crescendo para trás
 	# No máximo até 15 tábuas para trás
 	if incremento == -1:
+		aviso.text = "Esse código causa loop infinito \
+					construindo a ponte de trás para frente, \
+					tome cuidado!"
+		aviso.show()		
 		posicao_final = -15
 		
 	if (valor_de_i != 0) or (posicao_final != bridge_size) or (incremento != 1):

@@ -50,8 +50,8 @@ func _on_run_btn_pressed():
 	aviso.hide()
 	
 	if tem_pt_e_virgula == ";": 
-		aviso.text = "Esse código causa laço infinito por conta do ';' 
-		ao final do comando while, tome cuidado!"
+		aviso.text = "Esse código causa loop infinito por conta do ';' \
+					ao final do comando while, tome cuidado!"
 		aviso.show()
 		return
 		
@@ -61,8 +61,8 @@ func _on_run_btn_pressed():
 	
 	# Para simular loop infinito
 	if incremento == -1:
-		aviso.text = "Esse código causa laço infinito por conta 
-		da variável de incremento, tome cuidado!"
+		aviso.text = "Esse código causa loop infinito por conta \
+		do decremento da variável i, tome cuidado!"
 		aviso.show()
 		fim_cerca = -12
 		
