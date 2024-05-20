@@ -1,7 +1,7 @@
 ~ start
-Lenhadora: [[Oi|Olá]]... teste challenge 3
+Lenhadora: [[Oi|Olá]]... sou a lenhadora da região, precisava plantar umas árvores para completar o caminho, consegue me ajudar?
 - Sim. 
-	Lenhadora: teste
+	Lenhadora: Preciso plantar 4 árvores em sequência, de maneira que tenha um certo espaço entre elas.
 	do State.load_challenge()
 - Não.  
 	do State.finaliza_interacao()
@@ -12,7 +12,7 @@ Lenhadora: [[Oi|Olá]]... teste challenge 3
 
 ~ finish
 
-Lenhadora: fim
+Lenhadora: Obrigado pela ajuda com as árvores!
 
 do State.finaliza_interacao()
 
@@ -20,13 +20,15 @@ do State.finaliza_interacao()
 
 ~ falhou
 
-Lenhadora: n deu
+Lenhadora: Parece que sua magia não deu certo desta vez... Tente mais uma vez! 
+Lenhadora: Dica: Precisamos plantar 4 árvores em sequência, mas sempre nas posições pares para haver um espaço entre elas
 
 => END
 
 ~ sucesso
 
-Lenhadora: boa
+Lenhadora: Agora sim a floresta está completa. Muito obrigado pela ajuda!
+Lenhadora: Vou liberar a passagem pra você derrubando aquelas árvores à frente, até logo!
 
 do State.finaliza_interacao()
 => END

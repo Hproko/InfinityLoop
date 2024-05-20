@@ -185,21 +185,21 @@ func remove_fence():
 		erase_cell(layer_sobreterreno2, pos2)
 		
 func build_forest():
-	const tree_start_coord1 = Vector2i(106, 40)
-	const tree_start_coord2 = Vector2i(106, 41)
-	const tree_start_coord3 = Vector2i(106, 42)
-	const tree_end_coor1 = Vector2i(107, 40)
-	const tree_end_coor2 = Vector2i(107, 41)
-	const tree_end_coor3 = Vector2i(107, 42)
+	const tree_start_coord1 = Vector2i(108, 2)
+	const tree_start_coord2 = Vector2i(108, 3)
+	const tree_start_coord3 = Vector2i(108, 4)
+	const tree_end_coor1 = Vector2i(109, 2)
+	const tree_end_coor2 = Vector2i(109, 3)
+	const tree_end_coor3 = Vector2i(109, 4)
 	var layer = layer_sobreterreno
 	
 	for i in range (0, 4):
-		var pos_tree_map1 = Vector2i(tree_start_coord1.x + 4*i , tree_start_coord1.y)
-		var pos_tree_map2 = Vector2i(tree_start_coord2.x + 4*i , tree_start_coord2.y)
-		var pos_tree_map3 = Vector2i(tree_start_coord3.x + 4*i , tree_start_coord3.y)
-		var pos_tree_map4 = Vector2i(tree_end_coor1.x + 4*i, tree_end_coor1.y)
-		var pos_tree_map5 = Vector2i(tree_end_coor2.x + 4*i, tree_end_coor2.y)
-		var pos_tree_map6 = Vector2i(tree_end_coor3.x + 4*i, tree_end_coor3.y)
+		var pos_tree_map1 = Vector2i(tree_start_coord1.x , tree_start_coord1.y + 5*i)
+		var pos_tree_map2 = Vector2i(tree_start_coord2.x , tree_start_coord2.y + 5*i)
+		var pos_tree_map3 = Vector2i(tree_start_coord3.x , tree_start_coord3.y + 5*i)
+		var pos_tree_map4 = Vector2i(tree_end_coor1.x, tree_end_coor1.y + 5*i)
+		var pos_tree_map5 = Vector2i(tree_end_coor2.x , tree_end_coor2.y + 5*i)
+		var pos_tree_map6 = Vector2i(tree_end_coor3.x , tree_end_coor3.y + 5*i)
 		
 		
 		set_cell(layer, pos_tree_map1, 0, atlas_coord_tree1)
