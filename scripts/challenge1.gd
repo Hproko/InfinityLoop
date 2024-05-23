@@ -23,7 +23,7 @@ func add_items():
 	while_option_button.add_item("(i <= 7)")
 	while_option_button.add_item("(i < 8)")
 	while_option_button.add_item("(1 < 10)")
-	while_option_button.add_item("(1 = 8)")
+	while_option_button.add_item("(i = 8)")
 	
 	inc_opt_btn.add_item("i--;")
 	inc_opt_btn.add_item("i++;")
