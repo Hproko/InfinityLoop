@@ -56,19 +56,19 @@ func _on_run_btn_pressed():
 		aviso.text = "Esse código causa loop infinito por conta do ';' \
 					ao final do comando while, tome cuidado!"
 		aviso.show()
-		return
+		#return
 		
 	if tem_pt_e_virgula == "<": 
 		aviso.text = "Esse código causa loop infinito, já que a condição \
 					1 < 10 sempre é verdadeira"
 		aviso.show()
-		return
+		#return
 		
 	if tem_pt_e_virgula == "=": 
 		aviso.text = "Esse código causa loop infinito, pois i = 8 \
 					é uma atribuição, e não um comparador de igualdade (==)"
 		aviso.show()
-		return
+		#return
 		
 		
 	var ini_cerca = 2
@@ -80,6 +80,15 @@ func _on_run_btn_pressed():
 		do decremento da variável i, tome cuidado!"
 		aviso.show()
 		fim_cerca = -12
+		
+	# Para simular loop infinito
+	if ((tem_pt_e_virgula == "=") or (tem_pt_e_virgula == ";") or (tem_pt_e_virgula == "<")):
+		print("aqui msm")
+		disableBtns()
+		await map.build_fence_loop()
+		enableBtns()
+		State.start_ballon(State.current_npc.dialogue_file, "falhou")
+		return
 		
 	# Se o player selecionou i--; está errado 
 	if incremento != 1:
