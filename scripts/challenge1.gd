@@ -21,6 +21,9 @@ func _ready():
 func add_items():
 	while_option_button.add_item("(i <= 7);")
 	while_option_button.add_item("(i <= 7)")
+	while_option_button.add_item("(i < 8)")
+	while_option_button.add_item("(1 < 10)")
+	while_option_button.add_item("(1 = 8)")
 	
 	inc_opt_btn.add_item("i--;")
 	inc_opt_btn.add_item("i++;")
@@ -52,6 +55,18 @@ func _on_run_btn_pressed():
 	if tem_pt_e_virgula == ";": 
 		aviso.text = "Esse código causa loop infinito por conta do ';' \
 					ao final do comando while, tome cuidado!"
+		aviso.show()
+		return
+		
+	if tem_pt_e_virgula == "<": 
+		aviso.text = "Esse código causa loop infinito, já que a condição \
+					1 < 10 sempre é verdadeira"
+		aviso.show()
+		return
+		
+	if tem_pt_e_virgula == "=": 
+		aviso.text = "Esse código causa loop infinito, pois i = 8 \
+					é uma atribuição, e não um comparador de igualdade (==)"
 		aviso.show()
 		return
 		
@@ -91,6 +106,12 @@ func _on_while_option_item_selected(index):
 		tem_pt_e_virgula = ";"
 	elif index == 1:
 		tem_pt_e_virgula = ""
+	elif index == 2:
+		tem_pt_e_virgula = ""
+	elif index == 3:
+		tem_pt_e_virgula = "<"
+	elif index == 4:
+		tem_pt_e_virgula = "="
 
 func _on_inc_option_item_selected(index):
 	if index == 0:
