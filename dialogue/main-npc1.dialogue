@@ -34,6 +34,15 @@ Camponês: Zero... um... dois... três...  Sempre "crescendo" de 1 em 1. Boa sor
 
 => END
 
+~ posicao_errada1
+
+Camponês: Você acessou uma posição inválida desse vetor (ponte[-1]). Isso causa erro de memória e seu programa é abortado. Cuidado para não destruir o resto dessa ponte!
+
+=> END
+
+~ posicao_errada2
+Camponês: Você acessou uma posição inválida desse vetor (ponte[7]). Isso causa erro de memória e seu programa é abortado. Cuidado para não destruir o resto dessa ponte!
+=> END
 ~ sucesso
 
 Camponês: Não acredito... Você conseguiu mesmo. Você deve ser um mago de verdade. Muito obrigado!
