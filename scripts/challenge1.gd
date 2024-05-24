@@ -82,7 +82,7 @@ func _on_run_btn_pressed():
 		#enableBtns()
 		#State.start_ballon(State.current_npc.dialogue_file, "falhou")
 		#return
-		
+	
 	# Para simular loop infinito
 	if incremento == -1 and da_loop_infinito:
 		aviso.text = "Esse código causa loop infinito por conta \
@@ -96,6 +96,13 @@ func _on_run_btn_pressed():
 		aviso.show()
 		fim_cerca = 15
 		
+	if incremento == -1:
+		aviso.text = "Esse código causa loop infinito por conta \
+		do decremento da variável i, tome cuidado!"
+		aviso.show()
+		fim_cerca = -12	
+		da_loop_infinito = true
+		
 	# Se da loop infinito está errado 
 	if da_loop_infinito:
 		disableBtns()
@@ -104,6 +111,7 @@ func _on_run_btn_pressed():
 		map.remove_fence()
 		da_loop_infinito = false # temos que sempre recarregar essa variavel
 		State.start_ballon(State.current_npc.dialogue_file, "falhou")
+		return
 	else:
 		disableBtns()
 		await map.build_fence(ini_cerca, fim_cerca, incremento)
