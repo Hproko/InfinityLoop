@@ -11,8 +11,8 @@ extends Control
 @onready var screen_size = get_viewport().size
 
 var tem_pt_e_virgula: String = ";"
-var valor_de_i : int = 0
 var incremento := -1
+var da_loop_infinito := false
 
 func _ready():
 	add_items()
@@ -28,8 +28,7 @@ func add_items():
 	inc_opt_btn.add_item("i--;")
 	inc_opt_btn.add_item("i++;")
 
-func _on_option_button_item_selected(index):
-	valor_de_i = index
+
 
 func _on_close_btn_pressed():
 	await camera.reset_camera()
@@ -56,44 +55,54 @@ func _on_run_btn_pressed():
 		aviso.text = "Esse código causa loop infinito por conta do ';' \
 					ao final do comando while, tome cuidado!"
 		aviso.show()
-		#return
+		da_loop_infinito = true
+		return
 		
 	if tem_pt_e_virgula == "<": 
 		aviso.text = "Esse código causa loop infinito, já que a condição \
 					1 < 10 sempre é verdadeira"
 		aviso.show()
+		da_loop_infinito = true
 		#return
 		
 	if tem_pt_e_virgula == "=": 
 		aviso.text = "Esse código causa loop infinito, pois i = 8 \
 					é uma atribuição, e não um comparador de igualdade (==)"
 		aviso.show()
+		da_loop_infinito = true
 		#return
 		
 	var ini_cerca = 2
 	var fim_cerca = 7
 		
-	# Para simular loop infinito
-	if ((tem_pt_e_virgula == "=") or (tem_pt_e_virgula == ";") or (tem_pt_e_virgula == "<")):
-		disableBtns()
-		await map.build_fence_loop()
-		enableBtns()
-		State.start_ballon(State.current_npc.dialogue_file, "falhou")
-		return
+	## Para simular loop infinito
+	#if ((tem_pt_e_virgula == "=") or (tem_pt_e_virgula == ";") or (tem_pt_e_virgula == "<")):
+		#disableBtns()
+		#await map.build_fence_loop()
+		#enableBtns()
+		#State.start_ballon(State.current_npc.dialogue_file, "falhou")
+		#return
 		
 	# Para simular loop infinito
-	if incremento == -1:
+	if incremento == -1 and da_loop_infinito:
 		aviso.text = "Esse código causa loop infinito por conta \
 		do decremento da variável i, tome cuidado!"
 		aviso.show()
 		fim_cerca = -12
+
+	if incremento == 1 and da_loop_infinito:
+		aviso.text = "Esse código causa loop infinito por conta \
+		do incremento da variável i, tome cuidado!"
+		aviso.show()
+		fim_cerca = 15
 		
-	# Se o player selecionou i--; está errado 
-	if incremento != 1:
+	# Se da loop infinito está errado 
+	if da_loop_infinito:
 		disableBtns()
 		await map.build_fence(ini_cerca, fim_cerca, incremento)
 		enableBtns()
 		map.remove_fence()
+		da_loop_infinito = false # temos que sempre recarregar essa variavel
 		State.start_ballon(State.current_npc.dialogue_file, "falhou")
 	else:
 		disableBtns()

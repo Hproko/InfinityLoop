@@ -106,8 +106,9 @@ func restore_bridge():
 		erase_cell(layer, pos_map2)
 		erase_cell(layer, pos_map3)
 
-
-
+#
+##############################################################################
+#
 func build_fence(fence_start : int, fence_end : int, incremento : int):
 	
 	const fence_start_coord1 = Vector2i(100, 29)
@@ -119,10 +120,10 @@ func build_fence(fence_start : int, fence_end : int, incremento : int):
 	
 	for i in range(fence_start, fence_end, incremento):
 		
-		if i == -14:
+		if i == -14 or i == 14:
 			break
 			
-		if i < 2:
+		if i < 2 or i > 6:
 			set_layer_modulate(layer_sobreterreno2, Color.RED)
 			layer = layer_sobreterreno2
 		else:
@@ -135,7 +136,9 @@ func build_fence(fence_start : int, fence_end : int, incremento : int):
 		set_cell(layer, map_fence_pos2, 0, atlas_coord_fence2)
 
 		await get_tree().create_timer(0.5).timeout
-		
+
+
+#####################################################################################
 func build_fence_loop():
 	
 	const fence_start_coord1 = Vector2i(100, 29)
@@ -149,19 +152,30 @@ func build_fence_loop():
 	for i in range(2, 15):
 		var map_fence_pos1 = Vector2i(fence_start_coord1.x + i, fence_start_coord1.y)
 		var map_fence_pos2 = Vector2i(fence_start_coord2.x + i, fence_start_coord2.y)
-
+		
+		if i <= 5:
+			layer = layer_sobreterreno
+		else:
+			layer_sobreterreno2
+			
 		set_cell(layer, map_fence_pos1, 0, atlas_coord_fence1)
 		set_cell(layer, map_fence_pos2, 0, atlas_coord_fence2)
 
 		await get_tree().create_timer(0.5).timeout
 	
-	set_layer_modulate(layer_sobreterreno2, Color.WHITE)
+	set_layer_modulate(layer, Color.WHITE)
 	
-	for i in range(2, 15):	
+	for i in range(2, 15):
 		var pos1 = Vector2i(fence_start_coord1.x + i, fence_start_coord1.y)
 		var pos2 = Vector2i(fence_start_coord2.x + i, fence_start_coord2.y)
-		erase_cell(layer_sobreterreno2, pos1)
-		erase_cell(layer_sobreterreno2, pos2)
+		
+		if i <= 5:
+			layer = layer_sobreterreno
+		else:
+			layer_sobreterreno2
+			
+		erase_cell(layer, pos1)
+		erase_cell(layer, pos2)
 	
 func open_gate():
 	
@@ -199,17 +213,18 @@ func remove_fence():
 	var fence_start_coord1 = Vector2i(100, 29)
 	var fence_start_coord2 = Vector2i(100, 30)
 	
-	for i in range(-12, 10):
+	for i in range(-12, 15):
 		
-		if i < 2:
+		if i < 2 or i > 6:
 			layer = layer_sobreterreno2
 		else:
+			print(i)
 			layer = layer_sobreterreno
 			
 		var pos1 = Vector2i(fence_start_coord1.x + i, fence_start_coord1.y)
 		var pos2 = Vector2i(fence_start_coord2.x + i, fence_start_coord2.y)
-		erase_cell(layer_sobreterreno2, pos1)
-		erase_cell(layer_sobreterreno2, pos2)
+		erase_cell(layer, pos1)
+		erase_cell(layer, pos2)
 		
 func build_forest():
 	const tree_start_coord1 = Vector2i(108, 2)
