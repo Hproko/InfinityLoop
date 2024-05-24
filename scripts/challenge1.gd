@@ -75,31 +75,16 @@ func _on_run_btn_pressed():
 	var ini_cerca = 2
 	var fim_cerca = 7
 		
-	## Para simular loop infinito
-	#if ((tem_pt_e_virgula == "=") or (tem_pt_e_virgula == ";") or (tem_pt_e_virgula == "<")):
-		#disableBtns()
-		#await map.build_fence_loop()
-		#enableBtns()
-		#State.start_ballon(State.current_npc.dialogue_file, "falhou")
-		#return
-	
-	# Para simular loop infinito
-	if incremento == -1 and da_loop_infinito:
-		aviso.text = "Esse código causa loop infinito por conta \
-		do decremento da variável i, tome cuidado!"
-		aviso.show()
-		fim_cerca = -12
-
+		
 	if incremento == 1 and da_loop_infinito:
-		aviso.text = "Esse código causa loop infinito por conta \
-		do incremento da variável i, tome cuidado!"
 		aviso.show()
 		fim_cerca = 15
 		
 	if incremento == -1:
-		aviso.text = "Esse código causa loop infinito por conta \
-		do decremento da variável i, tome cuidado!"
-		aviso.show()
+		if tem_pt_e_virgula == "":
+			aviso.text = "Esse código causa loop infinito por conta \
+					do decremento da variável i, tome cuidado!"
+			aviso.show()
 		fim_cerca = -12	
 		da_loop_infinito = true
 		
