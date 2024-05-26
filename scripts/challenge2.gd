@@ -70,7 +70,12 @@ func _on_run_btn_pressed():
 					return
 		"<=":
 			match condicao_if:
-				"==":
+				"!=":
+					aviso.text = "Com estas condições as árvores são plantadas nos índices ímpares!"
+					await map.build_forest(4, true)
+					await map.remove_forest(4, true)
+					return
+				"==", "<=":
 					await map.build_forest(4, false)
 					await map.remove_obstaculo_npc()
 					hide()
@@ -79,6 +84,13 @@ func _on_run_btn_pressed():
 					State.start_ballon(State.current_npc.dialogue_file, "sucesso")
 					State.finaliza_interacao()
 					State.current_npc.ponto_excl.hide()
+				">=":
+					aviso.text = "Com estas condições as árvores são plantadas em todos os índices"
+					await map.build_forest_seq()
+					return
+				"<":
+					aviso.text = "Com estas condições nenhuma árvore é plantada!"
+					return
 	
 	#if condicao_for == "<=" and condicao_if == "==":
 		#await map.build_forest(4)
