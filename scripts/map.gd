@@ -315,7 +315,7 @@ func remove_obstaculo_npc():
 	set_cell(layer, Vector2i(113, 0), 0, atlas_coord_sand)
 	set_cell(layer, Vector2i(113, 1), 0, atlas_coord_sand)
 	
-func build_forest_seq():
+func build_forest_seq(tam_loop : int):
 	var tree_start_coord1
 	var tree_start_coord2
 	var tree_start_coord3
@@ -331,7 +331,7 @@ func build_forest_seq():
 	
 	var layer = layer_sobreterreno
 	
-	for i in range (0, 7):
+	for i in range (0, tam_loop):
 		var pos_tree_map1 = Vector2i(tree_start_coord1.x , tree_start_coord1.y + 3*i)
 		var pos_tree_map2 = Vector2i(tree_start_coord2.x , tree_start_coord2.y + 3*i)
 		var pos_tree_map3 = Vector2i(tree_start_coord3.x , tree_start_coord3.y + 3*i)
@@ -348,7 +348,7 @@ func build_forest_seq():
 	
 		await get_tree().create_timer(0.5).timeout
 		
-	for i in range (0, 7):
+	for i in range (0, tam_loop):
 		var pos_tree_map1 = Vector2i(tree_start_coord1.x , tree_start_coord1.y + 3*i)
 		var pos_tree_map2 = Vector2i(tree_start_coord2.x , tree_start_coord2.y + 3*i)
 		var pos_tree_map3 = Vector2i(tree_start_coord3.x , tree_start_coord3.y + 3*i)

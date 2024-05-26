@@ -66,7 +66,7 @@ func _on_run_btn_pressed():
 					return
 				">=":
 					aviso.text = "Com estas condições as árvores são plantadas em todos os índices"
-					await map.build_forest_seq()
+					await map.build_forest_seq(7)
 					return
 		"<=":
 			match condicao_if:
@@ -86,11 +86,50 @@ func _on_run_btn_pressed():
 					State.current_npc.ponto_excl.hide()
 				">=":
 					aviso.text = "Com estas condições as árvores são plantadas em todos os índices"
-					await map.build_forest_seq()
+					await map.build_forest_seq(7)
 					return
 				"<":
 					aviso.text = "Com estas condições nenhuma árvore é plantada!"
 					return
+		"<-1":
+			match condicao_if:
+				"==", "<=":
+					aviso.text = "Com estas condições apenas 3 árvores são plantadas"
+					await map.build_forest(3, false)
+					await map.remove_forest(3, false)
+					return
+				"!=":
+					aviso.text = "Com estas condições as árvores são plantadas nos índices ímpares!"
+					await map.build_forest(3, true)
+					await map.remove_forest(3, true)
+					return
+				">=":
+					aviso.text = "Com estas condições as árvores são plantadas em todos os índices"
+					await map.build_forest_seq(6)
+					return
+				"<":
+					aviso.text = "Com estas condições nenhuma árvore é plantada!"
+					return
+		"<=-1":
+			match condicao_if:
+				"==", "<=":
+					aviso.text = "Com estas condições apenas 3 árvores são plantadas"
+					await map.build_forest(3, false)
+					await map.remove_forest(3, false)
+					return
+				"!=":
+					aviso.text = "Com estas condições as árvores são plantadas nos índices ímpares!"
+					await map.build_forest(4, true)
+					await map.remove_forest(4, true)
+					return
+				">=":
+					aviso.text = "Com estas condições as árvores são plantadas em todos os índices"
+					await map.build_forest_seq(7)
+					return
+				"<":
+					aviso.text = "Com estas condições nenhuma árvore é plantada!"
+					return
+				
 	
 	#if condicao_for == "<=" and condicao_if == "==":
 		#await map.build_forest(4)
