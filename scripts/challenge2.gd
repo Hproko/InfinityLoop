@@ -24,15 +24,16 @@ var valor_de_i : int = -1
 var posicao_final : int = 0
 
 func add_items():
-	for_option_button.add_item("i <= TAM_JARDIM")
 	for_option_button.add_item("i < TAM_JARDIM")
-	for_option_button.add_item("i >= TAM_JARDIM")
-	for_option_button.add_item("i > TAM_JARDIM")
+	for_option_button.add_item("i <= TAM_JARDIM")
+	for_option_button.add_item("i < (TAM_JARDIM - 1)")
+	for_option_button.add_item("i <= (TAM_JARDIM - 1)")
 	
-	if_opt_btn.add_item(">")
+	if_opt_btn.add_item(">=")
 	if_opt_btn.add_item("<")
 	if_opt_btn.add_item("==")
 	if_opt_btn.add_item("!=")
+	if_opt_btn.add_item("<=")
 
 
 func _on_option_button_item_selected(index):
@@ -46,8 +47,8 @@ func _on_close_btn_pressed():
 	
 func _on_run_btn_pressed():
 	
-	if condicao_for == "<" and condicao_if == "==":
-		await map.build_forest()
+	if condicao_for == "<=" and condicao_if == "==":
+		await map.build_forest(4)
 		hide()
 		State.current_npc.challenge_passed = true
 		await camera.reset_camera()
@@ -90,9 +91,9 @@ func _on_run_btn_pressed():
 
 func _on_for_option_item_selected(index):
 	if index == 0:
-		condicao_for = "<="
-	elif index == 1:
 		condicao_for = "<"
+	elif index == 1:
+		condicao_for = "<="
 	elif index == 2:
 		condicao_for = ">="
 	elif index == 3:
@@ -101,12 +102,14 @@ func _on_for_option_item_selected(index):
 
 func _on_if_option_item_selected(index):
 	if index == 0:
-		condicao_if = ">"
+		condicao_if = ">="
 	elif index == 1:
 		condicao_if = "<"
 	elif index == 2:
 		condicao_if = "=="	
 	elif index == 3:
 		condicao_if = "!="	
+	elif index == 4:
+		condicao_if = "<="	
 	
 		

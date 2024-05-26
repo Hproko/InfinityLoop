@@ -226,7 +226,7 @@ func remove_fence():
 		erase_cell(layer, pos1)
 		erase_cell(layer, pos2)
 		
-func build_forest():
+func build_forest(tam_loop : int):
 	const tree_start_coord1 = Vector2i(108, 2)
 	const tree_start_coord2 = Vector2i(108, 3)
 	const tree_start_coord3 = Vector2i(108, 4)
@@ -236,7 +236,7 @@ func build_forest():
 	var layer = layer_sobreterreno
 	var layer_aux = 3
 	
-	for i in range (0, 4):
+	for i in range (0, tam_loop):
 		var pos_tree_map1 = Vector2i(tree_start_coord1.x , tree_start_coord1.y + 5*i)
 		var pos_tree_map2 = Vector2i(tree_start_coord2.x , tree_start_coord2.y + 5*i)
 		var pos_tree_map3 = Vector2i(tree_start_coord3.x , tree_start_coord3.y + 5*i)
