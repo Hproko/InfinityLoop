@@ -143,10 +143,10 @@ func _on_run_btn_pressed():
 	#else:
 		#aviso.text = "n deu boa tenta +"
 		#return
-	await camera.reset_camera()
-	State.finaliza_interacao()
-	State.current_npc.ponto_excl.hide()
-	queue_free()
+	#await camera.reset_camera()
+	#State.finaliza_interacao()
+	#State.current_npc.ponto_excl.hide()
+	#queue_free()
 	#if condicao_for == ">" or condicao_for == "=":
 		#aviso.text = "Esse código nunca é executado devido as condições, tome cuidado!"
 		#return
