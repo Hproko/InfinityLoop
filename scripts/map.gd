@@ -375,7 +375,5 @@ func build_forest_seq(tam_loop : int):
 
 			set_cell(layer, map_fence_pos1, 0, atlas_coord_fence1)
 			set_cell(layer, map_fence_pos2, 0, atlas_coord_fence2)
-
-			await get_tree().create_timer(0.5).timeout
 	
 
