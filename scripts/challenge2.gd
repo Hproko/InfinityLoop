@@ -54,7 +54,7 @@ func _on_run_btn_pressed():
 				"<":
 					aviso.text = "Com estas condições nenhuma árvore é plantada!"
 					return
-				"==":
+				"==", "<=":
 					aviso.text = "Com estas condições apenas 3 árvores são plantadas"
 					await map.build_forest(3, false)
 					await map.remove_forest(3, false)
@@ -63,6 +63,10 @@ func _on_run_btn_pressed():
 					aviso.text = "Com estas condições as árvores são plantadas nos índices ímpares!"
 					await map.build_forest(4, true)
 					await map.remove_forest(4, true)
+					return
+				">=":
+					aviso.text = "Com estas condições as árvores são plantadas em todos os índices"
+					await map.build_forest_seq()
 					return
 		"<=":
 			match condicao_if:
