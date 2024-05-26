@@ -84,6 +84,7 @@ func _on_run_btn_pressed():
 					State.start_ballon(State.current_npc.dialogue_file, "sucesso")
 					State.finaliza_interacao()
 					State.current_npc.ponto_excl.hide()
+					queue_free()
 				">=":
 					aviso.text = "Com estas condições as árvores são plantadas em todos os índices"
 					await map.build_forest_seq(8) #8
