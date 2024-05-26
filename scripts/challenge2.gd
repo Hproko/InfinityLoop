@@ -86,7 +86,7 @@ func _on_run_btn_pressed():
 					State.current_npc.ponto_excl.hide()
 				">=":
 					aviso.text = "Com estas condições as árvores são plantadas em todos os índices"
-					await map.build_forest_seq(7)
+					await map.build_forest_seq(8) #8
 					return
 				"<":
 					aviso.text = "Com estas condições nenhuma árvore é plantada!"

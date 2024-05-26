@@ -363,4 +363,19 @@ func build_forest_seq(tam_loop : int):
 		erase_cell(layer, pos_tree_map5)
 		erase_cell(layer, pos_tree_map6)
 	
+	if tam_loop == 8:
+		const fence_start_coord1 = Vector2i(107, 24)
+		const fence_start_coord2 = Vector2i(108, 25)
+		const fence_end_coor1 = Vector2i(108, 29)
+		const fence_end_coor2 = Vector2i(108, 30)
+		
+		for i in range(0, 3):
+			var map_fence_pos1 = Vector2i(fence_start_coord1.x + i, fence_start_coord1.y)
+			var map_fence_pos2 = Vector2i(fence_start_coord2.x + i, fence_start_coord2.y)
+
+			set_cell(layer, map_fence_pos1, 0, atlas_coord_fence1)
+			set_cell(layer, map_fence_pos2, 0, atlas_coord_fence2)
+
+			await get_tree().create_timer(0.5).timeout
+	
 
