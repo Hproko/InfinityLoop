@@ -226,15 +226,29 @@ func remove_fence():
 		erase_cell(layer, pos1)
 		erase_cell(layer, pos2)
 		
-func build_forest(tam_loop : int):
-	const tree_start_coord1 = Vector2i(108, 2)
-	const tree_start_coord2 = Vector2i(108, 3)
-	const tree_start_coord3 = Vector2i(108, 4)
-	const tree_end_coor1 = Vector2i(109, 2)
-	const tree_end_coor2 = Vector2i(109, 3)
-	const tree_end_coor3 = Vector2i(109, 4)
+func build_forest(tam_loop : int, eh_impar : bool):
+	var tree_start_coord1
+	var tree_start_coord2
+	var tree_start_coord3
+	var tree_end_coor1
+	var tree_end_coor2
+	var tree_end_coor3
+	if !eh_impar:
+		tree_start_coord1 = Vector2i(108, 2)
+		tree_start_coord2 = Vector2i(108, 3)
+		tree_start_coord3 = Vector2i(108, 4)
+		tree_end_coor1 = Vector2i(109, 2)
+		tree_end_coor2 = Vector2i(109, 3)
+		tree_end_coor3 = Vector2i(109, 4)
+	else:
+		tree_start_coord1 = Vector2i(108, 5)
+		tree_start_coord2 = Vector2i(108, 6)
+		tree_start_coord3 = Vector2i(108, 7)
+		tree_end_coor1 = Vector2i(109, 5)
+		tree_end_coor2 = Vector2i(109, 6)
+		tree_end_coor3 = Vector2i(109, 7)
+	
 	var layer = layer_sobreterreno
-	var layer_aux = 3
 	
 	for i in range (0, tam_loop):
 		var pos_tree_map1 = Vector2i(tree_start_coord1.x , tree_start_coord1.y + 5*i)
@@ -252,6 +266,47 @@ func build_forest(tam_loop : int):
 		set_cell(layer, pos_tree_map6, 0, atlas_coord_tree6)
 	
 		await get_tree().create_timer(0.5).timeout
+		
+func remove_forest(tam_loop : int, eh_impar : bool):
+	var tree_start_coord1
+	var tree_start_coord2
+	var tree_start_coord3
+	var tree_end_coor1
+	var tree_end_coor2
+	var tree_end_coor3
+	if !eh_impar:
+		tree_start_coord1 = Vector2i(108, 2)
+		tree_start_coord2 = Vector2i(108, 3)
+		tree_start_coord3 = Vector2i(108, 4)
+		tree_end_coor1 = Vector2i(109, 2)
+		tree_end_coor2 = Vector2i(109, 3)
+		tree_end_coor3 = Vector2i(109, 4)
+	else:
+		tree_start_coord1 = Vector2i(108, 5)
+		tree_start_coord2 = Vector2i(108, 6)
+		tree_start_coord3 = Vector2i(108, 7)
+		tree_end_coor1 = Vector2i(109, 5)
+		tree_end_coor2 = Vector2i(109, 6)
+		tree_end_coor3 = Vector2i(109, 7)
+	var layer = layer_sobreterreno
+	
+	for i in range (0, tam_loop):
+		var pos_tree_map1 = Vector2i(tree_start_coord1.x , tree_start_coord1.y + 5*i)
+		var pos_tree_map2 = Vector2i(tree_start_coord2.x , tree_start_coord2.y + 5*i)
+		var pos_tree_map3 = Vector2i(tree_start_coord3.x , tree_start_coord3.y + 5*i)
+		var pos_tree_map4 = Vector2i(tree_end_coor1.x, tree_end_coor1.y + 5*i)
+		var pos_tree_map5 = Vector2i(tree_end_coor2.x , tree_end_coor2.y + 5*i)
+		var pos_tree_map6 = Vector2i(tree_end_coor3.x , tree_end_coor3.y + 5*i)	
+		
+		erase_cell(layer, pos_tree_map1)
+		erase_cell(layer, pos_tree_map2)
+		erase_cell(layer, pos_tree_map3)
+		erase_cell(layer, pos_tree_map4)
+		erase_cell(layer, pos_tree_map5)
+		erase_cell(layer, pos_tree_map6)
+	
+func remove_obstaculo_npc():
+	var layer = layer_sobreterreno
 	
 	set_cell(layer, Vector2i(112, -1), 0, atlas_coord_sand)
 	set_cell(layer, Vector2i(112, 0), 0, atlas_coord_sand)
@@ -259,4 +314,5 @@ func build_forest(tam_loop : int):
 	set_cell(layer, Vector2i(113, -1), 0, atlas_coord_sand)
 	set_cell(layer, Vector2i(113, 0), 0, atlas_coord_sand)
 	set_cell(layer, Vector2i(113, 1), 0, atlas_coord_sand)
+	
 
