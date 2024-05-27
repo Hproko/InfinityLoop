@@ -1,7 +1,8 @@
 ~ start
 Lenhadora: [[Oi|Olá]]... sou a lenhadora da região, precisava plantar umas árvores para completar o caminho, consegue me ajudar?
 - Sim. 
-	Lenhadora: Preciso plantar 4 árvores em sequência, de maneira que tenha um certo espaço entre elas.
+	Lenhadora: Preciso plantar 4 árvores em sequência, de maneira que apenas sejam plantadas árvores nas posições pares, ou seja, 2, 4, 6 e 8.
+	Lenhadora: Dessa forma, as árvores à esquerda ficarão na mesma posição das árvores à direita, completando a floresta.
 	do State.load_challenge()
 - Não.  
 	do State.finaliza_interacao()
