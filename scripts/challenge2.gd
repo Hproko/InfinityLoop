@@ -76,6 +76,7 @@ func _on_run_btn_pressed():
 					await map.remove_forest(4, true)
 					return
 				"==", "<=":
+					aviso.text = "Parabéns, você completou o desafio!"
 					await map.build_forest(4, false)
 					await map.remove_obstaculo_npc()
 					hide()

@@ -248,7 +248,12 @@ func build_forest(tam_loop : int, eh_impar : bool):
 		tree_end_coor2 = Vector2i(109, 6)
 		tree_end_coor3 = Vector2i(109, 7)
 	
-	var layer = layer_sobreterreno
+	var layer = layer_sobreterreno2
+	
+	if (tam_loop != 4 or eh_impar):
+		set_layer_modulate(layer_sobreterreno2, Color.RED)
+	else:
+		set_layer_modulate(layer_sobreterreno2, Color.WHITE)
 	
 	for i in range (0, tam_loop):
 		var pos_tree_map1 = Vector2i(tree_start_coord1.x , tree_start_coord1.y + 5*i)
@@ -267,6 +272,8 @@ func build_forest(tam_loop : int, eh_impar : bool):
 	
 		await get_tree().create_timer(0.5).timeout
 		
+	await get_tree().create_timer(2).timeout
+		
 func remove_forest(tam_loop : int, eh_impar : bool):
 	var tree_start_coord1
 	var tree_start_coord2
@@ -274,6 +281,7 @@ func remove_forest(tam_loop : int, eh_impar : bool):
 	var tree_end_coor1
 	var tree_end_coor2
 	var tree_end_coor3
+	set_layer_modulate(layer_sobreterreno2, Color.WHITE)
 	if !eh_impar:
 		tree_start_coord1 = Vector2i(108, 2)
 		tree_start_coord2 = Vector2i(108, 3)
@@ -288,7 +296,7 @@ func remove_forest(tam_loop : int, eh_impar : bool):
 		tree_end_coor1 = Vector2i(109, 5)
 		tree_end_coor2 = Vector2i(109, 6)
 		tree_end_coor3 = Vector2i(109, 7)
-	var layer = layer_sobreterreno
+	var layer = layer_sobreterreno2
 	
 	for i in range (0, tam_loop):
 		var pos_tree_map1 = Vector2i(tree_start_coord1.x , tree_start_coord1.y + 5*i)
@@ -329,7 +337,9 @@ func build_forest_seq(tam_loop : int):
 	tree_end_coor2 = Vector2i(109, 3)
 	tree_end_coor3 = Vector2i(109, 4)
 	
-	var layer = layer_sobreterreno
+	var layer = layer_sobreterreno2
+	
+	set_layer_modulate(layer_sobreterreno2, Color.RED)
 	
 	for i in range (0, tam_loop):
 		var pos_tree_map1 = Vector2i(tree_start_coord1.x , tree_start_coord1.y + 3*i)
@@ -348,6 +358,10 @@ func build_forest_seq(tam_loop : int):
 	
 		await get_tree().create_timer(0.5).timeout
 		
+	await get_tree().create_timer(2).timeout	
+	set_layer_modulate(layer_sobreterreno2, Color.WHITE)
+	set_layer_modulate(layer_sobreterreno, Color.WHITE)
+	
 	for i in range (0, tam_loop):
 		var pos_tree_map1 = Vector2i(tree_start_coord1.x , tree_start_coord1.y + 3*i)
 		var pos_tree_map2 = Vector2i(tree_start_coord2.x , tree_start_coord2.y + 3*i)
@@ -373,7 +387,9 @@ func build_forest_seq(tam_loop : int):
 			var map_fence_pos1 = Vector2i(fence_start_coord1.x + i, fence_start_coord1.y)
 			var map_fence_pos2 = Vector2i(fence_start_coord2.x + i, fence_start_coord2.y)
 
-			set_cell(layer, map_fence_pos1, 0, atlas_coord_fence1)
-			set_cell(layer, map_fence_pos2, 0, atlas_coord_fence2)
+			set_cell(layer_sobreterreno, map_fence_pos1, 0, atlas_coord_fence1)
+			set_cell(layer_sobreterreno, map_fence_pos2, 0, atlas_coord_fence2)
+			
+	await get_tree().create_timer(2).timeout
 	
 
