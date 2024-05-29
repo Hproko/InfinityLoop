@@ -95,9 +95,11 @@ func _on_run_btn_pressed():
 		enableBtns()
 		map.remove_fence()
 		da_loop_infinito = false # temos que sempre recarregar essa variavel
-		State.start_ballon(State.current_npc.dialogue_file, "falhou")
 		return
 	else:
+		aviso.text = "Você conseguiu!"
+		aviso.show()
+		aviso.add_theme_color_override("font_color", Color.GREEN)
 		disableBtns()
 		await map.build_fence(ini_cerca, fim_cerca, incremento)
 		enableBtns()

@@ -55,6 +55,14 @@ func _on_run_btn_pressed():
 	
 	aviso.hide()
 	
+		
+	if posicao_final != bridge_size:
+		aviso.text = "Você tentou acessar a posição 7 do Vetor, isso causa memória corrompida e aborta o programa!"
+		aviso.show()
+	
+	if valor_de_i == -1:
+		aviso.text = "Você tentou acessar a posição -1 do Vetor, isso causa memória corrompida e aborta o programa!"
+		aviso.show()
 	
 	if (valor_de_i != 0) or (posicao_final != bridge_size):
 		disableBtns()
@@ -62,6 +70,9 @@ func _on_run_btn_pressed():
 		enableBtns()
 		map.restore_bridge()
 	else:
+		aviso.text = "Você conseguiu!"
+		aviso.show()
+		aviso.add_theme_color_override("font_color", Color.GREEN)
 		await map.build_bridge(valor_de_i, posicao_final, true)
 		hide()
 		State.current_npc.challenge_passed = true

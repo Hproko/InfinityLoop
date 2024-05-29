@@ -26,7 +26,7 @@ const atlas_coord_tree6 = Vector2i(6, 11)
 
 const atlas_coord_sand = Vector2i(19,14)
 
-
+const TIMER = 2.0
 
 
 func build_bridge(ini_vetor : int, fim_vetor : int, acertou : bool):
@@ -68,7 +68,7 @@ func build_bridge(ini_vetor : int, fim_vetor : int, acertou : bool):
 		
 		# Se colocar posição inválida do vetor então espera um pouco mais
 		if i < 0 or i == 7:
-			await get_tree().create_timer(1.5).timeout
+			await get_tree().create_timer(TIMER).timeout
 			return
 			
 		await get_tree().create_timer(0.5).timeout
@@ -136,6 +136,8 @@ func build_fence(fence_start : int, fence_end : int, incremento : int):
 		set_cell(layer, map_fence_pos2, 0, atlas_coord_fence2)
 
 		await get_tree().create_timer(0.5).timeout
+		
+	await get_tree().create_timer(TIMER).timeout
 
 
 #####################################################################################
@@ -272,7 +274,7 @@ func build_forest(tam_loop : int, eh_impar : bool):
 	
 		await get_tree().create_timer(0.5).timeout
 		
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(TIMER).timeout
 		
 func remove_forest(tam_loop : int, eh_impar : bool):
 	var tree_start_coord1
@@ -390,6 +392,6 @@ func build_forest_seq(tam_loop : int):
 			set_cell(layer_sobreterreno, map_fence_pos1, 0, atlas_coord_fence1)
 			set_cell(layer_sobreterreno, map_fence_pos2, 0, atlas_coord_fence2)
 			
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(TIMER).timeout
 	
 
