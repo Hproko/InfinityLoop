@@ -77,6 +77,7 @@ func _on_run_btn_pressed():
 					return
 				"==", "<=":
 					aviso.text = "Parabéns, você completou o desafio!"
+					aviso.add_theme_color_override("font_color", Color.GREEN)
 					await map.build_forest(4, false)
 					await map.remove_obstaculo_npc()
 					hide()
