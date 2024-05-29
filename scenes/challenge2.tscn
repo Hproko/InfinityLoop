@@ -76,10 +76,11 @@ theme = SubResource("Theme_uojsw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CodeEdit"]
 layout_mode = 0
-offset_left = 28.0
-offset_top = 223.0
-offset_right = 528.0
-offset_bottom = 646.0
+offset_left = 15.0
+offset_top = 303.0
+offset_right = 515.0
+offset_bottom = 570.0
+theme_override_constants/separation = 10
 metadata/_edit_lock_ = true
 
 [node name="Aviso" type="Label" parent="ColorRect/CodeEdit/VBoxContainer"]
@@ -102,13 +103,11 @@ text = "Run Code"
 metadata/_edit_lock_ = true
 
 [node name="CloseBtn" type="Button" parent="ColorRect/CodeEdit/VBoxContainer/Btns"]
-unique_name_in_owner = true
 layout_mode = 2
 text = "Close"
 metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="ColorRect/CodeEdit/VBoxContainer"]
-custom_minimum_size = Vector2(500, 324)
 layout_mode = 2
 text = "
 

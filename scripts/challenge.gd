@@ -55,20 +55,12 @@ func _on_run_btn_pressed():
 	
 	aviso.hide()
 	
-	var resposta_npc
-	
-	if posicao_final > bridge_size:
-		resposta_npc = "posicao_errada2"
-		
-	if valor_de_i == -1:
-		resposta_npc = "posicao_errada1"
 	
 	if (valor_de_i != 0) or (posicao_final != bridge_size):
 		disableBtns()
 		await map.build_bridge(valor_de_i, posicao_final, false)
 		enableBtns()
 		map.restore_bridge()
-		State.start_ballon(State.current_npc.dialogue_file, resposta_npc)
 	else:
 		await map.build_bridge(valor_de_i, posicao_final, true)
 		hide()
