@@ -1,7 +1,7 @@
 extends Control
 
-@onready var while_option_button = $'ColorRect/CodeEdit/WhileOption'
-@onready var while_option_button2 = $'ColorRect/CodeEdit/WhileOption2'
+@onready var while_option_button = $'ColorRect/CodeEdit/VBoxContainer2/WhileOption'
+@onready var while_option_button2 = $'ColorRect/CodeEdit/VBoxContainer2/WhileOption2'
 @onready var run_btn = %RunBtn
 @onready var close_btn = %CloseBtn
 @onready var code_edit = %CodeEdit

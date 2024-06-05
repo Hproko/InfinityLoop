@@ -59,20 +59,20 @@ editable = false
 gutters_draw_line_numbers = true
 metadata/_edit_lock_ = true
 
-[node name="WhileOption" type="OptionButton" parent="ColorRect/CodeEdit"]
-layout_mode = 0
-offset_left = 319.0
-offset_top = 134.0
-offset_right = 353.0
-offset_bottom = 156.0
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/CodeEdit"]
+layout_mode = 1
+offset_left = 317.0
+offset_top = 129.0
+offset_right = 351.0
+offset_bottom = 169.0
+alignment = 1
+
+[node name="WhileOption2" type="OptionButton" parent="ColorRect/CodeEdit/VBoxContainer2"]
+layout_mode = 2
 theme = SubResource("Theme_4jeqb")
 
-[node name="WhileOption2" type="OptionButton" parent="ColorRect/CodeEdit"]
-layout_mode = 0
-offset_left = 320.0
-offset_top = 164.0
-offset_right = 354.0
-offset_bottom = 186.0
+[node name="WhileOption" type="OptionButton" parent="ColorRect/CodeEdit/VBoxContainer2"]
+layout_mode = 2
 theme = SubResource("Theme_4jeqb")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CodeEdit"]
@@ -130,8 +130,8 @@ x
 autowrap_mode = 3
 metadata/_edit_lock_ = true
 
-[connection signal="item_selected" from="ColorRect/CodeEdit/WhileOption" to="." method="_on_while_option_item_selected"]
-[connection signal="item_selected" from="ColorRect/CodeEdit/WhileOption2" to="." method="_on_while_option_item_selected"]
-[connection signal="item_selected" from="ColorRect/CodeEdit/WhileOption2" to="." method="_on_while_option_2_item_selected"]
+[connection signal="item_selected" from="ColorRect/CodeEdit/VBoxContainer2/WhileOption2" to="." method="_on_while_option_item_selected"]
+[connection signal="item_selected" from="ColorRect/CodeEdit/VBoxContainer2/WhileOption2" to="." method="_on_while_option_2_item_selected"]
+[connection signal="item_selected" from="ColorRect/CodeEdit/VBoxContainer2/WhileOption" to="." method="_on_while_option_item_selected"]
 [connection signal="pressed" from="ColorRect/CodeEdit/VBoxContainer/Btns/RunBtn" to="." method="_on_run_btn_pressed"]
 [connection signal="pressed" from="ColorRect/CodeEdit/VBoxContainer/Btns/CloseBtn" to="." method="_on_close_btn_pressed"]
