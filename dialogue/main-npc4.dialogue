@@ -1,0 +1,35 @@
+~ start
+Fazendeiro: [[Oi|Olá]]... teste
+- Sim. 
+	Fazendeiro: teste 2
+	do State.load_challenge()
+- Não.  
+	do State.finaliza_interacao()
+	=> END
+- Até mais...  
+	do State.finaliza_interacao()
+=> END
+
+~ finish
+
+Fazendeiro: enois
+
+do State.finaliza_interacao()
+
+=> END
+
+~ falhou
+
+Fazendeiro: nt
+
+
+=> END
+
+~ sucesso
+
+Fazendeiro: boa
+
+
+do State.finaliza_interacao()
+=> END
+

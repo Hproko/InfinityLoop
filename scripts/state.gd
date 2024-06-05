@@ -11,6 +11,7 @@ const Balloon = preload("res://dialogue/balloon.tscn")
 const challenge = preload("res://scenes/challenge.tscn")
 const challenge1 = preload("res://scenes/challenge1.tscn")
 const challenge2 = preload("res://scenes/challenge2.tscn")
+const challenge3 = preload("res://scenes/challenge3.tscn")
 
 func start_ballon(resource, node):
 	var balloon : Node = Balloon.instantiate()
@@ -31,6 +32,8 @@ func get_challenge(challenge_number):
 		return challenge1
 	elif challenge_number == 2:
 		return challenge2
+	elif challenge_number == 3:
+		return challenge3
 	
 func load_challenge():
 	var camera = get_tree().get_root().get_node("Main/Player/Camera")
