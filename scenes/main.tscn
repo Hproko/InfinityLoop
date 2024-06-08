@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bs3thqxsu0bem"]
+[gd_scene load_steps=18 format=3 uid="uid://bs3thqxsu0bem"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_fvhri"]
 [ext_resource type="PackedScene" uid="uid://bgtdbsncvcu12" path="res://scenes/map.tscn" id="2_6sxl1"]
@@ -28,6 +28,10 @@ region = Rect2(0.0329323, 118.778, 16.7574, 17.2362)
 atlas = ExtResource("8_dsa3v")
 region = Rect2(17.4572, 154.545, 16.0393, 15.7999)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hqo5"]
+atlas = ExtResource("8_dsa3v")
+region = Rect2(16.941, 171.888, 16, 14.6667)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_1hr4o"]
 atlas = ExtResource("8_dsa3v")
 region = Rect2(0.445215, 153, 15.5548, 16.993)
@@ -49,7 +53,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("3_22r5p")]
 unique_name_in_owner = true
-position = Vector2(1334, -93)
+position = Vector2(632, 284)
 
 [node name="Camera" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
@@ -102,6 +106,14 @@ challenge = 3
 position = Vector2(0.999954, -8.26563)
 scale = Vector2(1.68749, 1.76875)
 texture = SubResource("AtlasTexture_lw5vb")
+metadata/_edit_lock_ = true
+
+[node name="NPC5" parent="." instance=ExtResource("6_yal30")]
+position = Vector2(462, 281)
+
+[node name="Sprite2D" type="Sprite2D" parent="NPC5"]
+scale = Vector2(1.68376, 2.03763)
+texture = SubResource("AtlasTexture_4hqo5")
 metadata/_edit_lock_ = true
 
 [node name="NPC-Creditos" parent="." instance=ExtResource("6_yal30")]
