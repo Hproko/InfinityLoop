@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1c2cip44stsb"]
 
-[ext_resource type="Script" path="res://scenes/challenge3.gd" id="1_8yol5"]
+[ext_resource type="Script" path="res://scripts/challenge3.gd" id="1_fm64r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_63g50"]
 
@@ -17,7 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(2, -1)
-script = ExtResource("1_8yol5")
+script = ExtResource("1_fm64r")
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -41,18 +41,18 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "#include <stdio.h>
 int main(void)  {
-	int QTD_SEMENTES_MILHO = 6
-	int QTD_SEMENTES_TRIGO = 7
-	int TAM_PLANTACAO = 0
-	while (QTD_SEMENTES_MILHO > 0        
-                QTD_SEMENTES_TRIGO > 0
-                TAM_PLANTACAO < 10)
+	int qtde_sementes_milho = 6
+	int qtde_sementes_trigo = 7
+	int tam_plantacao = 0
+	while (qtde_sementes_milho > 0        
+                qtde_sementes_trigo > 0
+                tam_plantacao < 10)
 	{ 
 		plantarMilho();
     	plantarTrigo();
-    	QTD_SEMENTES_MILHO--;
-    	QTD_SEMENTES_TRIGO--;
-    	TAM_PLANTACAO += 2;
+    	qtde_sementes_milho--;
+    	qtde_sementes_trigo--;
+    	tam_plantacao += 2;
 	} 
 }"
 editable = false
