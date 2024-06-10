@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjk8iulp0ax2q"]
+
+[ext_resource type="Script" path="res://scripts/Control.gd" id="1_j3vuq"]
+
+[node name="MyOptBtn" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_j3vuq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PopupMenu" type="PopupMenu" parent="VBoxContainer"]
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="index_pressed" from="VBoxContainer/PopupMenu" to="." method="_on_popup_menu_index_pressed"]
