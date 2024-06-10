@@ -1,0 +1,17 @@
+~ start
+
+Jardineiro: [[Oi|Olá]]... sou o jardinheiro dessa ilha, preciso plantar flores para que meu jardim fique bonito, consegue me ajudar?
+- Sim.
+	Jardineiro: Preciso plantar as flores em forma de matriz, onde as flores da diagonal principal são brancas. As flores da parte superior são amarelas e da parte inferior vermelhas.
+	do State.load_challenge()
+- Não.
+	do State.finaliza_interacao()
+=> END
+
+~ sucesso
+
+Jardineiro: Esse jardim ficou perfeito! Muito obrigado pela ajuda!
+Jardineiro: Parabéns por finalizar sua jornada
+
+do State.finaliza_interacao()
+=> END
