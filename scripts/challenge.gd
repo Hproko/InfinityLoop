@@ -30,24 +30,20 @@ func add_items():
 	
 	
 
-func _on_option_button_item_selected(index):
-	valor_de_i = index - 1
-
-
 func _on_close_btn_pressed():
 	await camera.reset_camera()
 	State.finaliza_interacao()
 	queue_free()
 
 func disableBtns():
-	var_option_button.disabled = true
-	condition_opt_btn.disabled = true
+	var_option_button.disable()
+	condition_opt_btn.disable()
 	run_btn.disabled = true
 	close_btn.disabled = true
 	
 func enableBtns():
-	var_option_button.disabled = false
-	condition_opt_btn.disabled = false
+	var_option_button.enable()
+	condition_opt_btn.enable()
 	run_btn.disabled = false
 	close_btn.disabled = false
 	
@@ -82,16 +78,14 @@ func _on_run_btn_pressed():
 		State.current_npc.ponto_excl.hide()
 		queue_free()
 		
-	
 
 
-func _on_condit_opt_btn_item_selected(index):
-	
+func _on_var_opt_btn_option_selected(index):
+	valor_de_i = index - 1
+
+
+func _on_condit_opt_btn_option_selected(index):
 	if index == 0:
 		posicao_final = bridge_size + 1
 	else:
 		posicao_final = bridge_size
-
-
-
-

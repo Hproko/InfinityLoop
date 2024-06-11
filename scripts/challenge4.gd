@@ -45,20 +45,20 @@ func _on_close_btn_pressed():
 	queue_free()
 	
 func disableBtns():
-	outForOpt.disabled = true
-	inForOpt.disabled = true
-	fstIfOpt.disabled = true
-	scdIfOpt.disabled = true
-	thrdIfOpt.disabled = true
+	outForOpt.disable()
+	inForOpt.disable()
+	fstIfOpt.disable()
+	scdIfOpt.disable()
+	thrdIfOpt.disable()
 	run_btn.disabled = true
 	close_btn.disabled = true
 
 func enableBtns():
-	outForOpt.disabled = false
-	inForOpt.disabled = false
-	fstIfOpt.disabled = false
-	scdIfOpt.disabled = false
-	thrdIfOpt.disabled = false
+	outForOpt.enable()
+	inForOpt.enable()
+	fstIfOpt.enable()
+	scdIfOpt.enable()
+	thrdIfOpt.enable()
 	run_btn.disabled = false
 	close_btn.disabled = false
 	
@@ -93,10 +93,10 @@ func _on_run_btn_pressed():
 		
 
 	mostra_aviso("Você conseguiu", Color.GREEN)
-	#await camera.reset_camera()
-	#State.finaliza_interacao()
-	#State.current_npc.challenge_passed = true
-	#State.current_npc.ponto_excl.hide()
+	await camera.reset_camera()
+	State.finaliza_interacao()
+	State.current_npc.challenge_passed = true
+	State.current_npc.ponto_excl.hide()
 	queue_free()
 
 

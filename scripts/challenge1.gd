@@ -36,14 +36,14 @@ func _on_close_btn_pressed():
 	queue_free()
 	
 func disableBtns():
-	while_option_button.disabled = true
-	inc_opt_btn.disabled = true
+	while_option_button.disable()
+	inc_opt_btn.disable()
 	run_btn.disabled = true
 	close_btn.disabled = true
 
 func enableBtns():
-	while_option_button.disabled = false
-	inc_opt_btn.disabled = false
+	while_option_button.enable()
+	inc_opt_btn.enable()
 	run_btn.disabled = false
 	close_btn.disabled = false
 	
@@ -112,7 +112,16 @@ func _on_run_btn_pressed():
 		State.current_npc.ponto_excl.hide()
 		queue_free()	
 
-func _on_while_option_item_selected(index):
+
+func _on_inc_option_option_selected(index):
+	if index == 0:
+		incremento = -1
+	elif index == 1:
+		incremento = 1
+	pass # Replace with function body.
+
+
+func _on_while_option_option_selected(index):
 	if index == 0:
 		tem_pt_e_virgula = ";"
 	elif index == 1:
@@ -124,8 +133,3 @@ func _on_while_option_item_selected(index):
 	elif index == 4:
 		tem_pt_e_virgula = "="
 
-func _on_inc_option_item_selected(index):
-	if index == 0:
-		incremento = -1
-	elif index == 1:
-		incremento = 1
