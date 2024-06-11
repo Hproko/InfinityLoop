@@ -1,11 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1c2cip44stsb"]
+[gd_scene load_steps=3 format=3 uid="uid://b1c2cip44stsb"]
 
 [ext_resource type="Script" path="res://scripts/challenge3.gd" id="1_42rxh"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_63g50"]
-
-[sub_resource type="Theme" id="Theme_4jeqb"]
-OptionButton/icons/arrow = SubResource("AtlasTexture_63g50")
+[ext_resource type="PackedScene" uid="uid://cjk8iulp0ax2q" path="res://scenes/MyOptBtn.tscn" id="2_heiei"]
 
 [node name="Challenge" type="Control"]
 clip_contents = true
@@ -39,14 +35,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 10
 text = "#include <stdio.h>
 int main(void)  {
 	int qtde_sementes_milho = 6
 	int qtde_sementes_trigo = 7
 	int tam_plantacao = 0
-	while (qtde_sementes_milho > 0        
-                qtde_sementes_trigo > 0
-                tam_plantacao < 10)
+	while ((qtde_sementes_milho > 0)            (qtde_sementes_trigo > 0)            (tam_plantacao < 10))
 	{ 
 		plantarMilho();
     	plantarTrigo();
@@ -59,28 +54,36 @@ editable = false
 gutters_draw_line_numbers = true
 metadata/_edit_lock_ = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/CodeEdit"]
-layout_mode = 1
-offset_left = 317.0
-offset_top = 129.0
-offset_right = 351.0
-offset_bottom = 169.0
-alignment = 1
-
-[node name="WhileOption2" type="OptionButton" parent="ColorRect/CodeEdit/VBoxContainer2"]
+[node name="WhileOption" parent="ColorRect/CodeEdit" instance=ExtResource("2_heiei")]
+unique_name_in_owner = true
 layout_mode = 2
-theme = SubResource("Theme_4jeqb")
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 197.0
+offset_top = 91.0
+offset_right = 197.0
+offset_bottom = 91.0
+font_size = 10
 
-[node name="WhileOption" type="OptionButton" parent="ColorRect/CodeEdit/VBoxContainer2"]
+[node name="WhileOption2" parent="ColorRect/CodeEdit" instance=ExtResource("2_heiei")]
+unique_name_in_owner = true
 layout_mode = 2
-theme = SubResource("Theme_4jeqb")
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 352.0
+offset_top = 92.0
+offset_right = 352.0
+offset_bottom = 92.0
+font_size = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CodeEdit"]
 layout_mode = 0
-offset_left = 36.0
-offset_top = 438.0
-offset_right = 536.0
-offset_bottom = 863.0
+offset_left = 25.0
+offset_top = 301.0
+offset_right = 525.0
+offset_bottom = 726.0
 theme_override_constants/separation = 10
 
 [node name="ColorRect" type="ColorRect" parent="ColorRect/CodeEdit/VBoxContainer"]
@@ -130,8 +133,7 @@ x
 autowrap_mode = 3
 metadata/_edit_lock_ = true
 
-[connection signal="item_selected" from="ColorRect/CodeEdit/VBoxContainer2/WhileOption2" to="." method="_on_while_option_item_selected"]
-[connection signal="item_selected" from="ColorRect/CodeEdit/VBoxContainer2/WhileOption2" to="." method="_on_while_option_2_item_selected"]
-[connection signal="item_selected" from="ColorRect/CodeEdit/VBoxContainer2/WhileOption" to="." method="_on_while_option_item_selected"]
+[connection signal="option_selected" from="ColorRect/CodeEdit/WhileOption" to="." method="_on_while_option_option_selected"]
+[connection signal="option_selected" from="ColorRect/CodeEdit/WhileOption2" to="." method="_on_while_option_2_option_selected"]
 [connection signal="pressed" from="ColorRect/CodeEdit/VBoxContainer/Btns/RunBtn" to="." method="_on_run_btn_pressed"]
 [connection signal="pressed" from="ColorRect/CodeEdit/VBoxContainer/Btns/CloseBtn" to="." method="_on_close_btn_pressed"]

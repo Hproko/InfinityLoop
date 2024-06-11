@@ -1,16 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7elwouqyerqb"]
+[gd_scene load_steps=3 format=3 uid="uid://b7elwouqyerqb"]
 
 [ext_resource type="Script" path="res://scripts/challenge2.gd" id="1_rkq6s"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_arlbj"]
-
-[sub_resource type="Theme" id="Theme_4tfw7"]
-OptionButton/icons/arrow = SubResource("AtlasTexture_arlbj")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e2xfx"]
-
-[sub_resource type="Theme" id="Theme_uojsw"]
-OptionButton/icons/arrow = SubResource("AtlasTexture_e2xfx")
+[ext_resource type="PackedScene" uid="uid://cjk8iulp0ax2q" path="res://scenes/MyOptBtn.tscn" id="2_cp7ki"]
 
 [node name="Challenge" type="Control"]
 clip_contents = true
@@ -47,10 +38,10 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "#include <stdio.h>
 int main(void)  {
-    int TAM_JARDIM = 8;
-	for (int i = 1;                                                  ; i++)
+    int tam_jardim = 8;
+	for (int i = 1;                                      ; i++)
 	{
-    	if (i % 2               0) 
+    	if (i % 2         0) 
 			platarArvore(i);
 	}
 }"
@@ -58,21 +49,31 @@ editable = false
 gutters_draw_line_numbers = true
 metadata/_edit_lock_ = true
 
-[node name="ForOption" type="OptionButton" parent="ColorRect/CodeEdit"]
-layout_mode = 0
-offset_left = 137.0
-offset_top = 80.0
-offset_right = 223.0
-offset_bottom = 100.0
-theme = SubResource("Theme_4tfw7")
+[node name="IfOption" parent="ColorRect/CodeEdit" instance=ExtResource("2_cp7ki")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 119.0
+offset_top = 137.0
+offset_right = 119.0
+offset_bottom = 137.0
+grow_horizontal = 1
+grow_vertical = 1
 
-[node name="IfOption" type="OptionButton" parent="ColorRect/CodeEdit"]
-layout_mode = 0
-offset_left = 118.0
-offset_top = 133.0
-offset_right = 152.0
-offset_bottom = 153.0
-theme = SubResource("Theme_uojsw")
+[node name="ForOption" parent="ColorRect/CodeEdit" instance=ExtResource("2_cp7ki")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 137.0
+offset_top = 84.0
+offset_right = 137.0
+offset_bottom = 84.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CodeEdit"]
 layout_mode = 0
@@ -113,6 +114,7 @@ text = "Run Code"
 metadata/_edit_lock_ = true
 
 [node name="CloseBtn" type="Button" parent="ColorRect/CodeEdit/VBoxContainer/Btns"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Close"
 metadata/_edit_lock_ = true
@@ -130,7 +132,7 @@ Boa Sorte!!!
 autowrap_mode = 3
 metadata/_edit_lock_ = true
 
-[connection signal="item_selected" from="ColorRect/CodeEdit/ForOption" to="." method="_on_for_option_item_selected"]
-[connection signal="item_selected" from="ColorRect/CodeEdit/IfOption" to="." method="_on_if_option_item_selected"]
+[connection signal="option_selected" from="ColorRect/CodeEdit/IfOption" to="." method="_on_if_option_option_selected"]
+[connection signal="option_selected" from="ColorRect/CodeEdit/ForOption" to="." method="_on_for_option_option_selected"]
 [connection signal="pressed" from="ColorRect/CodeEdit/VBoxContainer/Btns/RunBtn" to="." method="_on_run_btn_pressed"]
 [connection signal="pressed" from="ColorRect/CodeEdit/VBoxContainer/Btns/CloseBtn" to="." method="_on_close_btn_pressed"]
