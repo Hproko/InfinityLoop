@@ -26,6 +26,10 @@ const atlas_coord_tree6 = Vector2i(6, 11)
 
 const atlas_coord_sand = Vector2i(19,14)
 
+const atlas_coord_flr_vermelha = Vector2(4, 13)
+const atlas_coord_flr_branca = Vector2(4, 14)
+const atlas_coord_flr_amarela = Vector2(4, 15)
+
 const TIMER = 2.0
 
 
@@ -394,4 +398,79 @@ func build_forest_seq(tam_loop : int):
 			
 	await get_tree().create_timer(TIMER).timeout
 	
+func clear_garden():
+	
+	const ini_jardim = Vector2(168, -3)
+	
+	set_layer_modulate(layer_sobreterreno2, Color.WHITE)
+	erase_cell(layer_sobreterreno2, Vector2(178, -3))
+	erase_cell(layer_sobreterreno2, Vector2(168, 7))
+	
+	for i in range(0, 10):
+		for j in range(0, 10):
+			erase_cell(layer_sobreterreno, ini_jardim + Vector2(i, j))
+			
+
+
+func build_garden(max_i, max_j, cond_branca, cond_amarela, cond_vermel):
+	
+	const ini_jardim = Vector2(168, -3)
+	var pos 
+	var layer = layer_sobreterreno
+	
+	var time = 0.2
+	for i in range(0, max_i):
+		for j in range(0, max_j):
+			
+			pos = ini_jardim + Vector2(j, i)
+			
+			if i > 9 or j > 9:
+				layer = layer_sobreterreno2
+				set_layer_modulate(layer_sobreterreno2, Color.RED)
+				set_cell(layer, pos, 0, atlas_coord_flr_branca)
+				await get_tree().create_timer(4).timeout
+				return 
+
+			match cond_branca:
+				'==':
+					if i == j:
+						set_cell(layer, pos, 0, atlas_coord_flr_branca)
+						await get_tree().create_timer(time).timeout
+				'>':
+					if i > j:
+						set_cell(layer, pos, 0, atlas_coord_flr_branca)
+						await get_tree().create_timer(time).timeout
+				'<':
+					if i < j:
+						set_cell(layer, pos, 0, atlas_coord_flr_branca)
+						await get_tree().create_timer(time).timeout
+						
+			match cond_vermel:
+				'==':
+					if i == j:
+						set_cell(layer, pos, 0, atlas_coord_flr_vermelha)
+						await get_tree().create_timer(time).timeout
+				'>':
+					if i > j:
+						set_cell(layer, pos, 0, atlas_coord_flr_vermelha)
+						await get_tree().create_timer(time).timeout
+				'<':
+					if i < j:
+						set_cell(layer, pos, 0, atlas_coord_flr_vermelha)
+						await get_tree().create_timer(time).timeout
+						
+			match cond_amarela:
+				'==':
+					if i == j:
+						set_cell(layer, pos, 0, atlas_coord_flr_amarela)
+						await get_tree().create_timer(time).timeout
+				'>':
+					if i > j:
+						set_cell(layer, pos, 0, atlas_coord_flr_amarela)
+						await get_tree().create_timer(time).timeout
+				'<':
+					if i < j:
+						set_cell(layer, pos, 0, atlas_coord_flr_amarela)
+						await get_tree().create_timer(time).timeout
+				
 

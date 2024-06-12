@@ -11,7 +11,7 @@ Jardineiro: [[Oi|Olá]]... sou o jardinheiro dessa ilha, preciso plantar flores 
 ~ sucesso
 
 Jardineiro: Esse jardim ficou perfeito! Muito obrigado pela ajuda!
-Jardineiro: Parabéns por finalizar sua jornada
+Jardineiro: Parabéns por finalizar sua jornada!
 
 do State.finaliza_interacao()
 => END
