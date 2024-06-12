@@ -55,17 +55,17 @@ func _on_run_btn_pressed():
 		queue_free()
 	
 	elif (opc1 == "&&" and opc2 == "||"):
-		aviso.text = "Tente novamente 1!"
+		aviso.text = "Dessa forma a semente de milho chega a um valor negativo, e iremos iterar até extrapolar o limite de terreno."
 		aviso.show()
 		return
 		
 	elif (opc1 == "||" and opc2 == "&&"):
-		aviso.text = "Tente novamente 2!"
+		aviso.text = "Dessa forma a semente de milho chega a um valor negativo, e iremos iterar até extrapolar o limite de terreno."
 		aviso.show()
 		return
 		
 	elif (opc1 == "||" and opc2 == "||"):
-		aviso.text = "Tente novamente 3!"
+		aviso.text = "Serão plantadas sementes até que ambas cheguem a valores negativos, extrapolando o limite de terreno."
 		aviso.show()
 		return
 	
