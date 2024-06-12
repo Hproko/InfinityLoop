@@ -48,6 +48,7 @@ func _on_run_btn_pressed():
 		aviso.add_theme_color_override("font_color", Color.GREEN)
 		aviso.text = "Você conseguiu!"
 		aviso.show()
+		await map.plant()
 		await camera.reset_camera()
 		State.finaliza_interacao()
 		State.current_npc.challenge_passed = true

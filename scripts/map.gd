@@ -26,6 +26,9 @@ const atlas_coord_tree6 = Vector2i(6, 11)
 
 const atlas_coord_sand = Vector2i(19,14)
 
+const atlas_coord_seed1 = Vector2i(11, 15)
+const atlas_coord_seed2 = Vector2i(7, 15)
+
 const TIMER = 2.0
 
 
@@ -393,5 +396,20 @@ func build_forest_seq(tam_loop : int):
 			set_cell(layer_sobreterreno, map_fence_pos2, 0, atlas_coord_fence2)
 			
 	await get_tree().create_timer(TIMER).timeout
+	
+func plant():
+	const plantation1 = Vector2i(107, -7)
+	const plantation2 = Vector2i(107, -6)
+	
+	var layer = layer_sobreterreno2
+	
+	for i in range(0, 7):
+		var map_plant_1 = Vector2i(plantation1.x + i, plantation1.y)
+		var map_plant_2 = Vector2i(plantation2.x + i, plantation2.y)
+		
+		set_cell(layer, map_plant_1, 0, atlas_coord_seed1)
+		set_cell(layer, map_plant_2, 0, atlas_coord_seed2)
+		
+		await get_tree().create_timer(0.5).timeout
 	
 
