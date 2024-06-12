@@ -13,7 +13,7 @@ extends Control
 @onready var camera = get_tree().get_root().get_node("Main/Player/Camera")
 
 var max_i := 10 # primeira opcao do outFor
-var max_j := 20 # primeira opcao do inFor
+var max_j := 11 # primeira opcao do inFor
 var if_flor_branca := "=="
 var if_flor_amarela := "=="
 var if_flor_vermelha := "=="
@@ -71,29 +71,44 @@ func _on_run_btn_pressed():
 	
 	aviso.hide()
 	
+	disableBtns()
+	
+	await map.build_garden(max_i, max_j, if_flor_branca, if_flor_amarela, if_flor_vermelha)
+	
 	if max_i == 11:
 		mostra_aviso("Cuidado para não acessar posições inválidas do vetor!", Color.RED)
+		map.clear_garden()
+		enableBtns()
 		return
 		
 	if max_j == 20:
 		mostra_aviso("Cuidado para não gerar um loop infinito! Olhe atentamente as condições do For interno.", Color.RED)
+		map.clear_garden()
+		enableBtns()
 		return
 		
 	if if_flor_branca != "==":
 		mostra_aviso("A flor branca precisa ser plantada na diagonal principal, verifique os índices nessa diagonal!", Color.RED)
+		map.clear_garden()
+		enableBtns()
 		return
 
 	if if_flor_amarela != "<":
 		mostra_aviso("A flor amarela precisa ser plantada na parte superior, verifique a relação entre os índices!", Color.RED)
+		map.clear_garden()
+		enableBtns()
 		return
 
 	if if_flor_vermelha != ">":
 		mostra_aviso("A flor vermelha precisa ser plantada na parte inferior, verifique a relação entre os índices!", Color.RED)
+		map.clear_garden()
+		enableBtns()
 		return
 		
 
 	mostra_aviso("Você conseguiu", Color.GREEN)
 	await camera.reset_camera()
+	State.start_ballon(State.current_npc.dialogue_file, "sucesso")
 	State.finaliza_interacao()
 	State.current_npc.challenge_passed = true
 	State.current_npc.ponto_excl.hide()
@@ -112,7 +127,7 @@ func _on_in_for_opt_option_selected(index):
 	if index == 0:
 		max_j = 11
 	elif index == 1: 
-		max_j = 20
+		max_j = 11
 	elif index == 2:
 		max_j = 10
 
