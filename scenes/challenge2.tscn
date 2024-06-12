@@ -124,9 +124,7 @@ layout_mode = 2
 text = "
 
 ################################################
-
-Plante 4 árvores ao lado :D
-
+Bem vindo ao Desafio 3! Precisamos plantar as árvores em sequência apenas nas posições pares, ou seja, 2, 4, 6 e 8 para completar a floresta.
 Boa Sorte!!!
 ################################################"
 autowrap_mode = 3

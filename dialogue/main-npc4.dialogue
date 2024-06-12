@@ -1,7 +1,8 @@
 ~ start
-Fazendeiro: [[Oi|Olá]]... teste
+Fazendeiro: [[Oi|Olá]]... sou o fazendeiro da região, consegue me ajudar a plantar estas sementes?
 - Sim. 
-	Fazendeiro: teste 2
+	Fazendeiro: Preciso plantar trigo e milho nesse terreno, mas preciso plantrar somente até que alguma das sementes acabe.
+	Fazendeiro: Também não posso plantar além do que o terreno permite.
 	do State.load_challenge()
 - Não.  
 	do State.finaliza_interacao()
@@ -12,7 +13,7 @@ Fazendeiro: [[Oi|Olá]]... teste
 
 ~ finish
 
-Fazendeiro: enois
+Fazendeiro: Obrigado por me ajudar! Você é um mago e tanto!
 
 do State.finaliza_interacao()
 
@@ -20,14 +21,15 @@ do State.finaliza_interacao()
 
 ~ falhou
 
-Fazendeiro: nt
+Fazendeiro: Parece que as plantações não deram certo... Tente novamente!
 
 
 => END
 
 ~ sucesso
 
-Fazendeiro: boa
+Fazendeiro: Agora sim minha plantação irá prosperar! Muito obrigado pela ajuda!
+Fazendeiro: Vou te ajudar retirando estes galhos do caminho.
 
 
 do State.finaliza_interacao()

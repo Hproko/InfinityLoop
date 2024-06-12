@@ -40,7 +40,7 @@ text = "#include <stdio.h>
 int main(void)  {
 	int qtde_sementes_milho = 6
 	int qtde_sementes_trigo = 7
-	int tam_plantacao = 0
+	int tam_plantacao = 14
 	while ((qtde_sementes_milho > 0)            (qtde_sementes_trigo > 0)            (tam_plantacao < 10))
 	{ 
 		plantarMilho();
@@ -123,12 +123,8 @@ metadata/_edit_lock_ = true
 [node name="Label" type="Label" parent="ColorRect/CodeEdit/VBoxContainer"]
 custom_minimum_size = Vector2(500, 324)
 layout_mode = 2
-text = "testeeee
-x
-x
-x
-x
-x
+text = "Bem vindo ao Desafio 4! Precisamos plantar dois tipo de sementes na plantação e devemos parar de plantar caso alguma semente acabe, mas sem extrapolar o limite máximo do terreno.
+Boa sorte!
 "
 autowrap_mode = 3
 metadata/_edit_lock_ = true
