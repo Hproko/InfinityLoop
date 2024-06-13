@@ -75,17 +75,30 @@ func _on_run_btn_pressed():
 	
 	await map.build_garden(max_i, max_j, if_flor_branca, if_flor_amarela, if_flor_vermelha)
 	
-	if max_i == 11:
-		mostra_aviso("Cuidado para não acessar posições inválidas do vetor!", Color.RED)
-		map.clear_garden()
-		enableBtns()
-		return
-		
 	if max_j == 20:
 		mostra_aviso("Cuidado para não gerar um loop infinito! Olhe atentamente as condições do For interno.", Color.RED)
 		map.clear_garden()
 		enableBtns()
 		return
+		
+	if max_j == 11 and (if_flor_branca == '<' or if_flor_amarela == '<' or if_flor_vermelha == '<'):
+		mostra_aviso("Cuidado para não acessar posições inválidas da matriz!", Color.RED)
+		map.clear_garden()
+		enableBtns()
+		return
+		
+	if max_i == 11 and (if_flor_branca == '>' or if_flor_amarela == '>' or if_flor_vermelha == '>'):
+		mostra_aviso("Cuidado para não acessar posições inválidas da matriz!", Color.RED)
+		map.clear_garden()
+		enableBtns()
+		return
+		
+	if max_i == 11 and max_j == 11:
+		if (if_flor_branca == '==' or if_flor_amarela == '==' or if_flor_vermelha == '=='):
+			mostra_aviso("Cuidado para não acessar posições inválidas da matriz!", Color.RED)
+			map.clear_garden()
+			enableBtns()
+			return
 		
 	if if_flor_branca != "==":
 		mostra_aviso("A flor branca precisa ser plantada na diagonal principal, verifique os índices nessa diagonal!", Color.RED)
@@ -127,7 +140,7 @@ func _on_in_for_opt_option_selected(index):
 	if index == 0:
 		max_j = 11
 	elif index == 1: 
-		max_j = 11
+		max_j = 20
 	elif index == 2:
 		max_j = 10
 
