@@ -505,9 +505,10 @@ func plant():
 	const plantation1 = Vector2i(107, -7)
 	const plantation2 = Vector2i(107, -6)
 	
-	var layer = layer_sobreterreno2
+	var layer = layer_sobreterreno4
 	
 	for i in range(0, 7):
+		set_layer_modulate(layer_sobreterreno3, Color.SADDLE_BROWN)
 		var map_plant_1 = Vector2i(plantation1.x + i, plantation1.y)
 		var map_plant_2 = Vector2i(plantation2.x + i, plantation2.y)
 		
