@@ -2,6 +2,7 @@ extends TileMap
 
 const layer_terreno = 1
 const layer_sobreterreno = 2
+const layer_behind = 3
 const layer_sobreterreno2 = 4
 const layer_sobreterreno3 = 5
 const layer_sobreterreno4 = 6
@@ -501,21 +502,63 @@ func build_garden(max_i, max_j, cond_branca, cond_amarela, cond_vermel):
 					await get_tree().create_timer(4).timeout
 					return 
 
-func plant():
+func plant(tam_i, correct):
 	const plantation1 = Vector2i(107, -7)
 	const plantation2 = Vector2i(107, -6)
 	
-	var layer = layer_sobreterreno4
+	var layer = layer_sobreterreno3
 	
-	for i in range(0, 7):
-		set_layer_modulate(layer_sobreterreno3, Color.SADDLE_BROWN)
+	set_layer_modulate(layer_sobreterreno2, Color.SADDLE_BROWN)
+	await get_tree().create_timer(1).timeout
+	
+	if correct:
+		for i in range(0, tam_i):
+			var map_plant_1 = Vector2i(plantation1.x + i, plantation1.y)
+			var map_plant_2 = Vector2i(plantation2.x + i, plantation2.y)
+			
+			set_cell(layer, map_plant_1, 0, atlas_coord_seed1)
+			set_cell(layer, map_plant_2, 0, atlas_coord_seed2)
+			
+			await get_tree().create_timer(0.5).timeout
+	else:
+		for i in range(0, tam_i):
+			var map_plant_1 = Vector2i(plantation1.x + i, plantation1.y)
+			var map_plant_2 = Vector2i(plantation2.x + i, plantation2.y)
+			
+			if i < 5:
+				set_cell(layer_sobreterreno4, map_plant_1, 0, atlas_coord_seed1)
+				set_cell(layer_sobreterreno4, map_plant_2, 0, atlas_coord_seed2)
+			elif (i >= 5) and (i < 7):
+				set_layer_modulate(layer_sobreterreno3, Color.RED)
+				set_cell(layer_sobreterreno3, map_plant_1, 0, atlas_coord_seed1)
+				set_cell(layer_sobreterreno4, map_plant_2, 0, atlas_coord_seed2)
+			elif i >= 7:
+				set_layer_modulate(layer_sobreterreno3, Color.RED)
+				set_cell(layer_sobreterreno3, map_plant_1, 0, atlas_coord_seed1)
+				set_cell(layer_sobreterreno3, map_plant_2, 0, atlas_coord_seed2)
+			
+			await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(2).timeout
+		clean_terrain()
+		
+func clean_terrain():
+	const plantation1 = Vector2i(107, -7)
+	const plantation2 = Vector2i(107, -6)
+	
+	var layer = layer_sobreterreno3
+	
+	set_layer_modulate(layer_sobreterreno3, Color.WHITE)
+	
+	for i in range(0, 8):
 		var map_plant_1 = Vector2i(plantation1.x + i, plantation1.y)
 		var map_plant_2 = Vector2i(plantation2.x + i, plantation2.y)
 		
-		set_cell(layer, map_plant_1, 0, atlas_coord_seed1)
-		set_cell(layer, map_plant_2, 0, atlas_coord_seed2)
+		erase_cell(layer, map_plant_1)
+		erase_cell(layer, map_plant_2)
 		
-		await get_tree().create_timer(0.5).timeout
+		erase_cell(layer_sobreterreno4, map_plant_1)
+		erase_cell(layer_sobreterreno4, map_plant_2)
+
 	
 
 

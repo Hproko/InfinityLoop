@@ -38,10 +38,14 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 10
 text = "#include <stdio.h>
 int main(void)  {
-	int qtde_sementes_milho = 6
-	int qtde_sementes_trigo = 7
-	int tam_plantacao = 14
-	while ((qtde_sementes_milho > 0)            (qtde_sementes_trigo > 0)            (tam_plantacao < 10))
+	int qtde_sementes_milho = 5;
+	int qtde_sementes_trigo = 7;
+	int tam_plantacao = 0;
+	if (             eh_grama())
+	{
+		ararTerra();
+	}
+	while ((qtde_sementes_milho > 0)            (qtde_sementes_trigo > 0)            (tam_plantacao < 16))
 	{ 
 		plantarMilho();
     	plantarTrigo();
@@ -60,10 +64,10 @@ layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 197.0
-offset_top = 91.0
-offset_right = 197.0
-offset_bottom = 91.0
+offset_left = 196.0
+offset_top = 163.0
+offset_right = 196.0
+offset_bottom = 163.0
 font_size = 10
 
 [node name="WhileOption2" parent="ColorRect/CodeEdit" instance=ExtResource("2_heiei")]
@@ -72,18 +76,30 @@ layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 352.0
+offset_left = 350.0
+offset_top = 164.0
+offset_right = 350.0
+offset_bottom = 164.0
+font_size = 10
+
+[node name="IfOption" parent="ColorRect/CodeEdit" instance=ExtResource("2_heiei")]
+unique_name_in_owner = true
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 49.0
 offset_top = 92.0
-offset_right = 352.0
+offset_right = 49.0
 offset_bottom = 92.0
 font_size = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CodeEdit"]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 301.0
-offset_right = 525.0
-offset_bottom = 726.0
+offset_left = 24.0
+offset_top = 332.0
+offset_right = 524.0
+offset_bottom = 757.0
 theme_override_constants/separation = 10
 
 [node name="ColorRect" type="ColorRect" parent="ColorRect/CodeEdit/VBoxContainer"]
@@ -131,5 +147,7 @@ metadata/_edit_lock_ = true
 
 [connection signal="option_selected" from="ColorRect/CodeEdit/WhileOption" to="." method="_on_while_option_option_selected"]
 [connection signal="option_selected" from="ColorRect/CodeEdit/WhileOption2" to="." method="_on_while_option_2_option_selected"]
+[connection signal="option_selected" from="ColorRect/CodeEdit/IfOption" to="." method="_on_if_option_option_selected"]
+[connection signal="option_selected" from="ColorRect/CodeEdit/IfOption" to="." method="_on_while_option_2_option_selected"]
 [connection signal="pressed" from="ColorRect/CodeEdit/VBoxContainer/Btns/RunBtn" to="." method="_on_run_btn_pressed"]
 [connection signal="pressed" from="ColorRect/CodeEdit/VBoxContainer/Btns/CloseBtn" to="." method="_on_close_btn_pressed"]

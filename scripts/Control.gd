@@ -1,6 +1,6 @@
 extends Control
 
-class_name MyOptBtn
+class_name MyOptnBtn
 
 signal option_selected(index)
 
