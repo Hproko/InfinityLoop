@@ -63,7 +63,7 @@ func _on_run_btn_pressed():
 		aviso.text = "Você conseguiu!"
 		aviso.show()
 		disableBtns()
-		await map.plant(8, true)
+		await map.plant(5, true)
 		await camera.reset_camera()
 		enableBtns()
 		State.finaliza_interacao()

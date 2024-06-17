@@ -512,13 +512,13 @@ func plant(tam_i, correct):
 	await get_tree().create_timer(1).timeout
 	
 	if correct:
-		for i in range(0, 7):
+		for i in range(0, tam_i):
 			var map_plant_1 = Vector2i(plantation1.x + i, plantation1.y)
 			var map_plant_2 = Vector2i(plantation2.x + i, plantation2.y)
 			
-			if i < 5:
-				set_cell(layer, map_plant_1, 0, atlas_coord_seed1)
-				set_cell(layer, map_plant_2, 0, atlas_coord_seed2)
+			#if i < 5:
+			set_cell(layer, map_plant_1, 0, atlas_coord_seed1)
+			set_cell(layer, map_plant_2, 0, atlas_coord_seed2)
 			
 			await get_tree().create_timer(0.5).timeout
 	else:
