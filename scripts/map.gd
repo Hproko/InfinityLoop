@@ -518,7 +518,7 @@ func plant(tam_i, correct):
 			
 			if i < 5:
 				set_cell(layer, map_plant_1, 0, atlas_coord_seed1)
-			set_cell(layer, map_plant_2, 0, atlas_coord_seed2)
+				set_cell(layer, map_plant_2, 0, atlas_coord_seed2)
 			
 			await get_tree().create_timer(0.5).timeout
 	else:
