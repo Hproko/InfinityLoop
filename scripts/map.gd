@@ -266,6 +266,7 @@ func build_forest(tam_loop : int, eh_impar : bool):
 	if (tam_loop != 4 or eh_impar):
 		set_layer_modulate(layer_sobreterreno2, Color.RED)
 	else:
+		layer = layer_sobreterreno
 		set_layer_modulate(layer_sobreterreno2, Color.WHITE)
 	
 	for i in range (0, tam_loop):
