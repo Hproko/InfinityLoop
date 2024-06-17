@@ -36,14 +36,19 @@ func _on_close_btn_pressed():
 	queue_free()
 	
 func disableBtns():
-	while_option_button.disabled = true
+	while_option_button.disable()
+	while_option_button2.disable()
+	if_option.disable()
 	run_btn.disabled = true
 	close_btn.disabled = true
+	
 
 func enableBtns():
-	while_option_button.disabled = false
 	run_btn.disabled = false
 	close_btn.disabled = false
+	while_option_button.enable()
+	while_option_button2.enable()
+	if_option.enable()
 	
 func _on_run_btn_pressed():
 	aviso.hide()
@@ -57,8 +62,10 @@ func _on_run_btn_pressed():
 		aviso.add_theme_color_override("font_color", Color.GREEN)
 		aviso.text = "Você conseguiu!"
 		aviso.show()
+		disableBtns()
 		await map.plant(8, true)
 		await camera.reset_camera()
+		enableBtns()
 		State.finaliza_interacao()
 		State.current_npc.challenge_passed = true
 		State.current_npc.ponto_excl.hide()
@@ -67,19 +74,25 @@ func _on_run_btn_pressed():
 	elif (opc1 == "&&" and opc2 == "||"):
 		aviso.text = "Serão plantadas sementes até que ambas cheguem a valores negativos, ocupando o terreno inteiro!"
 		aviso.show()
+		disableBtns()
 		await map.plant(8, false)
+		enableBtns()
 		return
 		
 	elif (opc1 == "||" and opc2 == "&&"):
 		aviso.text = "Dessa forma a semente de milho chega a um valor negativo!"
 		aviso.show()
+		disableBtns()
 		await map.plant(7, false)
+		enableBtns()
 		return
 		
 	elif (opc1 == "||" and opc2 == "||"):
 		aviso.text = "Serão plantadas sementes até que ambas cheguem a valores negativos, ocupando o terreno inteiro!"
 		aviso.show()
+		disableBtns()
 		await map.plant(8, false)
+		enableBtns()
 		return
 	
 

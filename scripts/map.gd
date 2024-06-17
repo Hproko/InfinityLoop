@@ -550,6 +550,9 @@ func clean_terrain():
 	
 	set_layer_modulate(layer_sobreterreno3, Color.WHITE)
 	
+	#Layer da terra
+	set_layer_modulate(layer_sobreterreno2, Color.WHITE)
+	
 	for i in range(0, 8):
 		var map_plant_1 = Vector2i(plantation1.x + i, plantation1.y)
 		var map_plant_2 = Vector2i(plantation2.x + i, plantation2.y)
