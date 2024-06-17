@@ -11,8 +11,8 @@ extends Control
 @onready var camera = get_tree().get_root().get_node("Main/Player/Camera")
 @onready var screen_size = get_viewport().size
 
-var opc1 : String = "  "
-var opc2 : String = "  "
+var opc1 : String = "||"
+var opc2 : String = "&&"
 var opc3 : String = "  "
 
 func _ready():
@@ -20,18 +20,14 @@ func _ready():
 	aviso.text = ""
 
 func add_items():
-	while_option_button.add_item("  ")
 	while_option_button.add_item("||")
 	while_option_button.add_item("&&")
 	
-	while_option_button2.add_item("  ")
 	while_option_button2.add_item("&&")
 	while_option_button2.add_item("||")
 	
 	if_option.add_item("  ")
-	if_option.add_item("&&")
 	if_option.add_item(" !")
-	if_option.add_item("||")
 	
 
 func _on_close_btn_pressed():
@@ -50,7 +46,6 @@ func enableBtns():
 	close_btn.disabled = false
 	
 func _on_run_btn_pressed():
-	
 	aviso.hide()
 	
 	if (opc3 != " !"):
@@ -92,19 +87,15 @@ func _on_run_btn_pressed():
 
 func _on_while_option_2_option_selected(index):
 	if index == 0:
-		opc2 = "  "
-	elif index == 1:
 		opc2 = "&&"
-	elif index == 2:
+	elif index == 1:
 		opc2 = "||"
 
 
 func _on_while_option_option_selected(index):
 	if index == 0:
-		opc2 = "  "
-	elif index == 1:
 		opc1 = "||"
-	elif index == 2:
+	elif index == 1:
 		opc1 = "&&"
 
 
@@ -112,8 +103,5 @@ func _on_if_option_option_selected(index):
 	if index == 0:
 		opc3 = "  "
 	elif index == 1:
-		opc3 = "&&"
-	elif index == 2:
 		opc3 = " !"
-	elif index == 3:
-		opc3 = "ZZ"
+

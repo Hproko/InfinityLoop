@@ -41,7 +41,7 @@ int main(void)  {
 	int qtde_sementes_milho = 5;
 	int qtde_sementes_trigo = 7;
 	int tam_plantacao = 0;
-	if (             eh_grama())
+	if (        eh_grama())
 	{
 		ararTerra();
 	}
@@ -147,7 +147,6 @@ metadata/_edit_lock_ = true
 
 [connection signal="option_selected" from="ColorRect/CodeEdit/WhileOption" to="." method="_on_while_option_option_selected"]
 [connection signal="option_selected" from="ColorRect/CodeEdit/WhileOption2" to="." method="_on_while_option_2_option_selected"]
-[connection signal="option_selected" from="ColorRect/CodeEdit/IfOption" to="." method="_on_while_option_2_option_selected"]
 [connection signal="option_selected" from="ColorRect/CodeEdit/IfOption" to="." method="_on_if_option_option_selected"]
 [connection signal="pressed" from="ColorRect/CodeEdit/VBoxContainer/Btns/RunBtn" to="." method="_on_run_btn_pressed"]
 [connection signal="pressed" from="ColorRect/CodeEdit/VBoxContainer/Btns/CloseBtn" to="." method="_on_close_btn_pressed"]
