@@ -6,6 +6,7 @@ const layer_behind = 3
 const layer_sobreterreno2 = 4
 const layer_sobreterreno3 = 5
 const layer_sobreterreno4 = 6
+const layer_terra = 7
 
 const atlas_coord_pont_normal1 = Vector2i(19, 24)
 const atlas_coord_pont_normal2 = Vector2i(19, 25)
@@ -39,7 +40,16 @@ const atlas_coord_seed2 = Vector2i(7, 15)
 
 const TIMER = 2.0
 
+var modulated_cells:Dictionary
 
+
+func _use_tile_data_runtime_update(layer: int, coords: Vector2i) -> bool:
+	return modulated_cells.has(coords)
+
+
+func _tile_data_runtime_update(layer: int, coords: Vector2i, tile_data: TileData) -> void:
+	tile_data.modulate = modulated_cells.get(coords, Color.WHITE)
+	
 func build_bridge(ini_vetor : int, fim_vetor : int, acertou : bool):
 	
 	var layer = layer_terreno
@@ -509,7 +519,9 @@ func plant(tam_i, correct):
 	
 	var layer = layer_sobreterreno3
 	
-	set_layer_modulate(layer_sobreterreno2, Color.SADDLE_BROWN)
+	#Layer da terra
+	set_layer_modulate(layer_terra, Color.SADDLE_BROWN)
+	
 	await get_tree().create_timer(1).timeout
 	
 	if correct:
@@ -520,6 +532,7 @@ func plant(tam_i, correct):
 			#if i < 5:
 			set_cell(layer, map_plant_1, 0, atlas_coord_seed1)
 			set_cell(layer, map_plant_2, 0, atlas_coord_seed2)
+			
 			
 			await get_tree().create_timer(0.5).timeout
 	else:
@@ -552,7 +565,7 @@ func clean_terrain():
 	set_layer_modulate(layer_sobreterreno3, Color.WHITE)
 	
 	#Layer da terra
-	set_layer_modulate(layer_sobreterreno2, Color.WHITE)
+	set_layer_modulate(layer_terra, Color.WHITE)
 	
 	for i in range(0, 8):
 		var map_plant_1 = Vector2i(plantation1.x + i, plantation1.y)
