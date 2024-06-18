@@ -57,13 +57,26 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("3_22r5p")]
 unique_name_in_owner = true
-position = Vector2(201, 195)
+position = Vector2(1982, -113)
 
 [node name="Camera" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
 process_callback = 0
 position_smoothing_enabled = true
 script = ExtResource("5_uqweq")
+metadata/_edit_lock_ = true
+
+[node name="Instrucao" type="Label" parent="Player"]
+z_index = 10
+offset_left = -88.0
+offset_top = -78.0
+offset_right = 86.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Use as teclas W A S D para se mover"
+horizontal_alignment = 1
+autowrap_mode = 3
 metadata/_edit_lock_ = true
 
 [node name="NPC" parent="." instance=ExtResource("6_yal30")]

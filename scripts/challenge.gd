@@ -19,11 +19,15 @@ func _ready():
 
 var valor_de_i : int = -1
 var posicao_final : int = bridge_size + 1
+var option_button_empty := true
+var condition_button_empty := true
 
 func add_items():
+	var_option_button.add_item(" ")
 	var_option_button.add_item("(i = -1;")
 	var_option_button.add_item("(i = 0;")
 	
+	condition_opt_btn.add_item(" ")
 	condition_opt_btn.add_item("i <= 7;")
 	condition_opt_btn.add_item("i <= 6;")
 	condition_opt_btn.add_item("i < 7;")
@@ -51,6 +55,10 @@ func _on_run_btn_pressed():
 	
 	aviso.hide()
 	
+	if option_button_empty or condition_button_empty:
+		aviso.text = "Não é possível executar o código sem escolher uma opção para os botões!"
+		aviso.show()
+		return
 		
 	if posicao_final != bridge_size:
 		aviso.text = "Você tentou acessar a posição 7 do Vetor, isso causa memória corrompida e aborta o programa!"
@@ -81,11 +89,23 @@ func _on_run_btn_pressed():
 
 
 func _on_var_opt_btn_option_selected(index):
-	valor_de_i = index - 1
+	
+	if index == 0:
+		option_button_empty = true
+	elif index == 1:
+		option_button_empty = false
+		valor_de_i = -1
+	elif index == 2:
+		option_button_empty = false
+		valor_de_i = 0
 
 
 func _on_condit_opt_btn_option_selected(index):
 	if index == 0:
+		condition_button_empty = true
+	elif index == 1:
 		posicao_final = bridge_size + 1
+		condition_button_empty = false
 	else:
 		posicao_final = bridge_size
+		condition_button_empty = false

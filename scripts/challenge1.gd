@@ -14,17 +14,22 @@ var tem_pt_e_virgula: String = ";"
 var incremento := -1
 var da_loop_infinito := false
 
+var while_opt_btn_empty := true
+var inc_opt_btn_empty := true
+
 func _ready():
 	add_items()
 	aviso.text = ""
 
 func add_items():
+	while_option_button.add_item(" ")
 	while_option_button.add_item("(i <= 7);")
 	while_option_button.add_item("(i <= 7)")
 	while_option_button.add_item("(i < 8)")
 	while_option_button.add_item("(1 < 10)")
 	while_option_button.add_item("(i = 8)")
 	
+	inc_opt_btn.add_item(" ")
 	inc_opt_btn.add_item("i--;")
 	inc_opt_btn.add_item("i++;")
 
@@ -51,6 +56,11 @@ func _on_run_btn_pressed():
 	
 	aviso.hide()
 	
+	if while_opt_btn_empty or inc_opt_btn_empty:
+		aviso.text = "Não é possível executar o código sem escolher uma opção para os botões!"
+		aviso.show()
+		return
+		
 	if tem_pt_e_virgula == ";": 
 		aviso.text = "Esse código causa loop infinito por conta do ';' \
 					ao final do comando while, tome cuidado!"
@@ -115,21 +125,30 @@ func _on_run_btn_pressed():
 
 func _on_inc_option_option_selected(index):
 	if index == 0:
-		incremento = -1
+		inc_opt_btn_empty = true
+		return
 	elif index == 1:
+		incremento = -1
+	elif index == 2:
 		incremento = 1
-	pass # Replace with function body.
+	
+	inc_opt_btn_empty = false
 
 
 func _on_while_option_option_selected(index):
 	if index == 0:
-		tem_pt_e_virgula = ";"
+		while_opt_btn_empty = true
+		return
 	elif index == 1:
-		tem_pt_e_virgula = ""
+		tem_pt_e_virgula = ";"
 	elif index == 2:
 		tem_pt_e_virgula = ""
 	elif index == 3:
-		tem_pt_e_virgula = "<"
+		tem_pt_e_virgula = ""
 	elif index == 4:
+		tem_pt_e_virgula = "<"
+	elif index == 5:
 		tem_pt_e_virgula = "="
+		
+	while_opt_btn_empty = false
 

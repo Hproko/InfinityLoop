@@ -18,22 +18,37 @@ var if_flor_branca := "=="
 var if_flor_amarela := "=="
 var if_flor_vermelha := "=="
 
+var out_for_empty := true
+var in_for_empty := true
+var fst_if_empty := true
+var scd_if_empty := true
+var thrd_if_empty := true
+
 func _ready():
 	add_items()
 	aviso.text = ""
 
 func add_items():
+	outForOpt.add_item(" ")
 	outForOpt.add_item("i < 10;")
 	outForOpt.add_item("i <= 10;")
+	
+	inForOpt.add_item(" ")
 	inForOpt.add_item("j <= 10;")
 	inForOpt.add_item("i < 10;")
 	inForOpt.add_item("j < 10;")
+	
+	fstIfOpt.add_item(" ")
 	fstIfOpt.add_item("i == j")
 	fstIfOpt.add_item("i > j")
 	fstIfOpt.add_item("i < j")
+	
+	scdIfOpt.add_item(" ")
 	scdIfOpt.add_item("i == j")
 	scdIfOpt.add_item("i > j")
 	scdIfOpt.add_item("i < j")
+	
+	thrdIfOpt.add_item(" ")
 	thrdIfOpt.add_item("i == j")
 	thrdIfOpt.add_item("i > j")
 	thrdIfOpt.add_item("i < j")
@@ -71,6 +86,10 @@ func _on_run_btn_pressed():
 	
 	aviso.hide()
 	
+	if out_for_empty or in_for_empty or fst_if_empty or scd_if_empty or thrd_if_empty:
+		mostra_aviso("Não é possível executar o código sem escolher uma opção para os botões!", Color.RED)
+		return
+		
 	disableBtns()
 	
 	await map.build_garden(max_i, max_j, if_flor_branca, if_flor_amarela, if_flor_vermelha)
@@ -131,41 +150,65 @@ func _on_run_btn_pressed():
 
 func _on_out_for_opt_option_selected(index):
 	if index == 0:
-		max_i = 10
+		out_for_empty = true
+		return
 	elif index == 1:
+		max_i = 10
+	elif index == 2:
 		max_i = 11
+		
+	out_for_empty = false
 
 
 func _on_in_for_opt_option_selected(index):
 	if index == 0:
+		in_for_empty = true
+		return
+	elif index == 1:
 		max_j = 11
-	elif index == 1: 
+	elif index == 2: 
 		max_j = 20
-	elif index == 2:
+	elif index == 3:
 		max_j = 10
 
+	in_for_empty = false
 
 func _on_thrd_if_opt_option_selected(index):
 	if index == 0:
-		if_flor_amarela = "=="
+		thrd_if_empty = true
+		return
 	elif index == 1:
-		if_flor_amarela = ">"
+		if_flor_amarela = "=="
 	elif index == 2:
+		if_flor_amarela = ">"
+	elif index == 3:
 		if_flor_amarela = "<"
+		
+	thrd_if_empty = false
 
 
 func _on_scnd_if_opt_option_selected(index):
 	if index == 0:
-		if_flor_vermelha = "=="
+		scd_if_empty = true
+		return
 	elif index == 1:
-		if_flor_vermelha = ">"
+		if_flor_vermelha = "=="
 	elif index == 2:
+		if_flor_vermelha = ">"
+	elif index == 3:
 		if_flor_vermelha = "<"
+		
+	scd_if_empty = false
 
 func _on_fst_if_opt_option_selected(index):
 	if index == 0:
-		if_flor_branca = "=="
+		fst_if_empty = true
+		return
 	elif index == 1:
-		if_flor_branca = ">"
+		if_flor_branca = "=="
 	elif index == 2:
+		if_flor_branca = ">"
+	elif index == 3:
 		if_flor_branca = "<"
+		
+	fst_if_empty = false

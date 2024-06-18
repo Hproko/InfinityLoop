@@ -14,15 +14,19 @@ extends Control
 var opc1 : String = "||"
 var opc2 : String = "&&"
 var opc3 : String = "  "
+var while1_opt_btn_empty := true
+var while2_opt_btn_empty := true
 
 func _ready():
 	add_items()
 	aviso.text = ""
 
 func add_items():
+	while_option_button.add_item(" ")
 	while_option_button.add_item("||")
 	while_option_button.add_item("&&")
 	
+	while_option_button2.add_item(" ")
 	while_option_button2.add_item("&&")
 	while_option_button2.add_item("||")
 	
@@ -53,6 +57,11 @@ func enableBtns():
 func _on_run_btn_pressed():
 	aviso.hide()
 	
+	if while1_opt_btn_empty or while2_opt_btn_empty:
+		aviso.text = "É necessário escolher uma opção para os botões dentro do WHILE para executar o código!"
+		aviso.show()
+		return
+		
 	if (opc3 != " !"):
 		aviso.text = "Precisamos preparar a terra antes do plantio!"
 		aviso.show()
@@ -100,16 +109,26 @@ func _on_run_btn_pressed():
 
 func _on_while_option_2_option_selected(index):
 	if index == 0:
-		opc2 = "&&"
+		while2_opt_btn_empty = true
+		return
 	elif index == 1:
+		opc2 = "&&"
+	elif index == 2:
 		opc2 = "||"
+		
+	while2_opt_btn_empty = false
 
 
 func _on_while_option_option_selected(index):
 	if index == 0:
-		opc1 = "||"
+		while1_opt_btn_empty = true
+		return
 	elif index == 1:
+		opc1 = "||"
+	elif index == 2:
 		opc1 = "&&"
+	
+	while1_opt_btn_empty = false
 
 
 func _on_if_option_option_selected(index):

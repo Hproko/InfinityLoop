@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var tile_map = main.get_node('map')
 @onready var all_interactions = []
 #@onready var challenge = $Challenge
-
+@onready var instr = $Instrucao
 	
 
 func _physics_process(delta):
@@ -24,16 +24,20 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
 		$AnimatedSprite2D.play("walk_up")
+		instr.hide()
 	elif Input.is_action_pressed("move_down"):
 		velocity.y += 1
 		$AnimatedSprite2D.play("walk_down")
+		instr.hide()
 		
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
+		instr.hide()
 		if velocity.y == 0:
 			$AnimatedSprite2D.play("walk_right")
 	elif Input.is_action_pressed("move_left"):
 		velocity.x -= 1
+		instr.hide()
 		if velocity.y == 0:
 			$AnimatedSprite2D.play("walk_left")
 		

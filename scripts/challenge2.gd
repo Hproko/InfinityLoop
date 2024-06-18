@@ -23,22 +23,23 @@ var incremento : int = 1
 var valor_de_i : int = -1
 var posicao_final : int = 0
 
+var for_opt_btn_empty := true
+var if_opt_btn_empty := true
+
 
 func add_items():
+	for_option_button.add_item(" ")
 	for_option_button.add_item("i < tam_jardim")
 	for_option_button.add_item("i <= tam_jardim")
 	for_option_button.add_item("i < (tam_jardim - 1)")
 	for_option_button.add_item("i <= (tam_jardim - 1)")
 	
+	if_opt_btn.add_item(" ")
 	if_opt_btn.add_item(">=")
 	if_opt_btn.add_item("<")
 	if_opt_btn.add_item("==")
 	if_opt_btn.add_item("!=")
 	if_opt_btn.add_item("<=")
-
-
-func _on_option_button_item_selected(index):
-	valor_de_i = index - 1
 
 
 func _on_close_btn_pressed():
@@ -60,6 +61,10 @@ func enableBtns():
 	
 func _on_run_btn_pressed():
 	
+	if for_opt_btn_empty or if_opt_btn_empty:
+		aviso.text = "Não é possível executar o código sem escolher uma opção para os botões!"
+		return
+		
 	match condicao_for:
 		"<":
 			match condicao_if:
@@ -174,24 +179,34 @@ func _on_run_btn_pressed():
 
 func _on_if_option_option_selected(index):
 	if index == 0:
-		condicao_if = ">="
+		if_opt_btn_empty = true
+		return
 	elif index == 1:
-		condicao_if = "<"
+		condicao_if = ">="
 	elif index == 2:
-		condicao_if = "=="
+		condicao_if = "<"
 	elif index == 3:
-		condicao_if = "!="
+		condicao_if = "=="
 	elif index == 4:
+		condicao_if = "!="
+	elif index == 5:
 		condicao_if = "<="
+	
+	if_opt_btn_empty = false
 
 
 
 func _on_for_option_option_selected(index):
 	if index == 0:
-		condicao_for = "<"
+		for_opt_btn_empty = true
+		return
 	elif index == 1:
-		condicao_for = "<="
+		condicao_for = "<"
 	elif index == 2:
-		condicao_for = "<-1"
+		condicao_for = "<="
 	elif index == 3:
+		condicao_for = "<-1"
+	elif index == 4:
 		condicao_for = "<=-1"
+	
+	for_opt_btn_empty = false
