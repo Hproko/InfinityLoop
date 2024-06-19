@@ -11,6 +11,7 @@ extends Control
 @onready var map = $'../map'
 @onready var aviso = %Aviso
 @onready var camera = get_tree().get_root().get_node("Main/Player/Camera")
+@onready var player = get_tree().get_root().get_node("Main/Player")
 
 var max_i := 10 # primeira opcao do outFor
 var max_j := 11 # primeira opcao do inFor
@@ -96,18 +97,21 @@ func _on_run_btn_pressed():
 	
 	if max_j == 20:
 		mostra_aviso("Cuidado para não gerar um loop infinito! Olhe atentamente as condições do For interno.", Color.RED)
+		player.inc_ms_inf_loop()
 		map.clear_garden()
 		enableBtns()
 		return
 		
 	if max_j == 11 and (if_flor_branca == '<' or if_flor_amarela == '<' or if_flor_vermelha == '<'):
 		mostra_aviso("Cuidado para não acessar posições inválidas da matriz!", Color.RED)
+		player.inc_ms_pos_invalid()
 		map.clear_garden()
 		enableBtns()
 		return
 		
 	if max_i == 11 and (if_flor_branca == '>' or if_flor_amarela == '>' or if_flor_vermelha == '>'):
 		mostra_aviso("Cuidado para não acessar posições inválidas da matriz!", Color.RED)
+		player.inc_ms_pos_invalid()
 		map.clear_garden()
 		enableBtns()
 		return
@@ -115,24 +119,28 @@ func _on_run_btn_pressed():
 	if max_i == 11 and max_j == 11:
 		if (if_flor_branca == '==' or if_flor_amarela == '==' or if_flor_vermelha == '=='):
 			mostra_aviso("Cuidado para não acessar posições inválidas da matriz!", Color.RED)
+			player.inc_ms_pos_invalid()
 			map.clear_garden()
 			enableBtns()
 			return
 		
 	if if_flor_branca != "==":
 		mostra_aviso("A flor branca precisa ser plantada na diagonal principal, verifique os índices nessa diagonal!", Color.RED)
+		player.inc_ms_rel_oper()
 		map.clear_garden()
 		enableBtns()
 		return
 
 	if if_flor_amarela != "<":
 		mostra_aviso("A flor amarela precisa ser plantada na parte superior, verifique a relação entre os índices!", Color.RED)
+		player.inc_ms_rel_oper()
 		map.clear_garden()
 		enableBtns()
 		return
 
 	if if_flor_vermelha != ">":
 		mostra_aviso("A flor vermelha precisa ser plantada na parte inferior, verifique a relação entre os índices!", Color.RED)
+		player.inc_ms_rel_oper()
 		map.clear_garden()
 		enableBtns()
 		return

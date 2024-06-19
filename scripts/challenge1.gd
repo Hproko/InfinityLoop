@@ -9,6 +9,7 @@ extends Control
 @onready var aviso = %Aviso
 @onready var camera = get_tree().get_root().get_node("Main/Player/Camera")
 @onready var screen_size = get_viewport().size
+@onready var player = get_tree().get_root().get_node("Main/Player")
 
 var tem_pt_e_virgula: String = ";"
 var incremento := -1
@@ -65,6 +66,7 @@ func _on_run_btn_pressed():
 		aviso.text = "Esse código causa loop infinito por conta do ';' \
 					ao final do comando while, tome cuidado!"
 		aviso.show()
+		player.inc_ms_inf_loop()
 		da_loop_infinito = true
 		return
 		
@@ -73,14 +75,12 @@ func _on_run_btn_pressed():
 					1 < 10 sempre é verdadeira"
 		aviso.show()
 		da_loop_infinito = true
-		#return
 		
 	if tem_pt_e_virgula == "=": 
 		aviso.text = "Esse código causa loop infinito, pois i = 8 \
 					é uma atribuição, e não um comparador de igualdade (==)"
 		aviso.show()
 		da_loop_infinito = true
-		#return
 		
 	var ini_cerca = 2
 	var fim_cerca = 7
@@ -101,6 +101,7 @@ func _on_run_btn_pressed():
 	# Se da loop infinito está errado 
 	if da_loop_infinito:
 		disableBtns()
+		player.inc_ms_inf_loop()
 		await map.build_fence(ini_cerca, fim_cerca, incremento)
 		enableBtns()
 		map.remove_fence()

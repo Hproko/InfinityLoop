@@ -241,7 +241,6 @@ func remove_fence():
 		if i < 2 or i > 6:
 			layer = layer_sobreterreno2
 		else:
-			print(i)
 			layer = layer_sobreterreno
 			
 		var pos1 = Vector2i(fence_start_coord1.x + i, fence_start_coord1.y)
@@ -338,14 +337,20 @@ func remove_forest(tam_loop : int, eh_impar : bool):
 		erase_cell(layer, pos_tree_map6)
 	
 func remove_obstaculo_npc():
-	var layer = layer_sobreterreno
+	var layer = layer_sobreterreno3
 	
-	set_cell(layer, Vector2i(112, -1), 0, atlas_coord_sand)
-	set_cell(layer, Vector2i(112, 0), 0, atlas_coord_sand)
-	set_cell(layer, Vector2i(112, 1), 0, atlas_coord_sand)
-	set_cell(layer, Vector2i(113, -1), 0, atlas_coord_sand)
-	set_cell(layer, Vector2i(113, 0), 0, atlas_coord_sand)
-	set_cell(layer, Vector2i(113, 1), 0, atlas_coord_sand)
+	for i in range(111, 115):
+		set_cell(layer, Vector2i(i, -2))
+		set_cell(layer, Vector2i(i, -1))
+		set_cell(layer, Vector2i(i, 0))
+		set_cell(layer, Vector2i(i, 1))
+	
+	#set_cell(layer, Vector2i(112, -1), 0, atlas_coord_sand)
+	#set_cell(layer, Vector2i(112, 0), 0, atlas_coord_sand)
+	#set_cell(layer, Vector2i(112, 1), 0, atlas_coord_sand)
+	#set_cell(layer, Vector2i(113, -1), 0, atlas_coord_sand)
+	#set_cell(layer, Vector2i(113, 0), 0, atlas_coord_sand)
+	#set_cell(layer, Vector2i(113, 1), 0, atlas_coord_sand)
 	
 func build_forest_seq(tam_loop : int):
 	var tree_start_coord1

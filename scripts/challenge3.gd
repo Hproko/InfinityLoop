@@ -10,6 +10,7 @@ extends Control
 @onready var aviso = %Aviso
 @onready var camera = get_tree().get_root().get_node("Main/Player/Camera")
 @onready var screen_size = get_viewport().size
+@onready var player = get_tree().get_root().get_node("Main/Player")
 
 var opc1 : String = "||"
 var opc2 : String = "&&"
@@ -64,6 +65,7 @@ func _on_run_btn_pressed():
 		
 	if (opc3 != " !"):
 		aviso.text = "Precisamos preparar a terra antes do plantio!"
+		player.inc_ms_rel_logic()
 		aviso.show()
 		return
 	
@@ -83,6 +85,7 @@ func _on_run_btn_pressed():
 	elif (opc1 == "&&" and opc2 == "||"):
 		aviso.text = "Serão plantadas sementes até que ambas cheguem a valores negativos, ocupando o terreno inteiro!"
 		aviso.show()
+		player.inc_ms_rel_logic()
 		disableBtns()
 		await map.plant(8, false)
 		enableBtns()
@@ -91,6 +94,7 @@ func _on_run_btn_pressed():
 	elif (opc1 == "||" and opc2 == "&&"):
 		aviso.text = "Dessa forma a semente de milho chega a um valor negativo!"
 		aviso.show()
+		player.inc_ms_rel_logic()
 		disableBtns()
 		await map.plant(7, false)
 		enableBtns()
@@ -99,6 +103,7 @@ func _on_run_btn_pressed():
 	elif (opc1 == "||" and opc2 == "||"):
 		aviso.text = "Serão plantadas sementes até que ambas cheguem a valores negativos, ocupando o terreno inteiro!"
 		aviso.show()
+		player.inc_ms_rel_logic()
 		disableBtns()
 		await map.plant(8, false)
 		enableBtns()

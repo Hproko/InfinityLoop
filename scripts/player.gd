@@ -6,7 +6,25 @@ extends CharacterBody2D
 @onready var all_interactions = []
 #@onready var challenge = $Challenge
 @onready var instr = $Instrucao
+
+
+var miss_cncptn_pos_invalid := 0
+var miss_cncptn_inf_loop := 0
+var miss_cncptn_rel_oper := 0
+var miss_cncptn_rel_logic := 0
+
+func inc_ms_pos_invalid():
+	miss_cncptn_pos_invalid += 1
+
+func inc_ms_inf_loop():
+	miss_cncptn_inf_loop += 1
 	
+func inc_ms_rel_oper():
+	miss_cncptn_rel_oper += 1
+
+func inc_ms_rel_logic():
+	miss_cncptn_rel_logic += 1
+
 
 func _physics_process(delta):
 

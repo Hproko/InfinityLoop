@@ -9,6 +9,7 @@ extends Control
 @onready var aviso = %Aviso
 @onready var camera = get_tree().get_root().get_node("Main/Player/Camera")
 @onready var screen_size = get_viewport().size
+@onready var player = get_tree().get_root().get_node("Main/Player")
 
 const bridge_size = 7
 
@@ -67,9 +68,11 @@ func _on_run_btn_pressed():
 		
 	match condicao_for:
 		"<":
+			player.inc_ms_rel_oper()
 			match condicao_if:
 				"<":
 					aviso.text = "Com estas condições nenhuma árvore é plantada!"
+					player.inc_ms_rel_oper()
 					return
 				"==", "<=":
 					aviso.text = "Com estas condições apenas 3 árvores são plantadas"
@@ -95,6 +98,7 @@ func _on_run_btn_pressed():
 			match condicao_if:
 				"!=":
 					aviso.text = "Com estas condições as árvores são plantadas nos índices ímpares!"
+					player.inc_ms_rel_oper()
 					disableBtns()
 					await map.build_forest(4, true)
 					await map.remove_forest(4, true)
@@ -116,14 +120,17 @@ func _on_run_btn_pressed():
 					queue_free()
 				">=":
 					aviso.text = "Com estas condições as árvores são plantadas em todos os índices"
+					player.inc_ms_rel_oper()
 					disableBtns()
 					await map.build_forest_seq(8) #8
 					enableBtns()
 					return
 				"<":
 					aviso.text = "Com estas condições nenhuma árvore é plantada!"
+					player.inc_ms_rel_oper()
 					return
 		"<-1":
+			player.inc_ms_rel_oper()
 			match condicao_if:
 				"==", "<=":
 					aviso.text = "Com estas condições apenas 3 árvores são plantadas"
@@ -149,6 +156,7 @@ func _on_run_btn_pressed():
 					aviso.text = "Com estas condições nenhuma árvore é plantada!"
 					return
 		"<=-1":
+			player.inc_ms_rel_oper()
 			match condicao_if:
 				"==", "<=":
 					aviso.text = "Com estas condições apenas 3 árvores são plantadas"

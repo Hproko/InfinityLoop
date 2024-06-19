@@ -9,6 +9,7 @@ extends Control
 @onready var aviso = %Aviso
 @onready var camera = get_tree().get_root().get_node("Main/Player/Camera")
 @onready var screen_size = get_viewport().size
+@onready var player = get_tree().get_root().get_node("Main/Player")
 
 const bridge_size = 7
 
@@ -69,6 +70,7 @@ func _on_run_btn_pressed():
 		aviso.show()
 	
 	if (valor_de_i != 0) or (posicao_final != bridge_size):
+		player.inc_ms_pos_invalid()
 		disableBtns()
 		await map.build_bridge(valor_de_i, posicao_final, false)
 		enableBtns()
