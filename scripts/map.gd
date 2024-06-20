@@ -7,6 +7,8 @@ const layer_sobreterreno2 = 4
 const layer_sobreterreno3 = 5
 const layer_sobreterreno4 = 6
 const layer_terra = 7
+const layer_terra_2 = 8
+const layer_terra_3 = 9
 
 const atlas_coord_pont_normal1 = Vector2i(19, 24)
 const atlas_coord_pont_normal2 = Vector2i(19, 25)
@@ -522,7 +524,7 @@ func plant(tam_i, correct):
 	const plantation1 = Vector2i(107, -7)
 	const plantation2 = Vector2i(107, -6)
 	
-	var layer = layer_sobreterreno3
+	var layer = layer_terra_2
 	
 	#Layer da terra
 	set_layer_modulate(layer_terra, Color.SADDLE_BROWN)
@@ -546,16 +548,16 @@ func plant(tam_i, correct):
 			var map_plant_2 = Vector2i(plantation2.x + i, plantation2.y)
 			
 			if i < 5:
-				set_cell(layer_sobreterreno4, map_plant_1, 0, atlas_coord_seed1)
-				set_cell(layer_sobreterreno4, map_plant_2, 0, atlas_coord_seed2)
+				set_cell(layer_terra_2, map_plant_1, 0, atlas_coord_seed1)
+				set_cell(layer_terra_2, map_plant_2, 0, atlas_coord_seed2)
 			elif (i >= 5) and (i < 7):
-				set_layer_modulate(layer_sobreterreno3, Color.RED)
-				set_cell(layer_sobreterreno3, map_plant_1, 0, atlas_coord_seed1)
-				set_cell(layer_sobreterreno4, map_plant_2, 0, atlas_coord_seed2)
+				set_layer_modulate(layer_terra_3, Color.RED)
+				set_cell(layer_terra_3, map_plant_1, 0, atlas_coord_seed1)
+				set_cell(layer_terra_2, map_plant_2, 0, atlas_coord_seed2)
 			elif i >= 7:
-				set_layer_modulate(layer_sobreterreno3, Color.RED)
-				set_cell(layer_sobreterreno3, map_plant_1, 0, atlas_coord_seed1)
-				set_cell(layer_sobreterreno3, map_plant_2, 0, atlas_coord_seed2)
+				set_layer_modulate(layer_terra_3, Color.RED)
+				set_cell(layer_terra_3, map_plant_1, 0, atlas_coord_seed1)
+				set_cell(layer_terra_3, map_plant_2, 0, atlas_coord_seed2)
 			
 			await get_tree().create_timer(0.5).timeout
 		await get_tree().create_timer(2).timeout
@@ -565,9 +567,9 @@ func clean_terrain():
 	const plantation1 = Vector2i(107, -7)
 	const plantation2 = Vector2i(107, -6)
 	
-	var layer = layer_sobreterreno3
+	var layer = layer_terra_2
 	
-	set_layer_modulate(layer_sobreterreno3, Color.WHITE)
+	set_layer_modulate(layer_terra, Color.WHITE)
 	
 	#Layer da terra
 	set_layer_modulate(layer_terra, Color.WHITE)
@@ -579,8 +581,8 @@ func clean_terrain():
 		erase_cell(layer, map_plant_1)
 		erase_cell(layer, map_plant_2)
 		
-		erase_cell(layer_sobreterreno4, map_plant_1)
-		erase_cell(layer_sobreterreno4, map_plant_2)
+		erase_cell(layer_terra_3, map_plant_1)
+		erase_cell(layer_terra_3, map_plant_2)
 
 	
 

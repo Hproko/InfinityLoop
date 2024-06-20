@@ -5,13 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://drr1b84ammwgf" path="res://scenes/player.tscn" id="3_22r5p"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="5_uqweq"]
 [ext_resource type="PackedScene" uid="uid://d3c5blbnwagqn" path="res://scenes/npc.tscn" id="6_yal30"]
-[ext_resource type="Resource" uid="uid://kpionf0y14ma" path="res://dialogue/main-npc1.dialogue" id="7_7wa6o"]
-[ext_resource type="Texture2D" uid="uid://bkl4jajqfwwvo" path="res://assets/roguelikeChar_transparent.png" id="8_dsa3v"]
-[ext_resource type="Resource" uid="uid://ycoh54kwoplw" path="res://dialogue/main-npc-credits.dialogue" id="8_u6pas"]
-[ext_resource type="Resource" uid="uid://b5tyofae7qxyl" path="res://dialogue/main-npc2.dialogue" id="9_favti"]
-[ext_resource type="Resource" uid="uid://q5sharfhvmae" path="res://dialogue/main-npc3.dialogue" id="9_xj2ob"]
-[ext_resource type="Resource" uid="uid://jn5a5xj55xjf" path="res://dialogue/main-npc4.dialogue" id="10_i2d3u"]
-[ext_resource type="Resource" uid="uid://7uriw4gqocx6" path="res://dialogue/main-npc5.dialogue" id="11_3cac5"]
+[ext_resource type="Resource" uid="uid://c2ee8yqf27xxi" path="res://dialogue/main-npc1.dialogue" id="7_7wa6o"]
+[ext_resource type="Texture2D" uid="uid://xs64wsakgywr" path="res://assets/roguelikeChar_transparent.png" id="8_dsa3v"]
+[ext_resource type="Resource" uid="uid://bkadq1ayen278" path="res://dialogue/main-npc-credits.dialogue" id="8_u6pas"]
+[ext_resource type="Resource" uid="uid://dp71vl0huarr1" path="res://dialogue/main-npc2.dialogue" id="9_favti"]
+[ext_resource type="Resource" uid="uid://uxbldgo07h40" path="res://dialogue/main-npc3.dialogue" id="9_xj2ob"]
+[ext_resource type="Resource" uid="uid://dqcukrd3iane7" path="res://dialogue/main-npc4.dialogue" id="10_i2d3u"]
+[ext_resource type="Resource" uid="uid://blq0626gerbvs" path="res://dialogue/main-npc5.dialogue" id="11_3cac5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u8x77"]
 atlas = ExtResource("8_dsa3v")
@@ -51,13 +51,19 @@ layer_6/name = "sobreterreno4"
 layer_6/z_index = -996
 layer_6/tile_data = PackedInt32Array(1900671, 327680, 10, 1966207, 327680, 11, 1900672, 393216, 10, 1966208, 393216, 11, 131188, 327680, 9, 196724, 327680, 10, 262260, 327680, 11, 131189, 393216, 9, 196725, 393216, 10, 262261, 393216, 11)
 layer_7/name = "terra"
-layer_7/z_index = -1000
+layer_7/z_index = -995
 layer_7/tile_data = PackedInt32Array(-458645, 1245184, 14, -393109, 1245184, 14, -458644, 1245184, 14, -393108, 1245184, 14, -458643, 1245184, 14, -393107, 1245184, 14, -458642, 1245184, 14, -393106, 1245184, 14, -458641, 1245184, 14, -393105, 1245184, 14, -458640, 1245184, 14, -393104, 1245184, 14, -458639, 1245184, 14, -393103, 1245184, 14, -458638, 1245184, 14, -393102, 1245184, 14)
+layer_8/name = "terra2"
+layer_8/z_index = -994
+layer_8/tile_data = PackedInt32Array()
+layer_9/name = "terra3"
+layer_9/z_index = -993
+layer_9/tile_data = PackedInt32Array()
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("3_22r5p")]
 unique_name_in_owner = true
-position = Vector2(1308, 36)
+position = Vector2(1300, -103)
 
 [node name="Camera" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
