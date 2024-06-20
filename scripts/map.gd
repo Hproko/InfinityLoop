@@ -542,6 +542,7 @@ func plant(tam_i, correct):
 			
 			
 			await get_tree().create_timer(0.5).timeout
+		remove_bushes()
 	else:
 		for i in range(0, tam_i):
 			var map_plant_1 = Vector2i(plantation1.x + i, plantation1.y)
@@ -584,6 +585,16 @@ func clean_terrain():
 		erase_cell(layer_terra_3, map_plant_1)
 		erase_cell(layer_terra_3, map_plant_2)
 
+func remove_bushes():
+	for i in range(0, 6):
+		erase_cell(layer_sobreterreno, Vector2i(129, -6 - i))
+		erase_cell(layer_sobreterreno, Vector2i(130, -6 - i))
+		erase_cell(layer_sobreterreno, Vector2i(129, -5 - i))
+		erase_cell(layer_sobreterreno, Vector2i(130, -5 - i))
 	
-
+	for i in range(0, 4):
+		erase_cell(layer_sobreterreno2, Vector2i(130, -7 - i))
+		erase_cell(layer_sobreterreno2, Vector2i(130, -6 - i))
+		erase_cell(layer_sobreterreno2, Vector2i(131, -7 - i))
+		erase_cell(layer_sobreterreno2, Vector2i(131, -6 - i))
 
