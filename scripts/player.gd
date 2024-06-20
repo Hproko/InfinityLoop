@@ -90,9 +90,10 @@ func execute_interaction():
 		var npc = all_interactions[0]
 		State.set_current_npc(npc)
 		
+		State.set_interagindo(true)
+		
 		if npc.challenge_passed == false:
 			npc.interact_message.hide()
-			State.set_interagindo(true)
 			$AnimatedSprite2D.stop()
 			State.start_ballon(npc.dialogue_file, "start")
 		else:

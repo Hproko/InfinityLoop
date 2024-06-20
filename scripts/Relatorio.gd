@@ -1,9 +1,9 @@
 extends Control
 
-@onready var player = get_tree().get_root().get_node("Main/Player")
 
 
 func _ready():
+	var player = State.main.get_node("Player")
 	$VBoxContainer/Lbl_inf_loop.text = "    Quantidade de loops infinitos: " + str(player.miss_cncptn_inf_loop)
 	$VBoxContainer/Lbl_pos_invalid.text = "    Quantidade de acesso a posições inválidas do vetor ou matriz: " + str(player.miss_cncptn_pos_invalid)
 	$VBoxContainer/Lbl_rel_oper.text = "    Quantidade de uso incorreto de operadores relacionais: " + str(player.miss_cncptn_rel_oper)
@@ -22,8 +22,10 @@ func _ready():
 	for i in range(0, 2):
 		$VBoxContainer/ListaDicas.text += "    - " + ms_list[i][1] + "\n"
 		
-			
-	
-	
-	
-	
+
+
+
+
+func _on_button_pressed():
+	State.back_to_map()
+	queue_free()

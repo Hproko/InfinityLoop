@@ -150,7 +150,6 @@ func _on_run_btn_pressed():
 	mostra_aviso("Você conseguiu", Color.GREEN)
 	await camera.reset_camera()
 	State.start_ballon(State.current_npc.dialogue_file, "sucesso")
-	State.finaliza_interacao()
 	State.current_npc.challenge_passed = true
 	State.current_npc.ponto_excl.hide()
 	queue_free()

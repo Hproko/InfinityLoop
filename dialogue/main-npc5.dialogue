@@ -8,10 +8,20 @@ Jardineiro: [[Oi|Olá]]... sou o jardinheiro dessa ilha, preciso plantar flores 
 	do State.finaliza_interacao()
 => END
 
+~ finish
+Jardineiro: Esse jardim ficou perfeito! Muito obrigado pela ajuda!
+- Ver relatório final
+	do State.mostra_relatorio()
+- Até mais
+	do State.finaliza_interacao()
+=> END
+
 ~ sucesso
 
 Jardineiro: Esse jardim ficou perfeito! Muito obrigado pela ajuda!
 Jardineiro: Parabéns por finalizar sua jornada!
-
-do State.finaliza_interacao()
+- Ver relatório de Erros
+	do State.mostra_relatorio()
+- Continuar explorando o mapa
+	do State.finaliza_interacao()
 => END

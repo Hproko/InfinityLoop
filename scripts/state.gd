@@ -6,14 +6,14 @@ extends Node
 var interagindo : bool = false
 
 var current_npc : Interactable
-
+var main
 const Balloon = preload("res://dialogue/balloon.tscn")
 const challenge = preload("res://scenes/challenge.tscn")
 const challenge1 = preload("res://scenes/challenge1.tscn")
 const challenge2 = preload("res://scenes/challenge2.tscn")
 const challenge3 = preload("res://scenes/challenge3.tscn")
 const challenge4 = preload("res://scenes/challenge4.tscn")
-const Relatorio = preload("res://scenes/relatorio.tscn")
+const relatorio = preload("res://scenes/relatorio.tscn")
 
 func start_ballon(resource, node):
 	var balloon : Node = Balloon.instantiate()
@@ -60,6 +60,18 @@ func load_challenge():
 	main.add_child(instance)
 	
 	move_camera()
+
+func back_to_map():
+	get_tree().root.add_child(main)
+	get_tree().current_scene = get_tree().root.get_node("Main")
+	finaliza_interacao()
+
+func mostra_relatorio():
+	var rel = relatorio.instantiate()
+	main = get_tree().root.get_node("Main")
+	get_tree().root.remove_child(main)
+	get_tree().root.add_child(rel)
+	
 	
 	
 func set_interagindo(value):
