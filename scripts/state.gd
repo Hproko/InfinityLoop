@@ -13,6 +13,7 @@ const challenge1 = preload("res://scenes/challenge1.tscn")
 const challenge2 = preload("res://scenes/challenge2.tscn")
 const challenge3 = preload("res://scenes/challenge3.tscn")
 const challenge4 = preload("res://scenes/challenge4.tscn")
+const Relatorio = preload("res://scenes/relatorio.tscn")
 
 func start_ballon(resource, node):
 	var balloon : Node = Balloon.instantiate()

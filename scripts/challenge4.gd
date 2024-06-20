@@ -13,6 +13,7 @@ extends Control
 @onready var camera = get_tree().get_root().get_node("Main/Player/Camera")
 @onready var player = get_tree().get_root().get_node("Main/Player")
 
+
 var max_i := 10 # primeira opcao do outFor
 var max_j := 11 # primeira opcao do inFor
 var if_flor_branca := "=="
