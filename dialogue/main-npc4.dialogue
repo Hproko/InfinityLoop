@@ -29,7 +29,7 @@ Fazendeiro: Parece que as plantações não deram certo... Tente novamente!
 ~ sucesso
 
 Fazendeiro: Agora sim minha plantação irá prosperar! Muito obrigado pela ajuda!
-Fazendeiro: Vou te ajudar retirando estes galhos do caminho.
+Fazendeiro: Vou te ajudar retirando estes arbustos do caminho.
 
 
 do State.finaliza_interacao()
