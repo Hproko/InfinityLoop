@@ -1,7 +1,7 @@
 extends Node
 
 
-@onready var screen_size = get_viewport().size
+
 
 var interagindo : bool = false
 
@@ -51,6 +51,7 @@ func load_challenge():
 	instance.scale.y *= .5
 	instance.set_name("challenge1")
 	
+	var screen_size = get_viewport().size
 	var camera_pos = camera.get_screen_center_position()
 	var topLeft = screen_size.y/4
 	var challenge_x = camera_pos.x + 180
@@ -58,7 +59,8 @@ func load_challenge():
 	
 	instance.position = Vector2(challenge_x, challenge_y)
 	main.add_child(instance)
-	
+	print(DisplayServer.window_get_size())
+	print(get_viewport().size)
 	move_camera()
 
 func back_to_map():

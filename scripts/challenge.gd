@@ -33,7 +33,6 @@ func add_items():
 	condition_opt_btn.add_item("i <= 6;")
 	condition_opt_btn.add_item("i < 7;")
 	
-	
 
 func _on_close_btn_pressed():
 	await camera.reset_camera()
