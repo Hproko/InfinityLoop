@@ -96,11 +96,11 @@ offset_bottom = 92.0
 font_size = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CodeEdit"]
-layout_mode = 0
-anchor_left = 0.0208333
-anchor_top = 0.512346
-anchor_right = 0.454861
-anchor_bottom = 1.16821
+layout_mode = 1
+offset_left = 14.0
+offset_top = 335.0
+offset_right = 514.0
+offset_bottom = 760.0
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true

@@ -25,6 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(3.00817e-06, 0.474507, 0.11392, 1)
+metadata/_edit_lock_ = true
 
 [node name="CodeEdit" type="CodeEdit" parent="ColorRect"]
 unique_name_in_owner = true
@@ -119,11 +120,11 @@ grow_vertical = 1
 font_size = 14
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CodeEdit"]
-layout_mode = 0
-anchor_left = 0.0147569
-anchor_top = 0.467593
-anchor_right = 0.448785
-anchor_bottom = 1.12346
+layout_mode = 1
+offset_left = 18.0
+offset_top = 295.0
+offset_right = 518.0
+offset_bottom = 720.0
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
