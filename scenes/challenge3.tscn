@@ -97,16 +97,19 @@ font_size = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CodeEdit"]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 332.0
-offset_right = 524.0
-offset_bottom = 757.0
+anchor_left = 0.0208333
+anchor_top = 0.512346
+anchor_right = 0.454861
+anchor_bottom = 1.16821
 theme_override_constants/separation = 10
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="ColorRect/CodeEdit/VBoxContainer"]
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
 
 [node name="Aviso" type="Label" parent="ColorRect/CodeEdit/VBoxContainer/ColorRect"]
 unique_name_in_owner = true

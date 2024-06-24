@@ -120,11 +120,13 @@ font_size = 14
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CodeEdit"]
 layout_mode = 0
-offset_left = 17.0
-offset_top = 303.0
-offset_right = 517.0
-offset_bottom = 728.0
+anchor_left = 0.0147569
+anchor_top = 0.467593
+anchor_right = 0.448785
+anchor_bottom = 1.12346
 theme_override_constants/separation = 10
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="ColorRect/CodeEdit/VBoxContainer"]
 custom_minimum_size = Vector2(500, 50)

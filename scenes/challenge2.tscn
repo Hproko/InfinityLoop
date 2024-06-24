@@ -77,10 +77,11 @@ grow_vertical = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CodeEdit"]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 303.0
-offset_right = 515.0
-offset_bottom = 570.0
+anchor_left = 0.0130208
+anchor_top = 0.467593
+anchor_right = 0.447049
+anchor_bottom = 0.939815
+offset_bottom = -39.0
 theme_override_constants/separation = 10
 metadata/_edit_lock_ = true
 
