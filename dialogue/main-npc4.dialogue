@@ -1,7 +1,7 @@
 ~ start
 Fazendeiro: [[Oi|Olá]]... sou o fazendeiro da região, consegue me ajudar a plantar estas sementes?
 - Sim. 
-	Fazendeiro: Preciso plantar trigo e milho nesse terreno, mas preciso plantrar somente até que alguma das sementes acabe.
+	Fazendeiro: Preciso plantar trigo e milho nesse terreno, mas preciso plantar somente até que alguma das sementes acabe.
 	Fazendeiro: Também não posso plantar além do que o terreno permite.
 	do State.load_challenge()
 - Não.  
