@@ -77,22 +77,23 @@ offset_right = 511.0
 offset_bottom = 651.0
 theme_override_constants/separation = 7
 
-[node name="ColorRect" type="ColorRect" parent="ColorRect/CodeEdit/VBoxContainer"]
-custom_minimum_size = Vector2(500, 50)
-layout_mode = 2
-color = Color(0, 0, 0, 1)
-metadata/_edit_lock_ = true
-
-[node name="Aviso" type="Label" parent="ColorRect/CodeEdit/VBoxContainer/ColorRect"]
+[node name="Aviso" type="Label" parent="ColorRect/CodeEdit/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
-offset_left = 1.0
-offset_top = -1.0
-offset_right = 501.0
-offset_bottom = 49.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 autowrap_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/CodeEdit/VBoxContainer/Aviso"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
 [node name="Btns" type="HBoxContainer" parent="ColorRect/CodeEdit/VBoxContainer"]
