@@ -1,15 +1,15 @@
 ~ start
 
-Fazendeira: [[Oi|Olá]]... o que gostaria de saber?
+Fazendeira: [[Oi|Olá]]... o que gostaria de saber? [Selecione uma das opções acima]
 - Créditos
-	Fazendeira: Este jogo foi desenvolvido como um Trabalho de Conclusão de Curso de Ciência da Computação, 
+	Fazendeira: Este jogo foi desenvolvido como um Trabalho de Conclusão de Curso de Ciência da Computação [Pressione 'Enter' para continuar...]
 	Fazendeira: feito pelos alunos Henrique Prokopenko e João Pedro Kieras Oliveira, pela Universidade Federal do Paraná.
 	Fazendeira: Obrigado por jogar nosso jogo!
 	=> start
 - Como jogar?
-	Fazendeira: Neste jogo você é um Mago que irá resolver desafios de programação em linguagem C, principalmente explorando os laços de repetição 'for' e 'while'.
-	Fazendeira: Sua missão é corrigir os programas defeituosos que encontrar para ajudar os personagens desse mundo, utilizando sua magia (código!).
-	Fazendeira: A cada erro que cometer será dado um feedback sobre o que pode estar causando esse erro, e cada desafio que completar irá desbloquar o próximo. Boa sorte!
+	Fazendeira: Neste jogo você é um Mago que irá resolver desafios de programação em linguagem C, principalmente explorando os laços de repetição 'for' e 'while'. [Pressione 'Enter' para continuar...]
+	Fazendeira: Sua missão é completar os desafios de programação que encontrar, ajudando os personagens deste mundo a cumprir suas tarefas. Utilize sua magia (código!).
+	Fazendeira: A cada erro cometido você recebrá um feedback explicando o motivo do erro. Cada desafio que completar permitirá que você avance para a próxima fase. Boa sorte!
 	=> start
 - Até mais 
 	do State.finaliza_interacao()

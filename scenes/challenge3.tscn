@@ -140,11 +140,10 @@ metadata/_edit_lock_ = true
 [node name="Label" type="Label" parent="ColorRect/CodeEdit/VBoxContainer"]
 custom_minimum_size = Vector2(500, 324)
 layout_mode = 2
-text = "################################################
-Bem vindo ao Desafio 4! Precisamos plantar dois tipo de sementes na plantação e devemos parar de plantar caso alguma semente acabe, mas sem extrapolar o limite máximo do terreno.
-
+text = "Bem vindo ao Desafio 4! 
+Neste desafio, você deve completar a condição do laço ‘while’ (linha 10) utilizando operadores lógicos. Sua tarefa é plantar dois tipos de sementes, trigo e milho. Além disso, você deve parar de plantar em duas situações: 1) quando uma das sementes acabar ou 2) quando o terreno estiver totalmente plantado.
 Boa sorte!
-################################################"
+"
 autowrap_mode = 3
 metadata/_edit_lock_ = true
 

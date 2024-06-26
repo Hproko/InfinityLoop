@@ -3,11 +3,11 @@ Camponês: [[Oi|Olá]]... Bem vindo ao seu primeiro desafio!
 - Quem é você?
 	Camponês: Sou apenas um camponês local. 
 	=> start
-- Como esta ponte quebrou?
-	Camponês: Não sei bem na verdade, está quebrada há anos... 
-	Camponês: Dizem que ela pode ser reconstruida usando o código correto, mas apenas os magos podem ler os códigos.
-	Camponês: Há boatos que ainda existem escritas antigas com este código, mas o último mago que passou por aqui confundiu as coisas e... bom, quebrou.
-	Camponês: Você poderia me ajudar a consertar essa ponte?
+- Como a ponte quebrou?
+	Camponês: Na verdade, está quebrada há anos... 
+	Camponês: Dizem que ela pode ser reconstruida usando o código correto, mas apenas os magos podem decifrar os códigos.
+	Camponês: Há boatos de que ainda existem escritas antigas com este código, mas o último mago que passou por aqui acabou confundiu as coisas e... bom, quebrou tudo.
+	Camponês: Você poderia me ajudar a consertar a ponte?
 	- Sim. 
 		Camponês: Precisamos colocar 7 tábuas nessa ponte em sequência, considerando que a ponte é um vetor, ela deve começar na posição 0. Boa sorte!
 		do State.load_challenge()

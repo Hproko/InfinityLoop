@@ -117,12 +117,11 @@ metadata/_edit_lock_ = true
 [node name="Label" type="Label" parent="ColorRect/CodeEdit/VBoxContainer"]
 custom_minimum_size = Vector2(500, 324)
 layout_mode = 2
-text = "################################################
+text = "
+Bem-vindo ao Desafio 2!
+Neste desafio, você deve selecionar uma opção para a condição do laço while (linha 4) e para o campo da linha 7, sendo este último usado para incrementar ou decrementar o laço. Lembre-se de que  você deve adicionar 5 estacas  para consertar a cerca.
 
-Seu objetivo é encontrar o código correto para esse loop for e consertar a cerca. Lembrando que estão faltando 5 pedaços de  cerca, lembre-se que ela é um vetor.
-
-Boa Sorte!!!
-################################################"
+Boa Sorte!"
 autowrap_mode = 3
 metadata/_edit_lock_ = true
 

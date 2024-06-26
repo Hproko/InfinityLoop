@@ -5,13 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://drr1b84ammwgf" path="res://scenes/player.tscn" id="3_22r5p"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="5_uqweq"]
 [ext_resource type="PackedScene" uid="uid://d3c5blbnwagqn" path="res://scenes/npc.tscn" id="6_yal30"]
-[ext_resource type="Resource" uid="uid://kpionf0y14ma" path="res://dialogue/main-npc1.dialogue" id="7_7wa6o"]
-[ext_resource type="Texture2D" uid="uid://bkl4jajqfwwvo" path="res://assets/roguelikeChar_transparent.png" id="8_dsa3v"]
-[ext_resource type="Resource" uid="uid://ycoh54kwoplw" path="res://dialogue/main-npc-credits.dialogue" id="8_u6pas"]
-[ext_resource type="Resource" uid="uid://b5tyofae7qxyl" path="res://dialogue/main-npc2.dialogue" id="9_favti"]
-[ext_resource type="Resource" uid="uid://q5sharfhvmae" path="res://dialogue/main-npc3.dialogue" id="9_xj2ob"]
-[ext_resource type="Resource" uid="uid://jn5a5xj55xjf" path="res://dialogue/main-npc4.dialogue" id="10_i2d3u"]
-[ext_resource type="Resource" uid="uid://7uriw4gqocx6" path="res://dialogue/main-npc5.dialogue" id="11_3cac5"]
+[ext_resource type="Resource" uid="uid://dbfx32v1upf4v" path="res://dialogue/main-npc1.dialogue" id="7_7wa6o"]
+[ext_resource type="Texture2D" uid="uid://ho6223k8uq1g" path="res://assets/roguelikeChar_transparent.png" id="8_dsa3v"]
+[ext_resource type="Resource" uid="uid://cdsxov02qs7dp" path="res://dialogue/main-npc-credits.dialogue" id="8_u6pas"]
+[ext_resource type="Resource" uid="uid://i6vp6j3pop0s" path="res://dialogue/main-npc2.dialogue" id="9_favti"]
+[ext_resource type="Resource" uid="uid://45rd7txiqxpn" path="res://dialogue/main-npc3.dialogue" id="9_xj2ob"]
+[ext_resource type="Resource" uid="uid://cm5dhtx3im6m" path="res://dialogue/main-npc4.dialogue" id="10_i2d3u"]
+[ext_resource type="Resource" uid="uid://grx24p0khn72" path="res://dialogue/main-npc5.dialogue" id="11_3cac5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u8x77"]
 atlas = ExtResource("8_dsa3v")
@@ -63,7 +63,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("3_22r5p")]
 unique_name_in_owner = true
-position = Vector2(199, 194)
+position = Vector2(968, 280)
 
 [node name="Camera" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
