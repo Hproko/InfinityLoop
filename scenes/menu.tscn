@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bscxy5kksla18"]
+[gd_scene load_steps=3 format=3 uid="uid://tfjj3cs106ri"]
 
-[ext_resource type="Script" path="res://scripts/menu.gd" id="1_ej4it"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_27imd"]
+[ext_resource type="Texture2D" uid="uid://cjt4j1r7pb3cv" path="res://assets/menu_inicial.jpg" id="2_csw15"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -9,39 +10,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ej4it")
+script = ExtResource("1_27imd")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -35.0
-offset_top = -50.5
-offset_right = 35.0
-offset_bottom = 50.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_csw15")
+expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 292.0
+offset_right = 683.0
+offset_bottom = 347.0
+flat = true
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Play
-"
-
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Options"
-
-[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Quit
-"
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
