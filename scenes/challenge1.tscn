@@ -89,6 +89,7 @@ autowrap_mode = 3
 metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="ColorRect/CodeEdit/VBoxContainer/Aviso"]
+show_behind_parent = true
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 1
 anchors_preset = 15

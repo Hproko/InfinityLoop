@@ -61,11 +61,11 @@ func _on_run_btn_pressed():
 		return
 		
 	if posicao_final != bridge_size:
-		aviso.text = "Você tentou acessar a posição 7 do Vetor, isso causa memória corrompida e aborta o programa!"
+		aviso.text = "Você tentou acessar a posição 7 do vetor, que é uma posição inválida! Na linguagem C, o índice da última posição do vetor é calculado como “tamanho_do_vetor - 1”. Tente novamente"
 		aviso.show()
 	
 	if valor_de_i == -1:
-		aviso.text = "Você tentou acessar a posição -1 do Vetor, isso causa memória corrompida e aborta o programa!"
+		aviso.text = "Você tentou acessar a posição -1 do vetor, que é uma posição inválida! Na linguagem C, os vetores sempre começam na posição de índice zero. Tente novamente!"
 		aviso.show()
 	
 	if (valor_de_i != 0) or (posicao_final != bridge_size):
@@ -75,7 +75,7 @@ func _on_run_btn_pressed():
 		enableBtns()
 		map.restore_bridge()
 	else:
-		aviso.text = "Você conseguiu!"
+		aviso.text = "Parabéns! Você conseguiu!"
 		aviso.show()
 		aviso.add_theme_color_override("font_color", Color.GREEN)
 		await map.build_bridge(valor_de_i, posicao_final, true)

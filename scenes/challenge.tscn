@@ -86,6 +86,7 @@ autowrap_mode = 3
 metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="ColorRect/CodeEdit/VBoxContainer/Aviso"]
+show_behind_parent = true
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 1
 anchors_preset = 15
@@ -116,8 +117,7 @@ metadata/_edit_lock_ = true
 [node name="Label" type="Label" parent="ColorRect/CodeEdit/VBoxContainer"]
 custom_minimum_size = Vector2(500, 324)
 layout_mode = 2
-text = "
-Bem vindo ao seu primeiro desafio!
+text = "Bem vindo ao desafio 1!
 Para jogar, clique nos dois primeiros campos não preenchidos do laço for (Linha 6) e selecione uma das opções. Em seguida, clique em “Run Code”.
 Lembre-se de que faltam 7 tábuas em sequência nesta ponte, que está sendo representada como um vetor iniciando na posição zero. Considere que a parte inicial construída da ponte é irrelevante, ou seja, a contagem das posições deve começar após a parte quebrada.
 

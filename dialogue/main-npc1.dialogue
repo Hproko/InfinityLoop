@@ -9,7 +9,7 @@ Camponês: [[Oi|Olá]]... Bem vindo ao seu primeiro desafio!
 	Camponês: Há boatos de que ainda existem escritas antigas com este código, mas o último mago que passou por aqui acabou confundiu as coisas e... bom, quebrou tudo.
 	Camponês: Você poderia me ajudar a consertar a ponte?
 	- Sim. 
-		Camponês: Precisamos colocar 7 tábuas nessa ponte em sequência, considerando que a ponte é um vetor, ela deve começar na posição 0. Boa sorte!
+		Camponês: Precisamos colocar 7 tábuas nesta ponte em sequência, considerando que a ponte é um vetor, ela deve começar na posição zero. Boa sorte!
 		do State.load_challenge()
 	- Não.  
 		do State.finaliza_interacao()
@@ -34,18 +34,9 @@ Camponês: Zero... um... dois... três...  Sempre "crescendo" de 1 em 1. Boa sor
 
 => END
 
-~ posicao_errada1
-
-Camponês: Você acessou uma posição inválida desse vetor (ponte[-1]). Isso causa erro de memória e seu programa é abortado. Cuidado para não destruir o resto dessa ponte!
-
-=> END
-
-~ posicao_errada2
-Camponês: Você acessou uma posição inválida desse vetor (ponte[7]). Isso causa erro de memória e seu programa é abortado. Cuidado para não destruir o resto dessa ponte!
-=> END
 ~ sucesso
 
-Camponês: Não acredito... Você conseguiu mesmo. Você deve ser um mago de verdade. Muito obrigado!
+Camponês: Não acredito... Você conseguiu consertar a ponte. Muito obrigado!! Você deve ser um mago de verdade. [Pressione 'Enter' para continuar...]
 do State.finaliza_interacao()
 => END
 
