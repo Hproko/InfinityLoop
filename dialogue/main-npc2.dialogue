@@ -1,14 +1,12 @@
 ~ start
-Construtor: [[Oi|Olá]]... Sou o construtor dessa ilha! Fiquei sabendo que tem um novo mago andando por essas terras, muito prazer em te conhecer!
-Construtor: Estou tentando consertar essa cerca, mas não consigo de maneira alguma... A ajuda de um mago seria ótima, se você consertar abro o portão para você passar. Você poderia me ajudar?
+Construtor: [[Oi|Olá]]... Sou o construtor desta ilha! Fiquei sabendo que tem um novo mago andando por essas terras. É um prazer te conhecer!
+Construtor: Estou tentando consertar esta cerca, mas não consigo de maneira alguma… A ajuda de um mago seria ótima. Se você consertá-la, abrirei o portão para você passar. Você poderia me ajudar?
 - Sim. 
-	Construtor: Estão faltando 5 partes nessa cerca, eu consegui consertar a cerca 1 e 2, lembre-se que a cerca é um vetor. Boa sorte!
+	Construtor: Preciso colocar 5 estacas em sequência nesta cerca. Observe que as duas primeiras eu consegui consertar. Boa sorte!
 	do State.load_challenge()
 - Não.  
 	do State.finaliza_interacao()
 	=> END
-- Até mais...  
-	do State.finaliza_interacao()
 => END
 
 ~ finish
@@ -28,7 +26,7 @@ Construtor: Dica: Precisamos colocar 5 postes em sequência, começando da posi�
 
 ~ sucesso
 
-Construtor: Agora sim minha cerca está completa, vocês magos são incríveis. Muito obrigado!
+Construtor: Agora minha cerca está completa! Vocês magos são incríveis. Muito obrigado!
 Construtor: Vou liberar a passagem pra você, até logo!
 do State.finaliza_interacao()
 => END

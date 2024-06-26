@@ -121,11 +121,9 @@ metadata/_edit_lock_ = true
 [node name="Label" type="Label" parent="ColorRect/CodeEdit/VBoxContainer"]
 layout_mode = 2
 text = "
-
-################################################
-Bem vindo ao Desafio 3! Precisamos plantar as árvores em sequência apenas nas posições pares, ou seja, 2, 4, 6 e 8 para completar a floresta.
-Boa Sorte!!!
-################################################"
+Bem vindo ao Desafio 3! 
+Neste desafio, você deve selecionar uma opção para a condição do laço for (linha 4) e um operador relacional na linha 6, para completar a condição da estrutura de decisão if. Você deverá plantar 4 árvores do lado esquerdo do caminho, alinhadas com as árvores do lado direito, para completar a floresta.
+Boa Sorte!"
 autowrap_mode = 3
 metadata/_edit_lock_ = true
 

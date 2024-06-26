@@ -115,15 +115,13 @@ metadata/_edit_lock_ = true
 [node name="Label" type="Label" parent="ColorRect/CodeEdit/VBoxContainer"]
 custom_minimum_size = Vector2(500, 324)
 layout_mode = 2
-text = "################################################
+text = "
 Bem vindo ao seu primeiro desafio!
+Para jogar, clique nos dois primeiros campos não preenchidos do laço for (Linha 6) e selecione uma das opções. Em seguida, clique em “Run Code”.
+Lembre-se de que faltam 7 tábuas em sequência nesta ponte, que está sendo representada como um vetor iniciando na posição zero. Considere que a parte inicial construída da ponte é irrelevante, ou seja, a contagem das posições deve começar após a parte quebrada.
 
-Para jogar selecione as opções da linha 6. Quando você achar que o código está correto clique em \"Run Code\".
-
-Lembrando que estão faltando 7 tábuas nessa ponte e como ela é um vetor deve sempre começar na posição 0. Considere que a parte construida da ponte é irrelevante, ou seja, a posição 0 da ponte começa a partir da parte quebrada.
-
-Boa Sorte!!!
-################################################"
+Boa Sorte!
+"
 autowrap_mode = 3
 metadata/_edit_lock_ = true
 
