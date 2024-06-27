@@ -27,7 +27,7 @@ func add_items():
 	while_option_button.add_item("(i <= 7);")
 	while_option_button.add_item("(i <= 7)")
 	while_option_button.add_item("(i < 8)")
-	while_option_button.add_item("(1 < 10)")
+	while_option_button.add_item("(1 < 8)")
 	while_option_button.add_item("(i = 8)")
 	
 	inc_opt_btn.add_item(" ")
@@ -63,22 +63,22 @@ func _on_run_btn_pressed():
 		return
 		
 	if tem_pt_e_virgula == ";": 
-		aviso.text = "Esse código causa loop infinito por conta do ';' \
-					ao final do comando while, tome cuidado!"
+		aviso.text = "Erro de laço infinito! Lembre-se que não deve existir ponto e vírgula após a condição do laço while."
+		if incremento == -1:
+			aviso.text += " Além disso, atenção na atualização do valor da variável ‘i’ na linha 7."
+		
+		aviso.text += " Tente novamente!"
 		aviso.show()
-		player.inc_ms_inf_loop()
 		da_loop_infinito = true
 		return
 		
 	if tem_pt_e_virgula == "<": 
-		aviso.text = "Esse código causa loop infinito, já que a condição \
-					1 < 10 sempre é verdadeira"
+		aviso.text = "Erro de laço infinito! A condição (1 < 8) sempre é verdadeira."
 		aviso.show()
 		da_loop_infinito = true
 		
 	if tem_pt_e_virgula == "=": 
-		aviso.text = "Esse código causa loop infinito, pois i = 8 \
-					é uma atribuição, e não um comparador de igualdade (==)"
+		aviso.text = "Erro de laço infinito! O operador ‘=’ está atribuindo um valor a variável ‘i’ na linha 4."
 		aviso.show()
 		da_loop_infinito = true
 		
@@ -92,14 +92,16 @@ func _on_run_btn_pressed():
 		
 	if incremento == -1:
 		if tem_pt_e_virgula == "":
-			aviso.text = "Esse código causa loop infinito por conta \
-					do decremento da variável i, tome cuidado!"
-			aviso.show()
-		fim_cerca = -12	
+			aviso.text = "Erro de laço infinito! Atenção na atualização do valor da variável ‘i’."
+		else:
+			aviso.text += " Além disso, atenção na atualização do valor da variável ‘i’ na linha 7."
+		aviso.show()
+		fim_cerca = -12
 		da_loop_infinito = true
 		
 	# Se da loop infinito está errado 
 	if da_loop_infinito:
+		aviso.text += " Tente novamente!"
 		disableBtns()
 		player.inc_ms_inf_loop()
 		await map.build_fence(ini_cerca, fim_cerca, incremento)
@@ -108,7 +110,7 @@ func _on_run_btn_pressed():
 		da_loop_infinito = false # temos que sempre recarregar essa variavel
 		return
 	else:
-		aviso.text = "Você conseguiu!"
+		aviso.text = "Parabéns! Você conseguiu!"
 		aviso.show()
 		aviso.add_theme_color_override("font_color", Color.GREEN)
 		disableBtns()
