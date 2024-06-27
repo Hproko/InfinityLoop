@@ -79,6 +79,7 @@ func _on_run_btn_pressed():
 		aviso.show()
 		aviso.add_theme_color_override("font_color", Color.GREEN)
 		await map.build_bridge(valor_de_i, posicao_final, true)
+		await get_tree().create_timer(2).timeout
 		hide()
 		State.current_npc.challenge_passed = true
 		await camera.reset_camera()
