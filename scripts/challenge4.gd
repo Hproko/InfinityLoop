@@ -147,7 +147,8 @@ func _on_run_btn_pressed():
 		return
 		
 
-	mostra_aviso("Você conseguiu", Color.GREEN)
+	mostra_aviso("Parabéns! Você conseguiu", Color.GREEN)
+	
 	await camera.reset_camera()
 	State.start_ballon(State.current_npc.dialogue_file, "sucesso")
 	State.current_npc.challenge_passed = true

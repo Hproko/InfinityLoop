@@ -16,8 +16,37 @@ pivot_offset = Vector2(2, -1)
 script = ExtResource("1_42rxh")
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = 10
+[node name="CodeEdit" type="CodeEdit" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(577, 330)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = 1
+theme_override_font_sizes/font_size = 15
+text = "#include <stdio.h>
+int main(void)  {
+  int qtde_milho = 5;
+  int qtde_trigo = 7;
+  int tam_plantacao = 0;
+  while ((qtde_milho > 0)         (qtde_trigo > 0)         (tam_plantacao < 16))  
+  { 
+     plantarMilho();
+     plantarTrigo();
+     qtde_milho--;
+     qtde_trigo--;
+     tam_plantacao += 2;
+  } 
+}"
+editable = false
+gutters_draw_line_numbers = true
+indent_use_spaces = true
+
+[node name="ColorRect" type="ColorRect" parent="CodeEdit"]
+show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,64 +56,33 @@ grow_vertical = 2
 color = Color(3.00817e-06, 0.474507, 0.11392, 1)
 metadata/_edit_lock_ = true
 
-[node name="CodeEdit" type="CodeEdit" parent="ColorRect"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(577, 330)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 10
-text = "#include <stdio.h>
-int main(void)  {
-	int qtde_sementes_milho = 5;
-	int qtde_sementes_trigo = 7;
-	int tam_plantacao = 0;
-	if (        eh_grama())
-	{
-		ararTerra();
-	}
-	while ((qtde_sementes_milho > 0)            (qtde_sementes_trigo > 0)            (tam_plantacao < 16))
-	{ 
-		plantarMilho();
-    	plantarTrigo();
-    	qtde_sementes_milho--;
-    	qtde_sementes_trigo--;
-    	tam_plantacao += 2;
-	} 
-}"
-editable = false
-gutters_draw_line_numbers = true
-metadata/_edit_lock_ = true
-
-[node name="WhileOption" parent="ColorRect/CodeEdit" instance=ExtResource("2_heiei")]
+[node name="WhileOption" parent="CodeEdit" instance=ExtResource("2_heiei")]
 unique_name_in_owner = true
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 196.0
-offset_top = 163.0
-offset_right = 196.0
-offset_bottom = 163.0
-font_size = 10
+offset_left = 207.0
+offset_top = 115.0
+offset_right = 207.0
+offset_bottom = 115.0
+font_size = 13
 
-[node name="WhileOption2" parent="ColorRect/CodeEdit" instance=ExtResource("2_heiei")]
+[node name="WhileOption2" parent="CodeEdit" instance=ExtResource("2_heiei")]
 unique_name_in_owner = true
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 350.0
-offset_top = 164.0
+offset_top = 116.0
 offset_right = 350.0
-offset_bottom = 164.0
-font_size = 10
+offset_bottom = 116.0
+font_size = 13
 
-[node name="IfOption" parent="ColorRect/CodeEdit" instance=ExtResource("2_heiei")]
+[node name="IfOption" parent="CodeEdit" instance=ExtResource("2_heiei")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
@@ -95,26 +93,24 @@ offset_right = 49.0
 offset_bottom = 92.0
 font_size = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CodeEdit"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CodeEdit"]
 layout_mode = 1
-offset_left = 14.0
-offset_top = 335.0
-offset_right = 514.0
-offset_bottom = 760.0
+offset_left = 8.0
+offset_top = 354.0
+offset_right = 532.0
+offset_bottom = 636.0
 theme_override_constants/separation = 10
-metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
 
-[node name="Aviso" type="Label" parent="ColorRect/CodeEdit/VBoxContainer"]
+[node name="Aviso" type="Label" parent="CodeEdit/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(500, 50)
+custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.972549, 0, 0, 1)
 autowrap_mode = 3
+metadata/_edit_lock_ = true
 
-[node name="ColorRect" type="ColorRect" parent="ColorRect/CodeEdit/VBoxContainer/Aviso"]
+[node name="ColorRect" type="ColorRect" parent="CodeEdit/VBoxContainer/Aviso"]
 show_behind_parent = true
-custom_minimum_size = Vector2(500, 50)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -124,35 +120,36 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
-[node name="Btns" type="HBoxContainer" parent="ColorRect/CodeEdit/VBoxContainer"]
+[node name="Btns" type="HBoxContainer" parent="CodeEdit/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 300
 metadata/_edit_lock_ = true
 
-[node name="RunBtn" type="Button" parent="ColorRect/CodeEdit/VBoxContainer/Btns"]
+[node name="RunBtn" type="Button" parent="CodeEdit/VBoxContainer/Btns"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Run Code"
 metadata/_edit_lock_ = true
 
-[node name="CloseBtn" type="Button" parent="ColorRect/CodeEdit/VBoxContainer/Btns"]
+[node name="CloseBtn" type="Button" parent="CodeEdit/VBoxContainer/Btns"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Close"
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="ColorRect/CodeEdit/VBoxContainer"]
-custom_minimum_size = Vector2(500, 324)
+[node name="Label" type="Label" parent="CodeEdit/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 14
 text = "Bem vindo ao Desafio 4! 
-Neste desafio, você deve completar a condição do laço ‘while’ (linha 10) utilizando operadores lógicos. Sua tarefa é plantar dois tipos de sementes, trigo e milho. Além disso, você deve parar de plantar em duas situações: 1) quando uma das sementes acabar ou 2) quando o terreno estiver totalmente plantado.
+Neste desafio, você deve completar a condição do laço ‘while’ (linha 6) utilizando operadores lógicos. Sua tarefa é plantar dois tipos de sementes, trigo e milho. Além disso, você deve parar de plantar em duas situações: 1) quando uma das sementes acabar ou 2) quando o terreno estiver totalmente plantado.
 Boa sorte!
 "
 autowrap_mode = 3
 metadata/_edit_lock_ = true
 
-[connection signal="option_selected" from="ColorRect/CodeEdit/WhileOption" to="." method="_on_while_option_option_selected"]
-[connection signal="option_selected" from="ColorRect/CodeEdit/WhileOption2" to="." method="_on_while_option_2_option_selected"]
-[connection signal="option_selected" from="ColorRect/CodeEdit/IfOption" to="." method="_on_if_option_option_selected"]
-[connection signal="pressed" from="ColorRect/CodeEdit/VBoxContainer/Btns/RunBtn" to="." method="_on_run_btn_pressed"]
-[connection signal="pressed" from="ColorRect/CodeEdit/VBoxContainer/Btns/CloseBtn" to="." method="_on_close_btn_pressed"]
+[connection signal="option_selected" from="CodeEdit/WhileOption" to="." method="_on_while_option_option_selected"]
+[connection signal="option_selected" from="CodeEdit/WhileOption2" to="." method="_on_while_option_2_option_selected"]
+[connection signal="option_selected" from="CodeEdit/IfOption" to="." method="_on_if_option_option_selected"]
+[connection signal="pressed" from="CodeEdit/VBoxContainer/Btns/RunBtn" to="." method="_on_run_btn_pressed"]
+[connection signal="pressed" from="CodeEdit/VBoxContainer/Btns/CloseBtn" to="." method="_on_close_btn_pressed"]

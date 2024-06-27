@@ -63,18 +63,19 @@ func _on_run_btn_pressed():
 		aviso.show()
 		return
 		
-	if (opc3 != " !"):
-		aviso.text = "Precisamos preparar a terra antes do plantio!"
-		player.inc_ms_rel_logic()
-		aviso.show()
-		return
+	#if (opc3 != " !"):
+		#aviso.text = "Precisamos preparar a terra antes do plantio!"
+		#player.inc_ms_rel_logic()
+		#aviso.show()
+		#return
 	
 	if (opc1 == "&&" and opc2 == "&&"):
 		aviso.add_theme_color_override("font_color", Color.GREEN)
-		aviso.text = "Você conseguiu!"
+		aviso.text = "Parabéns! Você conseguiu!"
 		aviso.show()
 		disableBtns()
 		await map.plant(5, true)
+		await get_tree().create_timer(2).timeout
 		await camera.reset_camera()
 		enableBtns()
 		State.finaliza_interacao()
