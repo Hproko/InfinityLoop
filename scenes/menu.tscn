@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://tfjj3cs106ri"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_27imd"]
-[ext_resource type="Texture2D" uid="uid://cjt4j1r7pb3cv" path="res://assets/menu_inicial.jpg" id="2_csw15"]
+[ext_resource type="Texture2D" uid="uid://csg5dwjbmon13" path="res://assets/menu_inicial.jpg" id="2_csw15"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -23,11 +23,15 @@ texture = ExtResource("2_csw15")
 expand_mode = 1
 
 [node name="Play" type="Button" parent="."]
-layout_mode = 0
-offset_left = 468.0
-offset_top = 292.0
-offset_right = 683.0
-offset_bottom = 347.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.396701
+anchor_top = 0.447531
+anchor_right = 0.602431
+anchor_bottom = 0.535494
+grow_horizontal = 2
+grow_vertical = 2
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
