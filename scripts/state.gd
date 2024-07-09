@@ -47,17 +47,19 @@ func load_challenge():
 	var challenge = get_challenge(current_npc.challenge)
 	
 	var instance = challenge.instantiate()
+	main.add_child(instance)
+	
 	instance.scale.x *= .5
 	instance.scale.y *= .5
 	
-	var screen_size = get_viewport().size
+	
+	var screen_size = get_viewport().get_visible_rect().size
 	var camera_pos = camera.get_screen_center_position()
-	var topLeft = screen_size.y/4
 	var challenge_x = camera_pos.x + 180
-	var challenge_y = camera_pos.y - topLeft
+	var challenge_y = camera_pos.y - screen_size.y/4
 	
 	instance.position = Vector2(challenge_x, challenge_y)
-	main.add_child(instance)
+	
 	move_camera()
 
 func back_to_map():

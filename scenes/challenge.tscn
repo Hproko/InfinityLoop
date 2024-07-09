@@ -7,11 +7,10 @@
 clip_contents = true
 custom_minimum_size = Vector2(577, 330)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchor_right = 0.500868
+anchor_bottom = 0.49537
+offset_right = 577.0
+offset_bottom = 330.0
 pivot_offset = Vector2(2, -1)
 script = ExtResource("1_ygu4o")
 metadata/_edit_use_anchors_ = true

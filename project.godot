@@ -24,6 +24,11 @@ State="*res://scripts/state.gd"
 
 general/balloon_path="res://dialogue/balloon.tscn"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")

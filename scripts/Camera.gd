@@ -15,3 +15,4 @@ func reset_camera():
 	for i in range (1, 30):
 		position.x -= camera_speed
 		await get_tree().create_timer(0.01).timeout
+
