@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cjk8iulp0ax2q" path="res://scenes/MyOptBtn.tscn" id="2_heiei"]
 
 [node name="Challenge" type="Control"]
+z_index = 10
 clip_contents = true
 custom_minimum_size = Vector2(577, 330)
 layout_mode = 3

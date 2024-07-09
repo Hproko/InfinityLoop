@@ -14,7 +14,6 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(2, -1)
 script = ExtResource("1_p5n7y")
-metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 10

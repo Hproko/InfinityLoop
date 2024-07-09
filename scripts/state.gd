@@ -49,7 +49,6 @@ func load_challenge():
 	var instance = challenge.instantiate()
 	instance.scale.x *= .5
 	instance.scale.y *= .5
-	instance.set_name("challenge1")
 	
 	var screen_size = get_viewport().size
 	var camera_pos = camera.get_screen_center_position()
@@ -59,8 +58,6 @@ func load_challenge():
 	
 	instance.position = Vector2(challenge_x, challenge_y)
 	main.add_child(instance)
-	print(DisplayServer.window_get_size())
-	print(get_viewport().size)
 	move_camera()
 
 func back_to_map():

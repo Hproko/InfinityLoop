@@ -17,7 +17,23 @@ var opc2 : String = "&&"
 var opc3 : String = "  "
 var while1_opt_btn_empty := true
 var while2_opt_btn_empty := true
+var posx
+var posy
 
+func _process(_delta):
+
+	var screen_size = get_viewport().size
+	var camera_pos = camera.get_screen_center_position()
+	var topLeft = screen_size.y/4
+	var challenge_x = camera_pos.x
+	var challenge_y = camera_pos.y - topLeft
+	
+	if posx != challenge_x or posy != challenge_y:
+		position = Vector2(challenge_x, challenge_y)
+		posx = challenge_x
+		posy = challenge_y	
+	
+	
 func _ready():
 	add_items()
 	aviso.text = ""
