@@ -101,6 +101,7 @@ func _on_run_btn_pressed():
 	if max_j == 20:
 		mostra_aviso("Cuidado para não gerar um loop infinito! Olhe atentamente as condições do For interno.", Color.RED)
 		player.inc_ms_inf_loop()
+		await get_tree().create_timer(3).timeout
 		map.clear_garden()
 		enableBtns()
 		return
@@ -108,6 +109,7 @@ func _on_run_btn_pressed():
 	if max_j == 11 and (if_flor_branca == '<' or if_flor_amarela == '<' or if_flor_vermelha == '<'):
 		mostra_aviso("Cuidado para não acessar posições inválidas da matriz!", Color.RED)
 		player.inc_ms_pos_invalid()
+		await get_tree().create_timer(3).timeout
 		map.clear_garden()
 		enableBtns()
 		return
@@ -115,6 +117,7 @@ func _on_run_btn_pressed():
 	if max_i == 11 and (if_flor_branca == '>' or if_flor_amarela == '>' or if_flor_vermelha == '>'):
 		mostra_aviso("Cuidado para não acessar posições inválidas da matriz!", Color.RED)
 		player.inc_ms_pos_invalid()
+		await get_tree().create_timer(3).timeout
 		map.clear_garden()
 		enableBtns()
 		return
@@ -123,6 +126,7 @@ func _on_run_btn_pressed():
 		if (if_flor_branca == '==' or if_flor_amarela == '==' or if_flor_vermelha == '=='):
 			mostra_aviso("Cuidado para não acessar posições inválidas da matriz!", Color.RED)
 			player.inc_ms_pos_invalid()
+			await get_tree().create_timer(3).timeout
 			map.clear_garden()
 			enableBtns()
 			return
@@ -130,6 +134,7 @@ func _on_run_btn_pressed():
 	if if_flor_branca != "==":
 		mostra_aviso("A flor branca precisa ser plantada na diagonal principal, verifique os índices nessa diagonal!", Color.RED)
 		player.inc_ms_rel_oper()
+		await get_tree().create_timer(3).timeout
 		map.clear_garden()
 		enableBtns()
 		return
@@ -137,6 +142,7 @@ func _on_run_btn_pressed():
 	if if_flor_amarela != "<":
 		mostra_aviso("A flor amarela precisa ser plantada na parte superior, verifique a relação entre os índices!", Color.RED)
 		player.inc_ms_rel_oper()
+		await get_tree().create_timer(3).timeout
 		map.clear_garden()
 		enableBtns()
 		return
@@ -144,6 +150,7 @@ func _on_run_btn_pressed():
 	if if_flor_vermelha != ">":
 		mostra_aviso("A flor vermelha precisa ser plantada na parte inferior, verifique a relação entre os índices!", Color.RED)
 		player.inc_ms_rel_oper()
+		await get_tree().create_timer(3).timeout
 		map.clear_garden()
 		enableBtns()
 		return

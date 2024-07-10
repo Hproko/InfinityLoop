@@ -41,12 +41,12 @@ func get_challenge(challenge_number):
 	
 func load_challenge():
 	var camera = get_tree().get_root().get_node("Main/Player/Camera")
-	var main = get_tree().get_root().get_node("Main")
+	main = get_tree().get_root().get_node("Main")
 	
 	# Cada NPC vai ter gravado o numero da sua própria challenge
-	var challenge = get_challenge(current_npc.challenge)
+	var desafio = get_challenge(current_npc.challenge)
 	
-	var instance = challenge.instantiate()
+	var instance = desafio.instantiate()
 	main.add_child(instance)
 	
 	instance.scale.x *= .5

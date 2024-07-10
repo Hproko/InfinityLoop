@@ -26,7 +26,7 @@ func inc_ms_rel_logic():
 	miss_cncptn_rel_logic += 1
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 
 	
 	velocity = Vector2.ZERO

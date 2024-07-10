@@ -16,35 +16,31 @@ func enable():
 	custom_button.disabled = false
 	
 
-func get_minimum_button_size(button, strings):
+func get_minimum_button_size(strings):
 	var font = custom_button.get_theme_default_font()
 	var max_width = 0
 	var max_height = 0
 	
 	# Itera por cada string para encontrar a largura e altura máximas
 	for text in strings:
-		var size = font.get_string_size(text)
-		if size.x > max_width:
-			max_width = size.x
-		if size.y > max_height:
-			max_height = size.y
-	
-	## Adiciona um pequeno padding para o botão
-	#max_width += 8  # Ajuste o padding conforme necessário
-	#max_height += 5
+		var fnt_size = font.get_string_size(text)
+		if fnt_size.x > max_width:
+			max_width = fnt_size.x
+		if fnt_size.y > max_height:
+			max_height = fnt_size.y
 
 	return Vector2(max_width, max_height)
 	
 func add_item(text : String):
 	popup_menu.add_item(text)
 	custom_button.text = popup_menu.get_item_text(popup_menu.get_item_index(0))
-	custom_button.custom_minimum_size = get_minimum_button_size(custom_button, get_popup_menu_items(popup_menu))
+	custom_button.custom_minimum_size = get_minimum_button_size(get_popup_menu_items(popup_menu))
 
-func get_popup_menu_items(popup_menu: PopupMenu):
+func get_popup_menu_items(p_menu: PopupMenu):
 	var items = []
-	var item_count = popup_menu.get_item_count()
+	var item_count = p_menu.get_item_count()
 	for i in range(item_count):
-		items.append(popup_menu.get_item_text(i))
+		items.append(p_menu.get_item_text(i))
 	return items
 	
 func _ready():

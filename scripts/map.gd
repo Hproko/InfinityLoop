@@ -45,11 +45,11 @@ const TIMER = 2.0
 var modulated_cells:Dictionary
 
 
-func _use_tile_data_runtime_update(layer: int, coords: Vector2i) -> bool:
+func _use_tile_data_runtime_update(_layer: int, coords: Vector2i) -> bool:
 	return modulated_cells.has(coords)
 
 
-func _tile_data_runtime_update(layer: int, coords: Vector2i, tile_data: TileData) -> void:
+func _tile_data_runtime_update(_layer: int, coords: Vector2i, tile_data: TileData) -> void:
 	tile_data.modulate = modulated_cells.get(coords, Color.WHITE)
 	
 func build_bridge(ini_vetor : int, fim_vetor : int, acertou : bool):
@@ -136,8 +136,6 @@ func build_fence(fence_start : int, fence_end : int, incremento : int):
 	
 	const fence_start_coord1 = Vector2i(100, 29)
 	const fence_start_coord2 = Vector2i(100, 30)
-	const fence_end_coor1 = Vector2i(108, 29)
-	const fence_end_coor2 = Vector2i(108, 30)
 	
 	var layer = layer_terreno
 	
@@ -168,8 +166,6 @@ func build_fence_loop():
 	
 	const fence_start_coord1 = Vector2i(100, 29)
 	const fence_start_coord2 = Vector2i(100, 30)
-	const fence_end_coor1 = Vector2i(108, 29)
-	const fence_end_coor2 = Vector2i(108, 30)
 	
 	var layer = layer_sobreterreno2
 	set_layer_modulate(layer_sobreterreno2, Color.RED)
@@ -181,7 +177,7 @@ func build_fence_loop():
 		if i <= 5:
 			layer = layer_sobreterreno
 		else:
-			layer_sobreterreno2
+			layer = layer_sobreterreno2
 			
 		set_cell(layer, map_fence_pos1, 0, atlas_coord_fence1)
 		set_cell(layer, map_fence_pos2, 0, atlas_coord_fence2)
@@ -197,7 +193,7 @@ func build_fence_loop():
 		if i <= 5:
 			layer = layer_sobreterreno
 		else:
-			layer_sobreterreno2
+			layer = layer_sobreterreno2
 			
 		erase_cell(layer, pos1)
 		erase_cell(layer, pos2)
@@ -411,8 +407,6 @@ func build_forest_seq(tam_loop : int):
 	if tam_loop == 8:
 		const fence_start_coord1 = Vector2i(107, 24)
 		const fence_start_coord2 = Vector2i(108, 25)
-		const fence_end_coor1 = Vector2i(108, 29)
-		const fence_end_coor2 = Vector2i(108, 30)
 		
 		for i in range(0, 3):
 			var map_fence_pos1 = Vector2i(fence_start_coord1.x + i, fence_start_coord1.y)
