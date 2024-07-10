@@ -30,10 +30,10 @@ var if_opt_btn_empty := true
 
 func add_items():
 	for_option_button.add_item(" ")
-	for_option_button.add_item("i < tam_jardim")
-	for_option_button.add_item("i <= tam_jardim")
-	for_option_button.add_item("i < (tam_jardim - 1)")
-	for_option_button.add_item("i <= (tam_jardim - 1)")
+	for_option_button.add_item("i < tam_floresta")
+	for_option_button.add_item("i <= tam_floresta")
+	for_option_button.add_item("i < (tam_floresta - 1)")
+	for_option_button.add_item("i <= (tam_floresta - 1)")
 	
 	if_opt_btn.add_item(" ")
 	if_opt_btn.add_item(">=")

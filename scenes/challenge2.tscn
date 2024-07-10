@@ -38,8 +38,8 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "#include <stdio.h>
 int main(void)  {
-    int tam_jardim = 8;
-	for (int i = 1;                                      ; i++)
+    int tam_floresta = 8;
+	for (int i = 1;                                         ; i++)
 	{
     	if (i % 2         0) 
 			platarArvore(i);
