@@ -1,8 +1,8 @@
 ~ start
 
-Jardineiro: [[Oi|Olá]]... sou o jardinheiro dessa ilha, preciso plantar flores para que meu jardim fique bonito, consegue me ajudar?
+Jardineiro: [[Oi|Olá]]... Oi… Sou o jardineiro desta ilha e gostaria de plantar flores para deixar meu jardim mais bonito. Você pode me ajudar?
 - Sim.
-	Jardineiro: Preciso plantar as flores em forma de matriz, onde as flores da diagonal principal são brancas. As flores da parte superior são amarelas e da parte inferior vermelhas.
+	Jardineiro: Gostaria de  plantar as flores de uma forma organizada em uma área 10 x 10: as flores brancas devem ser plantadas na diagonal principal dessa matriz, as flores amarelas devem ocupar o canto superior direito do jardim  e  as flores vermelhas devem preencher toda a área restante.
 	do State.load_challenge()
 - Não.
 	do State.finaliza_interacao()
