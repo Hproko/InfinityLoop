@@ -88,7 +88,7 @@ func mostra_aviso(text, cor):
 	
 func _on_run_btn_pressed():
 	
-	aviso.hide()
+	aviso.text = ""
 	
 	if out_for_empty or in_for_empty or fst_if_empty or scd_if_empty or thrd_if_empty:
 		mostra_aviso("Não é possível executar o código sem escolher uma opção para os botões!", Color.RED)
