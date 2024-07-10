@@ -56,6 +56,8 @@ func enableBtns():
 func _on_run_btn_pressed():
 	
 	aviso.hide()
+	aviso.text = ""
+	da_loop_infinito = false
 	
 	if while_opt_btn_empty or inc_opt_btn_empty:
 		aviso.text = "Não é possível executar o código sem escolher uma opção para os botões!"
