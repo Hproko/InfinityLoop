@@ -85,7 +85,7 @@ func _on_run_btn_pressed():
 		queue_free()
 	
 	elif (opc1 == "&&" and opc2 == "||"):
-		aviso.text = "Serão plantadas sementes até que ambas cheguem a valores negativos, ocupando o terreno inteiro!"
+		aviso.text = "Uso incorreto do operador lógico.Você tem 5 sementes de milho e 7 sementes de trigo e está tentando plantar 8 de cada. Tente novamente!"
 		aviso.show()
 		player.inc_ms_rel_logic()
 		disableBtns()
@@ -94,7 +94,7 @@ func _on_run_btn_pressed():
 		return
 		
 	elif (opc1 == "||" and opc2 == "&&"):
-		aviso.text = "Dessa forma a semente de milho chega a um valor negativo!"
+		aviso.text = "Uso incorreto do operador lógico. Você tem 5 sementes de milho e está tentando plantar 7. Tente novamente!"
 		aviso.show()
 		player.inc_ms_rel_logic()
 		disableBtns()
@@ -103,7 +103,7 @@ func _on_run_btn_pressed():
 		return
 		
 	elif (opc1 == "||" and opc2 == "||"):
-		aviso.text = "Serão plantadas sementes até que ambas cheguem a valores negativos, ocupando o terreno inteiro!"
+		aviso.text = "Uso incorreto do operador lógico. Você tem 5 sementes de milho e 7 sementes de trigo e está tentando plantar 8 de cada. Tente novamente!"
 		aviso.show()
 		player.inc_ms_rel_logic()
 		disableBtns()
