@@ -71,25 +71,25 @@ func _on_run_btn_pressed():
 			player.inc_ms_rel_oper()
 			match condicao_if:
 				"<":
-					aviso.text = "Com estas condições nenhuma árvore é plantada!"
+					aviso.text = "Uso incorreto do operador relacional na condição do ‘if’. Nenhuma árvore foi plantada. Tente novamente!"
 					player.inc_ms_rel_oper()
 					return
 				"==", "<=":
-					aviso.text = "Com estas condições apenas 3 árvores são plantadas"
+					aviso.text = "Uso incorreto do operador relacional na condição do ‘if’. Você plantou apenas 3 árvores. Tente novamente!"
 					disableBtns()
 					await map.build_forest(3, false)
 					await map.remove_forest(3, false)
 					enableBtns()
 					return
 				"!=":
-					aviso.text = "Com estas condições as árvores são plantadas nos índices ímpares!"
+					aviso.text = "Uso incorreto do operador relacional na condição do ‘if’. Você plantou 4 árvores nas posições incorretas. Tente novamente!"
 					disableBtns()
 					await map.build_forest(4, true)
 					await map.remove_forest(4, true)
 					enableBtns()
 					return
 				">=":
-					aviso.text = "Com estas condições as árvores são plantadas em todos os índices"
+					aviso.text = "Uso incorreto do operador relacional na condição do ‘if’. Você plantou 7 árvores. Tente novamente!"
 					disableBtns()
 					await map.build_forest_seq(7)
 					enableBtns()
@@ -97,7 +97,7 @@ func _on_run_btn_pressed():
 		"<=":
 			match condicao_if:
 				"!=":
-					aviso.text = "Com estas condições as árvores são plantadas nos índices ímpares!"
+					aviso.text = "Uso incorreto do operador relacional na condição do ‘if’. Você plantou 4 árvores nas posições incorretas. Tente novamente!"
 					player.inc_ms_rel_oper()
 					disableBtns()
 					await map.build_forest(4, true)
@@ -119,67 +119,67 @@ func _on_run_btn_pressed():
 					State.current_npc.ponto_excl.hide()
 					queue_free()
 				">=":
-					aviso.text = "Com estas condições as árvores são plantadas em todos os índices"
+					aviso.text = "Uso incorreto do operador relacional na condição do ‘if’. Você plantou 8 árvores. Tente novamente!"
 					player.inc_ms_rel_oper()
 					disableBtns()
 					await map.build_forest_seq(8) #8
 					enableBtns()
 					return
 				"<":
-					aviso.text = "Com estas condições nenhuma árvore é plantada!"
+					aviso.text = "Uso incorreto do operador relacional na condição do ‘if’. Nenhuma árvore foi plantada. Tente novamente!"
 					player.inc_ms_rel_oper()
 					return
 		"<-1":
 			player.inc_ms_rel_oper()
 			match condicao_if:
 				"==", "<=":
-					aviso.text = "Com estas condições apenas 3 árvores são plantadas"
+					aviso.text = "Uso incorreto do operador relacional na condição do ‘if’. Você plantou apenas 3 árvores. Tente novamente!"
 					disableBtns()
 					await map.build_forest(3, false)
 					await map.remove_forest(3, false)
 					enableBtns()
 					return
 				"!=":
-					aviso.text = "Com estas condições as árvores são plantadas nos índices ímpares!"
+					aviso.text = "Uso incorreto do operador relacional na condição do ‘if’. Você plantou 4 árvores nas posições incorretas. Tente novamente!"
 					disableBtns()
 					await map.build_forest(3, true)
 					await map.remove_forest(3, true)
 					enableBtns()
 					return
 				">=":
-					aviso.text = "Com estas condições as árvores são plantadas em todos os índices"
+					aviso.text = "Uso incorreto do operador relacional na condição do ‘if’. Você plantou 6 árvores. Tente novamente!"
 					disableBtns()
 					await map.build_forest_seq(6)
 					enableBtns()
 					return
 				"<":
-					aviso.text = "Com estas condições nenhuma árvore é plantada!"
+					aviso.text = "Uso incorreto do operador relacional na condição do ‘if’. Nenhuma árvore foi plantada. Tente novamente!"
 					return
 		"<=-1":
 			player.inc_ms_rel_oper()
 			match condicao_if:
 				"==", "<=":
-					aviso.text = "Com estas condições apenas 3 árvores são plantadas"
+					aviso.text = "Uso incorreto do operador relacional na condição do ‘if’. Você plantou apenas 3 árvores. Tente novamente!"
 					disableBtns()
 					await map.build_forest(3, false)
 					await map.remove_forest(3, false)
 					enableBtns()
 					return
 				"!=":
-					aviso.text = "Com estas condições as árvores são plantadas nos índices ímpares!"
+					aviso.text = "Uso incorreto do operador relacional na condição do ‘if’. Você plantou 4 árvores nas posições incorretas. Tente novamente!"
 					disableBtns()
 					await map.build_forest(4, true)
 					await map.remove_forest(4, true)
 					enableBtns()
 					return
 				">=":
-					aviso.text = "Com estas condições as árvores são plantadas em todos os índices"
+					aviso.text = "Uso incorreto do operador relacional na condição do ‘if’. Você plantou 7 árvores. Tente novamente!"
 					disableBtns()
 					await map.build_forest_seq(7)
 					enableBtns()
 					return
 				"<":
-					aviso.text = "Com estas condições nenhuma árvore é plantada!"
+					aviso.text = "Uso incorreto do operador relacional na condição do ‘if’. Nenhuma árvore foi plantada. Tente novamente!"
 					return
 				
 
