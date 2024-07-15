@@ -171,7 +171,7 @@ custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
 text = "Bem vindo ao desafio 5!
-Neste desafio, você deve completar os campos de condição e iteração do laço ‘for’ nas linhas 4 e 6 (condição e iteração). O objetivo é preencher uma matriz ‘jardim’ de 7 linhas e 4 colunas com três tipos de flores: brancas, vermelhas e amarelas. As flores brancas devem ser plantadas na diagonal principal da matriz. As flores amarelas devem ocupar o canto superior direito da matriz, e as vermelhas devem preencher  todas as posições restantes na matriz.
+Neste desafio, você deve completar os campos de condição e iteração do laço ‘for’ nas linhas 4 e 6 (condição e iteração). O objetivo é preencher uma matriz ‘jardim’ de 10 linhas e 10 colunas com três tipos de flores: brancas, vermelhas e amarelas. As flores brancas devem ser plantadas na diagonal principal da matriz. As flores amarelas devem ocupar o canto superior direito da matriz, e as vermelhas devem preencher  todas as posições restantes na matriz.
 Boa sorte!"
 autowrap_mode = 3
 metadata/_edit_lock_ = true
