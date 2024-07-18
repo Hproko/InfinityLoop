@@ -37,7 +37,7 @@ layout_mode = 2
 [node name="Titulo" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "Relatório de Miss Conceptions cometidos"
+text = "Relatório de Misconceptions cometidos"
 horizontal_alignment = 1
 
 [node name="blank2" type="Label" parent="VBoxContainer"]
