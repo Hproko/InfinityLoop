@@ -79,15 +79,15 @@ func _on_run_btn_pressed():
 		aviso.show()
 		da_loop_infinito = true
 		
+	var ini_cerca = 2
+	var fim_cerca = 7
+	
 	if tem_pt_e_virgula == "=": 
 		aviso.text = "Erro de laço infinito! O operador ‘=’ está atribuindo um valor a variável ‘i’ na linha 4."
 		aviso.show()
 		da_loop_infinito = true
-		
-	var ini_cerca = 2
-	var fim_cerca = 7
-		
-		
+
+
 	if incremento == 1 and da_loop_infinito:
 		aviso.show()
 		fim_cerca = 15
@@ -106,7 +106,10 @@ func _on_run_btn_pressed():
 		aviso.text += " Tente novamente!"
 		disableBtns()
 		player.inc_ms_inf_loop()
-		await map.build_fence(ini_cerca, fim_cerca, incremento)
+		if tem_pt_e_virgula == '=':
+			await map.build_fence_loop()
+		else:
+			await map.build_fence(ini_cerca, fim_cerca, incremento)
 		enableBtns()
 		map.remove_fence()
 		da_loop_infinito = false # temos que sempre recarregar essa variavel
